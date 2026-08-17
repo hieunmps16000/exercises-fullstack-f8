@@ -1,0 +1,128 @@
+.bg-morphism {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(45deg, #111, #222);
+}
+
+.bg-morphism::before,
+.bg-morphism::after {
+    content: "";
+    position: fixed;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+.bg-morphism::before {
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    /* background: #13e7e7; */
+    background: linear-gradient(45deg, transparent, #4553fd);
+    transform: translate(-50%, 50%);
+}
+
+.bg-morphism::after {
+    top: 0;
+    right: 0;
+    height: 150vh;
+    /* background: #ff4733; */
+    background: linear-gradient(45deg, transparent, #fd08df);
+    transform: translate(50%, -50%);
+}
+
+.bg-morphism__title {
+    position: absolute;
+    z-index: 2;
+    padding: 16px 10px;
+    font-weight: 900;
+    user-select: none;
+}
+
+.bg-morphism__title--top {
+    top: 0;
+    left: 0;
+    font-size: 8vw;
+}
+
+.bg-morphism__title--bottom {
+    bottom: 0;
+    right: 0;
+    font-size: 5vw;
+}
+
+body:has(.bg-morphism) .main {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    padding: 30px;
+    height: 100%;
+    border-radius: 15px;
+    user-select: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: saturate(150%) blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: border 0.25s ease-in;
+}
+
+.card:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.card__icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.05);
+    font-size: 12rem;
+}
+
+.card h2 {
+    color: #fff;
+    margin-bottom: 24px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.card ul {
+    padding-left: 24px;
+    list-style-type: initial;
+}
+
+.card p,
+.card li {
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+
+.card__bottom {
+    margin-top: 20px;
+}
+
+.card__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 48px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 1.6rem;
+    font-weight: 800;
+    user-select: none;
+    background: #50a5ff;
+}
+
+.card__btn:hover {
+    opacity: 0.8;
+}

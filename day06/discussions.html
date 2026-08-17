@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hỏi và đáp</title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="../assets/favicon/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg" />
+        <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
+        <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Fontawesome -->
+        <script src="https://kit.fontawesome.com/0c9b48e69b.js" crossorigin="anonymous"></script>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../assets/css/reset.css" />
+        <link rel="stylesheet" href="./assets/css/grid.css" />
+        <link rel="stylesheet" href="./assets/css/base.css" />
+        <link rel="stylesheet" href="./assets/css/styles.css" />
+        <link rel="stylesheet" href="./assets/css/disscussions.css" />
+        <link rel="stylesheet" href="./assets/css/responsive.css" />
+    </head>
+    <body>
+        <!-- Begin Header -->
+        <header class="header">
+            <!-- Logo -->
+            <a href="./" class="logo">
+                <div class="logo__img-wrap">
+                    <img src="./assets/img/logo.jpg" alt="F8" class="logo__img" />
+                </div>
+                <h1 class="logo__slogan d-lg-none">Học lập trình để đi làm</h1>
+            </a>
+
+            <!-- Search -->
+            <div class="search">
+                <div class="search__category-wrap">
+                    <button class="search__category"><i class="fa-solid fa-table-cells-large"></i> Danh mục</button>
+                    <div class="cate-menu d-md-none">
+                        <div class="cate-menu__inner">
+                            <ul class="cate-menu__list">
+                                <li class="cate-menu__item cate-menu__item--active">
+                                    <a href="!" class="cate-menu__link">
+                                        Khóa học quay sẵn
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                    <div class="cate-sub-menu">
+                                        <div class="cate-sub-menu__head">
+                                            <h3 class="cate-sub-menu__heading">Khóa học quay sẵn</h3>
+                                            <a href="#!" class="cate-sub-menu__view-all"
+                                                >Xem tất cả <i class="fa-solid fa-chevron-right"></i
+                                            ></a>
+                                        </div>
+                                        <ul class="cate-sub-menu__list">
+                                            <li class="cate-sub-menu__item">
+                                                <a href="#!" class="cate-sub-menu__link">Quay sẵn/video ngắn</a>
+                                            </li>
+                                            <li class="cate-sub-menu__item">
+                                                <a href="#!" class="cate-sub-menu__link">Khóa học Pro</a>
+                                            </li>
+                                            <li class="cate-sub-menu__item">
+                                                <a href="#!" class="cate-sub-menu__link">Khóa học miễn phí</a>
+                                            </li>
+                                            <li class="cate-sub-menu__item">
+                                                <a href="#!" class="cate-sub-menu__link">Record buổi học Zoom</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="cate-menu__item">
+                                    <a href="#!" class="cate-menu__link">
+                                        Khóa học qua Zoom
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="search__bar d-md-none">
+                    <div class="search__icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <input type="text" class="search__input" placeholder="Tìm khóa học, bài tập, hỏi đáp..." />
+                </div>
+            </div>
+
+            <!-- Header actions -->
+            <div class="header__acts">
+                <button class="header__act d-none d-md-flex" title="Tìm kiếm" aria-label="Tìm kiếm">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button class="header__btn d-lg-none">Khóa học của tôi</button>
+                <button class="header__act" title="Thông báo" aria-label="Mở thông báo">
+                    <i class="fa-classic fa-solid fa-bell"></i>
+                </button>
+                <button class="header__act user-avatar d-md-none" aria-label="Mở menu tài khoản">
+                    <span class="user-avatar__thumb" style="--font-size: 3.2px; --border-scale: 1">
+                        <img
+                            src="./assets/img/avatar-4.jpg"
+                            alt="Nguyễn Minh Hiếu"
+                            width="42"
+                            height="42"
+                            class="user-avatar__img"
+                        />
+                    </span>
+                </button>
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <div class="main-content--has-sidebar">
+            <!-- Begin Navbar -->
+            <nav class="navbar">
+                <ul class="navbar__list">
+                    <li>
+                        <a href="./index.html" class="navbar__link">
+                            <i class="fa-solid fa-house"></i>
+                            <span class="navbar__text">Trang chủ</span></a
+                        >
+                    </li>
+                    <li>
+                        <a href="#!" class="navbar__link">
+                            <i class="fa-solid fa-road"></i>
+                            <span class="navbar__text">Lộ trình</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!" class="navbar__link">
+                            <i class="fa-solid fa-newspaper"></i>
+                            <span class="navbar__text">Bài viết</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!" class="navbar__link">
+                            <i class="fa-solid fa-bullhorn"></i>
+                            <span class="navbar__text">Bản tin</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!" class="navbar__link navbar__link--active">
+                            <i class="fa-solid fa-comments"></i>
+                            <span class="navbar__text">Hỏi đáp</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./assignment.html" class="navbar__link">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                            <span class="navbar__text">Bài tập</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- End Navbar -->
+
+            <!-- Begin Main -->
+            <main class="section-content-wrapper">
+                <div class="container-fluid">
+                    <div class="discuss-content-wrapper">
+                        <div class="discuss__head">
+                            <h2 class="section-heading discuss-section__heading">Hỏi và đáp</h2>
+                            <p class="section-desc">Kênh hỏi đáp riêng tư dành riêng cho học viên Pro.</p>
+                        </div>
+
+                        <div class="filter">
+                            <div class="filter-search">
+                                <i class="fa-solid fa-magnifying-glass filter-search__icon"></i>
+                                <input
+                                    type="text"
+                                    class="filter-search__input"
+                                    placeholder="Tìm theo tiêu đề câu hỏi..."
+                                />
+                            </div>
+                            <div class="filter-select">
+                                <i class="fa-solid fa-user-group filter-select__user-group"></i>
+                                <span class="filter-select__text">Tất cả câu hỏi</span>
+                                <i class="fa-solid fa-chevron-down filter-search__more-icon"></i>
+                            </div>
+                        </div>
+
+                        <div class="discuss-content">
+                            <div class="discuss-cate">
+                                <h2 class="discuss__heading">Danh mục</h2>
+                                <ul class="discuss-cate__list">
+                                    <li>
+                                        <a href="" class="discuss-cate__link discuss-cate__link--active">
+                                            <i class="fa-solid fa-infinity discuss-cate__icon"></i>
+                                            <span class="discuss-cate__text">Tất cả</span>
+                                            <span class="discuss-cate__qty"><i class="fa-solid fa-infinity"></i></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="discuss-cate__link">
+                                            <img src="./assets/icons/open-book.png" alt="" class="discuss-cate__img" />
+                                            <span class="discuss-cate__text">Bài học lý thuyết</span>
+                                            <span class="discuss-cate__qty">4.267</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="discuss-cate__link">
+                                            <img
+                                                src="./assets/icons/bai-hoc-thu-thach.png"
+                                                alt=""
+                                                class="discuss-cate__img"
+                                            />
+                                            <span class="discuss-cate__text">Bài học thử thách</span>
+                                            <span class="discuss-cate__qty">699</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="discuss-cate__link">
+                                            <img src="./assets/icons/others.png" alt="" class="discuss-cate__img" />
+                                            <span class="discuss-cate__text">Các loại bài tập khác</span>
+                                            <span class="discuss-cate__qty">218</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="discuss-cate__link">
+                                            <img src="./assets/icons/flashcards.png" alt="" class="discuss-cate__img" />
+                                            <span class="discuss-cate__text">Ứng dụng Flashcards</span>
+                                            <span class="discuss-cate__qty">46</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="discuss-cate__link">
+                                            <img
+                                                src="./assets/icons/other-topic.png"
+                                                alt=""
+                                                class="discuss-cate__img"
+                                            />
+                                            <span class="discuss-cate__text">Chủ đề ngoài khóa học</span>
+                                            <span class="discuss-cate__qty">46</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="discuss-cate__link">
+                                            <img src="./assets/icons/bug.png" alt="" class="discuss-cate__img" />
+                                            <span class="discuss-cate__text">Báo lỗi cho F8</span>
+                                            <span class="discuss-cate__qty">318</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="discuss-cate__link">
+                                            <img src="./assets/icons/target.png" alt="" class="discuss-cate__img" />
+                                            <span class="discuss-cate__text">Show dự án</span>
+                                            <span class="discuss-cate__qty">114</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="discuss-cate__link">
+                                            <img src="./assets/icons/open-book.png" alt="" class="discuss-cate__img" />
+                                            <span class="discuss-cate__text">Câu hỏi trong khóa học</span>
+                                            <span class="discuss-cate__qty">42</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="most-helpful">
+                                    <div class="most-helpful__head">
+                                        <h2 class="most-helpful__heading">Hữu ích nhất</h2>
+                                        <span class="most-helpful__text">30 ngày qua</span>
+                                    </div>
+                                    <div class="most-helpful__bottom">
+                                        <div class="most-helpful__row">
+                                            <a
+                                                href="https://f8.edu.vn/@dungvuquoc0102"
+                                                class="user-avatar"
+                                                target="_blank"
+                                                rel="noopener"
+                                            >
+                                                <span
+                                                    class="user-avatar__thumb"
+                                                    style="--font-size: 2px; --border-scale: 1"
+                                                >
+                                                    <img
+                                                        src="./assets/img/vu-quoc-dung.jpg"
+                                                        alt="Vũ Quốc Dũng"
+                                                        width="42"
+                                                        height="42"
+                                                        class="user-avatar__img"
+                                                    />
+                                                </span>
+                                                <div class="user-avatar__info most-helpful-user-avatar__info">
+                                                    <span class="user-avatar__name">Vũ Quốc Dũng</span>
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                </div>
+                                            </a>
+
+                                            <div class="most-helpful__meta">
+                                                <i class="fa-solid fa-circle-check"></i>
+                                                <span class="most-helpful__text">6</span>
+                                            </div>
+                                        </div>
+                                        <div class="most-helpful__row">
+                                            <a
+                                                href="https://f8.edu.vn/@ducdominh2"
+                                                class="user-avatar"
+                                                target="_blank"
+                                                rel="noopener"
+                                            >
+                                                <span
+                                                    class="user-avatar__thumb"
+                                                    style="--font-size: 2px; --border-scale: 1"
+                                                >
+                                                    <img
+                                                        src="./assets/img/minh-duc-do.jpg"
+                                                        alt="Minh Đức Đỗ"
+                                                        width="42"
+                                                        height="42"
+                                                        class="user-avatar__img"
+                                                    />
+                                                </span>
+                                                <div class="user-avatar__info most-helpful-user-avatar__info">
+                                                    <span class="user-avatar__name">Minh Đức Đỗ</span>
+                                                </div>
+                                            </a>
+
+                                            <div class="most-helpful__meta">
+                                                <i class="fa-solid fa-circle-check"></i>
+                                                <span class="most-helpful__text">1</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="discuss-question">
+                                <h2 class="discuss__heading">Câu hỏi</h2>
+                                <ul id="skeleton-question" class="discuss-question__list">
+                                    <li class="discuss-question__item">
+                                        <div class="skeleton discuss-question__thumb"></div>
+                                        <div class="discuss-question__content">
+                                            <div class="discuss-question__body">
+                                                <div class="skeleton discuss-question__title"></div>
+                                                <div class="skeleton discuss-question__info"></div>
+                                            </div>
+                                            <div class="discuss-question__bottom">
+                                                <div class="skeleton discuss-question__comment"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="discuss-question__item">
+                                        <div class="skeleton discuss-question__thumb"></div>
+                                        <div class="discuss-question__content">
+                                            <div class="discuss-question__body">
+                                                <div class="skeleton discuss-question__title"></div>
+                                                <div class="skeleton discuss-question__info"></div>
+                                            </div>
+                                            <div class="discuss-question__bottom">
+                                                <div class="skeleton discuss-question__comment"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="discuss-question__item">
+                                        <div class="skeleton discuss-question__thumb"></div>
+                                        <div class="discuss-question__content">
+                                            <div class="discuss-question__body">
+                                                <div class="skeleton discuss-question__title"></div>
+                                                <div class="skeleton discuss-question__info"></div>
+                                            </div>
+                                            <div class="discuss-question__bottom">
+                                                <div class="skeleton discuss-question__comment"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="discuss-question__item">
+                                        <div class="skeleton discuss-question__thumb"></div>
+                                        <div class="discuss-question__content">
+                                            <div class="discuss-question__body">
+                                                <div class="skeleton discuss-question__title"></div>
+                                                <div class="skeleton discuss-question__info"></div>
+                                            </div>
+                                            <div class="discuss-question__bottom">
+                                                <div class="skeleton discuss-question__comment"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="discuss-question__item">
+                                        <div class="skeleton discuss-question__thumb"></div>
+                                        <div class="discuss-question__content">
+                                            <div class="discuss-question__body">
+                                                <div class="skeleton discuss-question__title"></div>
+                                                <div class="skeleton discuss-question__info"></div>
+                                            </div>
+                                            <div class="discuss-question__bottom">
+                                                <div class="skeleton discuss-question__comment"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="discuss-question__item">
+                                        <div class="skeleton discuss-question__thumb"></div>
+                                        <div class="discuss-question__content">
+                                            <div class="discuss-question__body">
+                                                <div class="skeleton discuss-question__title"></div>
+                                                <div class="skeleton discuss-question__info"></div>
+                                            </div>
+                                            <div class="discuss-question__bottom">
+                                                <div class="skeleton discuss-question__comment"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul id="show-question" class="discuss-question__list" hidden>
+                                    <li class="discuss-question__item">
+                                        <div class="discuss-question__thumb">
+                                            <img src="./assets/icons/bai-hoc-thu-thach.png" alt="" />
+                                        </div>
+                                        <div class="discuss-question__content">
+                                            <div class="discuss-question__body">
+                                                <h3 class="discuss-question__title">
+                                                    <a href="#!">Hỏi đáp</a>
+                                                </h3>
+                                                <div class="discuss-question__info">
+                                                    <a href="#!" class="discuss-question__author">Nguyễn Đức Nam</a>
+                                                    <span class="discuss-question__text">đăng 2 giờ trước</span>
+                                                    <span class="separate-dot"></span>
+                                                    <span class="discuss-question__text">trong</span>
+                                                    <span class="separate-dot"></span>
+                                                    <a href="#!" class="discuss-question__link">Bài học thử thách</a>
+                                                </div>
+                                            </div>
+                                            <div class="discuss-question__bottom">
+                                                <a href="#!" class="discuss-question__tag discuss-question__topic"
+                                                    >HTML CSS Pro</a
+                                                >
+                                                <span class="discuss-question__tag discuss-question__status"
+                                                    >Chờ trả lời</span
+                                                >
+                                                <a
+                                                    href="https://f8.edu.vn/@ducnamnguyen5"
+                                                    class="user-avatar"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
+                                                    >
+                                                        <img
+                                                            src="./assets/img/avatar-default.jpg"
+                                                            alt="Nguyễn Đức Nam"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
+                                                        />
+                                                    </span>
+                                                </a>
+                                                <a href="#!" class="discuss-question__comment">
+                                                    <i class="fa-regular fa-message"></i>
+                                                    <span class="discuss-question__comment-qty">0</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="discuss-question__item">
+                                        <div class="discuss-question__thumb">
+                                            <img src="./assets/icons/bai-hoc-thu-thach.png" alt="" />
+                                        </div>
+                                        <div class="discuss-question__content">
+                                            <div class="discuss-question__body">
+                                                <h3 class="discuss-question__title">
+                                                    <a href="#!">Hỏi đáp</a>
+                                                </h3>
+                                                <div class="discuss-question__info">
+                                                    <a href="#!" class="discuss-question__author">Nguyễn Đức Nam</a>
+                                                    <span class="discuss-question__text">đăng 2 giờ trước</span>
+                                                    <span class="separate-dot"></span>
+                                                    <span class="discuss-question__text">trong</span>
+                                                    <span class="separate-dot"></span>
+                                                    <a href="#!" class="discuss-question__link">Bài học thử thách</a>
+                                                </div>
+                                            </div>
+                                            <div class="discuss-question__bottom">
+                                                <a href="#!" class="discuss-question__tag discuss-question__topic"
+                                                    >HTML CSS Pro</a
+                                                >
+                                                <span class="discuss-question__tag discuss-question__status"
+                                                    >Chờ trả lời</span
+                                                >
+                                                <a
+                                                    href="https://f8.edu.vn/@ducnamnguyen5"
+                                                    class="user-avatar"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
+                                                    >
+                                                        <img
+                                                            src="./assets/img/avatar-default.jpg"
+                                                            alt="Nguyễn Đức Nam"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
+                                                        />
+                                                    </span>
+                                                </a>
+                                                <a href="#!" class="discuss-question__comment">
+                                                    <i class="fa-regular fa-message"></i>
+                                                    <span class="discuss-question__comment-qty">0</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="discuss-question__item">
+                                        <div class="discuss-question__thumb">
+                                            <img src="./assets/icons/bai-hoc-thu-thach.png" alt="" />
+                                        </div>
+                                        <div class="discuss-question__content">
+                                            <div class="discuss-question__body">
+                                                <h3 class="discuss-question__title">
+                                                    <a href="#!">Hỏi đáp</a>
+                                                </h3>
+                                                <div class="discuss-question__info">
+                                                    <a href="#!" class="discuss-question__author">Nguyễn Đức Nam</a>
+                                                    <span class="discuss-question__text">đăng 2 giờ trước</span>
+                                                    <span class="separate-dot"></span>
+                                                    <span class="discuss-question__text">trong</span>
+                                                    <span class="separate-dot"></span>
+                                                    <a href="#!" class="discuss-question__link">Bài học thử thách</a>
+                                                </div>
+                                            </div>
+                                            <div class="discuss-question__bottom">
+                                                <a href="#!" class="discuss-question__tag discuss-question__topic"
+                                                    >HTML CSS Pro</a
+                                                >
+                                                <span class="discuss-question__tag discuss-question__status"
+                                                    >Chờ trả lời</span
+                                                >
+                                                <a
+                                                    href="https://f8.edu.vn/@ducnamnguyen5"
+                                                    class="user-avatar"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
+                                                    >
+                                                        <img
+                                                            src="./assets/img/avatar-default.jpg"
+                                                            alt="Nguyễn Đức Nam"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
+                                                        />
+                                                    </span>
+                                                </a>
+                                                <a href="#!" class="discuss-question__comment">
+                                                    <i class="fa-regular fa-message"></i>
+                                                    <span class="discuss-question__comment-qty">0</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="discuss-question__item">
+                                        <div class="discuss-question__thumb">
+                                            <img src="./assets/icons/bai-hoc-thu-thach.png" alt="" />
+                                        </div>
+                                        <div class="discuss-question__content">
+                                            <div class="discuss-question__body">
+                                                <h3 class="discuss-question__title">
+                                                    <a href="#!">Hỏi đáp</a>
+                                                </h3>
+                                                <div class="discuss-question__info">
+                                                    <a href="#!" class="discuss-question__author">Nguyễn Đức Nam</a>
+                                                    <span class="discuss-question__text">đăng 2 giờ trước</span>
+                                                    <span class="separate-dot"></span>
+                                                    <span class="discuss-question__text">trong</span>
+                                                    <span class="separate-dot"></span>
+                                                    <a href="#!" class="discuss-question__link">Bài học thử thách</a>
+                                                </div>
+                                            </div>
+                                            <div class="discuss-question__bottom">
+                                                <a href="#!" class="discuss-question__tag discuss-question__topic"
+                                                    >HTML CSS Pro</a
+                                                >
+                                                <span class="discuss-question__tag discuss-question__status"
+                                                    >Chờ trả lời</span
+                                                >
+                                                <a
+                                                    href="https://f8.edu.vn/@ducnamnguyen5"
+                                                    class="user-avatar"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
+                                                    >
+                                                        <img
+                                                            src="./assets/img/avatar-default.jpg"
+                                                            alt="Nguyễn Đức Nam"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
+                                                        />
+                                                    </span>
+                                                </a>
+                                                <a href="#!" class="discuss-question__comment">
+                                                    <i class="fa-regular fa-message"></i>
+                                                    <span class="discuss-question__comment-qty">0</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="discuss-question__item">
+                                        <div class="discuss-question__thumb">
+                                            <img src="./assets/icons/bai-hoc-thu-thach.png" alt="" />
+                                        </div>
+                                        <div class="discuss-question__content">
+                                            <div class="discuss-question__body">
+                                                <h3 class="discuss-question__title">
+                                                    <a href="#!">Hỏi đáp</a>
+                                                </h3>
+                                                <div class="discuss-question__info">
+                                                    <a href="#!" class="discuss-question__author">Nguyễn Đức Nam</a>
+                                                    <span class="discuss-question__text">đăng 2 giờ trước</span>
+                                                    <span class="separate-dot"></span>
+                                                    <span class="discuss-question__text">trong</span>
+                                                    <span class="separate-dot"></span>
+                                                    <a href="#!" class="discuss-question__link">Bài học thử thách</a>
+                                                </div>
+                                            </div>
+                                            <div class="discuss-question__bottom">
+                                                <a href="#!" class="discuss-question__tag discuss-question__topic"
+                                                    >HTML CSS Pro</a
+                                                >
+                                                <span class="discuss-question__tag discuss-question__status"
+                                                    >Chờ trả lời</span
+                                                >
+                                                <a
+                                                    href="https://f8.edu.vn/@ducnamnguyen5"
+                                                    class="user-avatar"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
+                                                    >
+                                                        <img
+                                                            src="./assets/img/avatar-default.jpg"
+                                                            alt="Nguyễn Đức Nam"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
+                                                        />
+                                                    </span>
+                                                </a>
+                                                <a href="#!" class="discuss-question__comment">
+                                                    <i class="fa-regular fa-message"></i>
+                                                    <span class="discuss-question__comment-qty">0</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="discuss-question__item">
+                                        <div class="discuss-question__thumb">
+                                            <img src="./assets/icons/bai-hoc-thu-thach.png" alt="" />
+                                        </div>
+                                        <div class="discuss-question__content">
+                                            <div class="discuss-question__body">
+                                                <h3 class="discuss-question__title">
+                                                    <a href="#!">Hỏi đáp</a>
+                                                </h3>
+                                                <div class="discuss-question__info">
+                                                    <a href="#!" class="discuss-question__author">Nguyễn Đức Nam</a>
+                                                    <span class="discuss-question__text">đăng 2 giờ trước</span>
+                                                    <span class="separate-dot"></span>
+                                                    <span class="discuss-question__text">trong</span>
+                                                    <span class="separate-dot"></span>
+                                                    <a href="#!" class="discuss-question__link">Bài học thử thách</a>
+                                                </div>
+                                            </div>
+                                            <div class="discuss-question__bottom">
+                                                <a href="#!" class="discuss-question__tag discuss-question__topic"
+                                                    >HTML CSS Pro</a
+                                                >
+                                                <span class="discuss-question__tag discuss-question__status"
+                                                    >Chờ trả lời</span
+                                                >
+                                                <a
+                                                    href="https://f8.edu.vn/@ducnamnguyen5"
+                                                    class="user-avatar"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
+                                                    >
+                                                        <img
+                                                            src="./assets/img/avatar-default.jpg"
+                                                            alt="Nguyễn Đức Nam"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
+                                                        />
+                                                    </span>
+                                                </a>
+                                                <a href="#!" class="discuss-question__comment">
+                                                    <i class="fa-regular fa-message"></i>
+                                                    <span class="discuss-question__comment-qty">0</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- End Main -->
+        </div>
+
+        <!-- Begin Footer -->
+        <footer class="footer">
+            <div class="footer__inner">
+                <div class="footer__top">
+                    <div class="container-fluid">
+                        <div class="row row-cols-lg-1 gy-lg-6">
+                            <div class="col col-3">
+                                <a href="./" class="logo footer-logo">
+                                    <div class="logo__img-wrap footer-logo__img-wrap">
+                                        <img src="./assets/img/logo.jpg" alt="F8" class="logo__img footer-logo__img" />
+                                    </div>
+                                    <h2 class="logo__slogan footer-logo__slogan">Học lập trình để đi làm</h2>
+                                </a>
+                                <address class="footer__address footer__contact">
+                                    <ul class="footer__list">
+                                        <li><b>Điện thoại: </b><a href="tel:0819198989">08 1919 8989</a></li>
+                                        <li><b>Email: </b><a href="mailto:contact@f8.edu.vn">contact@f8.edu.vn</a></li>
+                                        <li><b>Địa chỉ liên hệ: </b>Số 1, ngõ 41, Trần Duy Hưng, Cầu Giấy, Hà Nội</li>
+                                    </ul>
+                                </address>
+                                <div class="footer__certification">
+                                    <a href="#!"><img src="./assets/img/dmca-protected.png" alt="" /></a>
+                                    <a href="#!"><img src="./assets/img/bo-cong-thuong.png" alt="" /></a>
+                                </div>
+                            </div>
+                            <div class="col col-2">
+                                <h2 class="footer__heading">Về F8</h2>
+                                <ul class="footer__list">
+                                    <li>
+                                        <a href="#!" class="footer__link">Giới thiệu</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="footer__link">Liên hệ</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="footer__link">Điều khoản & Quy định</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="footer__link">Chính sách bảo mật</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col col-2">
+                                <h2 class="footer__heading">Hỗ trợ</h2>
+                                <ul class="footer__list">
+                                    <li>
+                                        <a href="#!" class="footer__link">Chính sách thanh toán</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="footer__link">Chính sách vận chuyển</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="footer__link">Chính sách kiểm hàng</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="footer__link">Quy định về giá</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col col-2">
+                                <h2 class="footer__heading">Công cụ</h2>
+                                <ul class="footer__list">
+                                    <li>
+                                        <a href="#!" class="footer__link">Tạo CV xin việc</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="footer__link">Rút gọn liên kết</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="footer__link">Clip-path maker</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="footer__link">Snippet generator</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="footer__link">CSS Grid generator</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" class="footer__link">Cảnh báo sờ tay lên mặt</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col col-3">
+                                <h2 class="footer__heading">CÔNG TY CỔ PHẦN CÔNG NGHỆ GIÁO DỤC F8</h2>
+                                <address class="footer__address">
+                                    <ul class="footer__list">
+                                        <li>
+                                            <b>Địa chỉ:</b> Tầng 4, Tòa nhà Anh Minh, số 36 Hoàng Cầu, Thành phố Hà Nội
+                                        </li>
+                                        <li>
+                                            <b>Mã số doanh nghiệp:</b> 0109922901 do Chi cục Thuế Quận Đống Đa, Cục Thuế
+                                            TP. Hà Nội cấp ngày 04/03/2022
+                                        </li>
+                                    </ul>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-12">
+                                <div class="footer__bottom">
+                                    <p class="footer__copyright">
+                                        © 2018 - 2026 F8. Nền tảng học lập trình hàng đầu Việt Nam.
+                                    </p>
+                                    <ul class="socials">
+                                        <li>
+                                            <a href="#!" class="social__link social__link--youtube">
+                                                <i class="fa-brands fa-square-youtube"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="social__link social__link--facebook">
+                                                <i class="fa-brands fa-square-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="social__link social__link--tiktok">
+                                                <i class="fa-brands fa-tiktok"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+
+        <!-- Begin Toggle Theme -->
+        <button id="switch-theme-btn" class="toggle-theme-btn" aria-label="Chuyển đổi giao diện sáng tối"></button>
+        <!-- End Toggle Theme -->
+
+        <script>
+            // Handle Toggle Theme
+            const switchBtn = document.querySelector("#switch-theme-btn");
+
+            if (switchBtn) {
+                switchBtn.onclick = function () {
+                    const isDark = localStorage.dark === "true";
+                    document.querySelector("html").classList.toggle("dark", !isDark);
+                    localStorage.setItem("dark", !isDark);
+                    switchBtn.innerHTML = isDark
+                        ? `<i class="fa-solid fa-moon"></i>`
+                        : `<i class="fa-solid fa-sun"></i>`;
+                };
+                const isDark = localStorage.dark === "true";
+                switchBtn.innerHTML = isDark ? `<i class="fa-solid fa-sun"></i>` : `<i class="fa-solid fa-moon"></i>`;
+            }
+
+            const isDark = localStorage.dark === "true";
+            document.querySelector("html").classList.toggle("dark", isDark);
+
+            const skeletonQuestion = document.querySelector("#skeleton-question");
+            const showQuestion = document.querySelector("#show-question");
+            setTimeout(() => {
+                skeletonQuestion.hidden = true;
+                showQuestion.hidden = false;
+            }, 2000);
+        </script>
+    </body>
+</html>

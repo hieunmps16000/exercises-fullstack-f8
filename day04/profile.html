@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Nguyễn Minh Hiếu - hieunmps16000 | F8</title>
+        <link rel="stylesheet" href="./assets/css/reset.css" />
+        <link rel="stylesheet" href="./assets/css/grid.css" />
+        <link rel="stylesheet" href="./assets/css/styles.css" />
+        <link rel="stylesheet" href="./assets/css/profile.css" />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
+        <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
+        <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Fontawesome -->
+        <script src="https://kit.fontawesome.com/0c9b48e69b.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- Begin Header -->
+        <header class="header">
+            <div class="container-fluid">
+                <div class="header__inner">
+                    <!-- Logo -->
+                    <a href="./" class="logo">
+                        <img src="./assets/img/logo.jpg" alt="F8" class="logo__img" />
+                        <span class="logo__slogan">Học lập trình để đi làm</span>
+                    </a>
+
+                    <!-- Search -->
+                    <div class="search">
+                        <button class="search__icon" aria-label="Tìm kiếm">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <input type="text" class="search__input" placeholder="Tìm khóa học, bài tập, hỏi đáp..." />
+                    </div>
+
+                    <!-- Header actions -->
+                    <div class="header__acts">
+                        <button class="header__btn">Khóa học của tôi</button>
+                        <button class="header__act" title="Thông báo" aria-label="Mở thông báo">
+                            <i class="fa-classic fa-solid fa-bell"></i>
+                        </button>
+                        <button class="header__act user-avatar" aria-label="Mở menu tài khoản">
+                            <span class="user-avatar__thumb">
+                                <img
+                                    src="./assets/img/avatar-4.jpg"
+                                    alt="Nguyễn Minh Hiếu"
+                                    width="42"
+                                    height="42"
+                                    class="user-avatar__img"
+                                />
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <main class="main profile">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col col-3">
+                        <aside class="profile-content">
+                            <div class="user-avatar" rel="noopener">
+                                <div class="user-avatar__thumb">
+                                    <img
+                                        src="./assets/img/profile-img.jpg"
+                                        alt="Nguyễn Minh Hiếu"
+                                        width="300"
+                                        height="300"
+                                        class="user-avatar__img"
+                                    />
+                                </div>
+                                <div class="user-avatar__info">
+                                    <h1 class="user-avatar__name">Nguyễn Minh Hiếu</h1>
+                                    <p class="user-avatar__username">@hieunmps16000</p>
+                                    <p class="profile__bio">Lỡ cả đời không rực rỡ thì sao?</p>
+                                    <ul class="profile-stats">
+                                        <li class="profile-stats__item">
+                                            <i class="fa-solid fa-user-group profile-stats__icon"></i>
+                                            <span class="profile-stats__info">
+                                                <b>0</b> người theo dõi <span class="separate-dot"></span> <b>1</b> đang
+                                                theo dõi
+                                            </span>
+                                        </li>
+                                        <li class="profile-stats__item">
+                                            <i class="fa-solid fa-fire profile-stats__icon"></i>
+                                            <span class="profile-stats__info">
+                                                <b>2</b> ngày học liên tiếp <span class="separate-dot"></span> Dài nhất:
+                                                <b>12</b> ngày
+                                            </span>
+                                        </li>
+                                        <li class="profile-stats__item">
+                                            <i class="fa-solid fa-certificate profile-stats__icon"></i>
+                                            <span class="profile-stats__info">
+                                                <span><b>5</b>chứng chỉ</span>
+                                            </span>
+                                        </li>
+                                        <li class="profile-stats__item">
+                                            <i class="fa-solid fa-user-clock profile-stats__icon"></i>
+                                            <span class="profile-stats__info"
+                                                >Tham gia
+                                                <a href="https://f8.edu.vn/" target="_blank" rel="noopener"
+                                                    ><b style="margin-left: 4px">F8</b></a
+                                                >từ 6 năm trước
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col col-9">
+                        <div class="profile__inner">
+                            <!-- Tab -->
+                            <ul class="tabs">
+                                <li class="tab tab--active">
+                                    <i class="fa-solid fa-book"></i> Khóa học đã đăng ký (12)
+                                </li>
+                                <li class="tab"><i class="fa-solid fa-newspaper"></i> Bài viết đã đăng (0)</li>
+                            </ul>
+                            <div class="panels">
+                                <div class="panel">
+                                    <div class="row">
+                                        <!-- Course item 1 -->
+                                        <div class="col col-4">
+                                            <article class="course-card">
+                                                <a href="#!" class="course-card__thumb">
+                                                    <img
+                                                        src="./assets/img/course-1.jpg"
+                                                        alt="Fullstack Web"
+                                                        class="course-card__img"
+                                                    />
+                                                </a>
+                                                <div class="course-card__content">
+                                                    <h2 class="course-card__title"><a href="#!">Fullstack Web</a></h2>
+                                                    <div class="course-card__price-wrapper">
+                                                        <span class="course-card__price course-card__price--new"
+                                                            >Liên hệ</span
+                                                        >
+                                                    </div>
+                                                    <div class="course-card__rate">
+                                                        <div class="course-card__stars">
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="course-card__rate-text">Chưa đánh giá</span>
+                                                    </div>
+                                                    <div class="course-card__bottom">
+                                                        <a
+                                                            href="https://f8.edu.vn/@sondangf8"
+                                                            class="user-avatar"
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                        >
+                                                            <div class="user-avatar__thumb">
+                                                                <img
+                                                                    src="./assets/img/avatar-2.jpg"
+                                                                    alt="Sơn Đặng"
+                                                                    width="42"
+                                                                    height="42"
+                                                                    class="user-avatar__img"
+                                                                />
+                                                            </div>
+                                                            <div class="user-avatar__info">
+                                                                <span class="user-avatar__name">Sơn Đặng</span>
+                                                            </div>
+                                                        </a>
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-clock"></i>398h15p</span
+                                                        >
+                                                        <div class="course-card__badge">
+                                                            <img
+                                                                src="./assets/img/crown.svg"
+                                                                alt=""
+                                                                class="course-card__badge-img"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Course item 2 -->
+                                        <div class="col col-4">
+                                            <article class="course-card">
+                                                <a href="#!" class="course-card__thumb">
+                                                    <img
+                                                        src="./assets/img/course-2.jpg"
+                                                        alt="JavaScript Pro"
+                                                        class="course-card__img"
+                                                    />
+                                                </a>
+                                                <div class="course-card__content">
+                                                    <h2 class="course-card__title"><a href="#!">JavaScript Pro</a></h2>
+                                                    <div class="course-card__price-wrapper">
+                                                        <span class="course-card__price course-card__price--old"
+                                                            >3.299.000đ</span
+                                                        >
+                                                        <span class="course-card__price course-card__price--new"
+                                                            >1.399.000đ</span
+                                                        >
+                                                    </div>
+                                                    <div class="course-card__rate">
+                                                        <div class="course-card__stars">
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="course-card__rate-text">Chưa đánh giá</span>
+                                                    </div>
+                                                    <div class="course-card__bottom">
+                                                        <a
+                                                            href="https://f8.edu.vn/@sondangf8"
+                                                            class="user-avatar"
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                        >
+                                                            <div class="user-avatar__thumb">
+                                                                <img
+                                                                    src="./assets/img/avatar-2.jpg"
+                                                                    alt="Sơn Đặng"
+                                                                    width="42"
+                                                                    height="42"
+                                                                    class="user-avatar__img"
+                                                                />
+                                                            </div>
+                                                            <div class="user-avatar__info">
+                                                                <span class="user-avatar__name">Sơn Đặng</span>
+                                                            </div>
+                                                        </a>
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-clock"></i>56h52p</span
+                                                        >
+                                                        <div class="course-card__badge">
+                                                            <img
+                                                                src="./assets/img/crown.svg"
+                                                                alt=""
+                                                                class="course-card__badge-img"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Course item 3 -->
+                                        <div class="col col-4">
+                                            <article class="course-card">
+                                                <a href="#!" class="course-card__thumb">
+                                                    <img
+                                                        src="./assets/img/course-3.jpg"
+                                                        alt="HTML CSS Pro"
+                                                        class="course-card__img"
+                                                    />
+                                                </a>
+                                                <div class="course-card__content">
+                                                    <h2 class="course-card__title"><a href="#!">HTML CSS Pro</a></h2>
+                                                    <div class="course-card__price-wrapper">
+                                                        <span class="course-card__price course-card__price--old"
+                                                            >2.500.000đ</span
+                                                        >
+                                                        <span class="course-card__price course-card__price--new"
+                                                            >1.299.000đ</span
+                                                        >
+                                                    </div>
+                                                    <div class="course-card__rate">
+                                                        <div class="course-card__stars">
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="course-card__rate-text">Chưa đánh giá</span>
+                                                    </div>
+                                                    <div class="course-card__bottom">
+                                                        <a
+                                                            href="https://f8.edu.vn/@sondangf8"
+                                                            class="user-avatar"
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                        >
+                                                            <div class="user-avatar__thumb">
+                                                                <img
+                                                                    src="./assets/img/avatar-2.jpg"
+                                                                    alt="Sơn Đặng"
+                                                                    width="42"
+                                                                    height="42"
+                                                                    class="user-avatar__img"
+                                                                />
+                                                            </div>
+                                                            <div class="user-avatar__info">
+                                                                <span class="user-avatar__name">Sơn Đặng</span>
+                                                            </div>
+                                                        </a>
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-clock"></i>116h50p</span
+                                                        >
+                                                        <div class="course-card__badge">
+                                                            <img
+                                                                src="./assets/img/crown.svg"
+                                                                alt=""
+                                                                class="course-card__badge-img"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Course item 4 -->
+                                        <div class="col col-4">
+                                            <article class="course-card">
+                                                <a href="#!" class="course-card__thumb">
+                                                    <img
+                                                        src="./assets/img/course-4.jpg"
+                                                        alt="Tailwind CSS"
+                                                        class="course-card__img"
+                                                    />
+                                                </a>
+                                                <div class="course-card__content">
+                                                    <h2 class="course-card__title"><a href="#!">Tailwind CSS</a></h2>
+                                                    <div class="course-card__price-wrapper">
+                                                        <span class="course-card__price course-card__price--new"
+                                                            >Miễn phí</span
+                                                        >
+                                                    </div>
+                                                    <div class="course-card__rate">
+                                                        <div class="course-card__stars">
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="course-card__rate-text">Chưa đánh giá</span>
+                                                    </div>
+                                                    <div class="course-card__bottom">
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-users"></i>426</span
+                                                        >
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-clock"></i>5h19p</span
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Course item 5 -->
+                                        <div class="col col-4">
+                                            <article class="course-card">
+                                                <a href="#!" class="course-card__thumb">
+                                                    <img
+                                                        src="./assets/img/course-5.jpg"
+                                                        alt="Node & ExpressJS"
+                                                        class="course-card__img"
+                                                    />
+                                                </a>
+                                                <div class="course-card__content">
+                                                    <h2 class="course-card__title">
+                                                        <a href="#!">Node & ExpressJS</a>
+                                                    </h2>
+                                                    <div class="course-card__price-wrapper">
+                                                        <span class="course-card__price course-card__price--new"
+                                                            >Miễn phí</span
+                                                        >
+                                                    </div>
+                                                    <div class="course-card__rate">
+                                                        <div class="course-card__stars">
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="course-card__rate-text">Chưa đánh giá</span>
+                                                    </div>
+                                                    <div class="course-card__bottom">
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-users"></i>50.759</span
+                                                        >
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-clock"></i>12h8p</span
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Course item 6 -->
+                                        <div class="col col-4">
+                                            <article class="course-card">
+                                                <a href="#!" class="course-card__thumb">
+                                                    <img
+                                                        src="./assets/img/course-6.jpg"
+                                                        alt="Lập Trình JavaScript Nâng Cao"
+                                                        class="course-card__img"
+                                                    />
+                                                </a>
+                                                <div class="course-card__content">
+                                                    <h2 class="course-card__title">
+                                                        <a href="#!">Lập Trình JavaScript Nâng Cao</a>
+                                                    </h2>
+                                                    <div class="course-card__price-wrapper">
+                                                        <span class="course-card__price course-card__price--new"
+                                                            >Miễn phí</span
+                                                        >
+                                                    </div>
+                                                    <div class="course-card__rate">
+                                                        <div class="course-card__stars">
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="course-card__rate-text">Chưa đánh giá</span>
+                                                    </div>
+                                                    <div class="course-card__bottom">
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-users"></i>42.735</span
+                                                        >
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-clock"></i>8h41p</span
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Course item 7 -->
+                                        <div class="col col-4">
+                                            <article class="course-card">
+                                                <a href="#!" class="course-card__thumb">
+                                                    <img
+                                                        src="./assets/img/course-7.jpg"
+                                                        alt="Làm việc với Terminal & Ubuntu"
+                                                        class="course-card__img"
+                                                    />
+                                                </a>
+                                                <div class="course-card__content">
+                                                    <h2 class="course-card__title">
+                                                        <a href="#!">Làm việc với Terminal & Ubuntu</a>
+                                                    </h2>
+                                                    <div class="course-card__price-wrapper">
+                                                        <span class="course-card__price course-card__price--new"
+                                                            >Miễn phí</span
+                                                        >
+                                                    </div>
+                                                    <div class="course-card__rate">
+                                                        <div class="course-card__stars">
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="course-card__rate-text">Chưa đánh giá</span>
+                                                    </div>
+                                                    <div class="course-card__bottom">
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-users"></i>22.205</span
+                                                        >
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-clock"></i>4h59p</span
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Course item 8 -->
+                                        <div class="col col-4">
+                                            <article class="course-card">
+                                                <a href="#!" class="course-card__thumb">
+                                                    <img
+                                                        src="./assets/img/course-8.jpg"
+                                                        alt="Xây Dựng Website với ReactJS"
+                                                        class="course-card__img"
+                                                    />
+                                                </a>
+                                                <div class="course-card__content">
+                                                    <h2 class="course-card__title">
+                                                        <a href="#!">Xây Dựng Website với ReactJS</a>
+                                                    </h2>
+                                                    <div class="course-card__price-wrapper">
+                                                        <span class="course-card__price course-card__price--new"
+                                                            >Miễn phí</span
+                                                        >
+                                                    </div>
+                                                    <div class="course-card__rate">
+                                                        <div class="course-card__stars">
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="course-card__rate-text">Chưa đánh giá</span>
+                                                    </div>
+                                                    <div class="course-card__bottom">
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-users"></i>81.342</span
+                                                        >
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-clock"></i>27h32p</span
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Course item 9 -->
+                                        <div class="col col-4">
+                                            <article class="course-card">
+                                                <a href="#!" class="course-card__thumb">
+                                                    <img
+                                                        src="./assets/img/course-9.jpg"
+                                                        alt="Responsive Với Grid System"
+                                                        class="course-card__img"
+                                                    />
+                                                </a>
+                                                <div class="course-card__content">
+                                                    <h2 class="course-card__title">
+                                                        <a href="#!">Responsive Với Grid System</a>
+                                                    </h2>
+                                                    <div class="course-card__price-wrapper">
+                                                        <span class="course-card__price course-card__price--new"
+                                                            >Miễn phí</span
+                                                        >
+                                                    </div>
+                                                    <div class="course-card__rate">
+                                                        <div class="course-card__stars">
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="course-card__rate-text">Chưa đánh giá</span>
+                                                    </div>
+                                                    <div class="course-card__bottom">
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-users"></i>48.692</span
+                                                        >
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-clock"></i>6h31p</span
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Course item 10 -->
+                                        <div class="col col-4">
+                                            <article class="course-card">
+                                                <a href="#!" class="course-card__thumb">
+                                                    <img
+                                                        src="./assets/img/course-10.jpg"
+                                                        alt="Lập Trình JavaScript Cơ Bản"
+                                                        class="course-card__img"
+                                                    />
+                                                </a>
+                                                <div class="course-card__content">
+                                                    <h2 class="course-card__title">
+                                                        <a href="#!">Lập Trình JavaScript Cơ Bản</a>
+                                                    </h2>
+                                                    <div class="course-card__price-wrapper">
+                                                        <span class="course-card__price course-card__price--new"
+                                                            >Miễn phí</span
+                                                        >
+                                                    </div>
+                                                    <div class="course-card__rate">
+                                                        <div class="course-card__stars">
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="course-card__rate-text">Chưa đánh giá</span>
+                                                    </div>
+                                                    <div class="course-card__bottom">
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-users"></i>155.761</span
+                                                        >
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-clock"></i>24h15p</span
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Course item 11 -->
+                                        <div class="col col-4">
+                                            <article class="course-card">
+                                                <a href="#!" class="course-card__thumb">
+                                                    <img
+                                                        src="./assets/img/course-11.jpg"
+                                                        alt="Kiến Thức Nhập Môn IT"
+                                                        class="course-card__img"
+                                                    />
+                                                </a>
+                                                <div class="course-card__content">
+                                                    <h2 class="course-card__title">
+                                                        <a href="#!">Kiến Thức Nhập Môn IT</a>
+                                                    </h2>
+                                                    <div class="course-card__price-wrapper">
+                                                        <span class="course-card__price course-card__price--new"
+                                                            >Miễn phí</span
+                                                        >
+                                                    </div>
+                                                    <div class="course-card__rate">
+                                                        <div class="course-card__stars">
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="course-card__rate-text">Chưa đánh giá</span>
+                                                    </div>
+                                                    <div class="course-card__bottom">
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-users"></i>140.238</span
+                                                        >
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-clock"></i>3h12p</span
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Course item 12 -->
+                                        <div class="col col-4">
+                                            <article class="course-card">
+                                                <a href="#!" class="course-card__thumb">
+                                                    <img
+                                                        src="./assets/img/course-12.jpg"
+                                                        alt="HTML CSS từ Zero đến Hero"
+                                                        class="course-card__img"
+                                                    />
+                                                </a>
+                                                <div class="course-card__content">
+                                                    <h2 class="course-card__title">
+                                                        <a href="#!">HTML CSS từ Zero đến Hero</a>
+                                                    </h2>
+                                                    <div class="course-card__price-wrapper">
+                                                        <span class="course-card__price course-card__price--new">
+                                                            Miễn phí
+                                                        </span>
+                                                    </div>
+                                                    <div class="course-card__rate">
+                                                        <div class="course-card__stars">
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                            <span class="course-card__star">
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="course-card__rate-text">Chưa đánh giá</span>
+                                                    </div>
+                                                    <div class="course-card__bottom">
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-users"></i>220.406</span
+                                                        >
+                                                        <span class="course-card__info-item"
+                                                            ><i class="fa-solid fa-clock"></i>29h5p</span
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Begin Footer -->
+        <footer class="footer">
+            <p class="copyright">
+                &copy; Nguyễn Minh Hiếu - Bài tập Day04 - Khóa K22 Fullstack Pro tại
+                <a href="https://f8.edu.vn/" target="_blank" rel="noopener">F8</a>
+            </p>
+        </footer>
+        <!-- End Footer -->
+    </body>
+</html>

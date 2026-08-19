@@ -38,23 +38,15 @@
         <style type="text/tailwindcss">
             @import "tailwindcss";
 
+            @theme {
+                --breakpoint-2xl: max-width 1535.98px;
+                --breakpoint-xl: max-width 1279.98px;
+                --breakpoint-lg: max-width 1023.93px;
+                --breakpoint-md: max-width 767.98px;
+                --breakpoint-sm: max-width 639.98px;
+            }
+
             @layer components {
-                .section-heading {
-                    @apply flex items-center min-h-[4.6rem] m-[1.6rem_auto_2.8rem_0];
-                }
-
-                .section-heading__text {
-                    @apply flex items-center gap-[1rem] text-[2.4rem] font-[900] text-[var(--section-heading-text)];
-                }
-
-                .section-heading__badge {
-                    @apply p-[0.5rem_0.6rem_0.3rem] rounded-[0.4rem] text-[1.2rem] font-[500] uppercase text-[var(--white-color)] bg-[var(--section-heading-badge-bg)];
-                }
-
-                .user-avatar {
-                    @apply flex items-center;
-                }
-
                 .user-avatar__thumb {
                     @apply flex items-center justify-center p-[calc(0.5em*var(--border-scale,1))] rounded-full text-[var(--font-size)] bg-[var(--user-avatar-bg)] -rotate-45;
                 }
@@ -80,7 +72,7 @@
                 }
 
                 .card {
-                    @apply relative flex flex-col h-full rounded-[1.6rem] bg-[var(--card-bg)] transition-[transform_box-shadow] duration-[0.2s];
+                    @apply relative flex flex-col h-full rounded-[1.6rem] bg-[var(--card-bg)] bg-[image:var(--card-bg)] transition-[transform_box-shadow] duration-[0.2s];
 
                     &:hover {
                         @apply -translate-y-1 shadow-[0_4px_8px_var(--card-shadow)];
@@ -144,24 +136,8 @@
                     @apply flex items-center flex-wrap gap-[0.6rem] leading-none text-[1.3rem];
                 }
 
-                .navbar__link {
-                    @apply flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s];
-
-                    &:hover {
-                        @apply text-[var(--navbar-link-hover-color)] bg-[var(--navbar-link-hover-bg)];
-                    }
-                }
-
                 .navbar__link--active {
                     @apply bg-[var(--navbar-link-active-bg)] text-[var(--navbar-link-hover-color)];
-                }
-            }
-
-            @utility header__act {
-                @apply flex items-center justify-center size-[4.4rem] rounded-full text-[var(--header-act-color)] text-[1.8rem] transition-[color,background-color] duration-[0.25s] cursor-pointer;
-
-                &:hover {
-                    @apply text-[var(--header-act-hover-color)] bg-[var(--header-act-hover-bg)];
                 }
             }
         </style>
@@ -244,11 +220,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="search__bar d-md-none">
-                    <div class="search__icon">
+                <div
+                    class="flex flex-1 items-center h-full p-[0_0.8rem_0_1rem] rounded-full focus-within:bg-[var(--search-input-focus-bg)] d-md-none"
+                >
+                    <div
+                        class="flex items-center justify-center shrink-none size-[3.2rem] text-[1.8rem] text-[var(--search-icon-color)] opacity-[0.72] transition-[opacity] duration-[0.2s]"
+                    >
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
-                    <input type="text" class="search__input" placeholder="Tìm khóa học, bài tập, hỏi đáp..." />
+                    <input
+                        type="text"
+                        class="block w-full h-full px-[0.6rem] border-none outline-none font-inherit text-[1.5rem] font-[500] text-[var(--search-input-color)] bg-transparent caret-[var(--primary-color)] placeholder:text-[var(--search-input-placeholder-color)]"
+                        placeholder="Tìm khóa học, bài tập, hỏi đáp..."
+                    />
                 </div>
             </div>
 
@@ -277,13 +261,16 @@
                     class="flex items-center justify-center size-[4.4rem] rounded-full text-[var(--header-act-color)] text-[1.8rem] transition-[color,background-color] duration-[0.25s] cursor-pointer hover:text-[var(--header-act-hover-color)] hover:bg-[var(--header-act-hover-bg)] user-avatar d-md-none"
                     aria-label="Mở menu tài khoản"
                 >
-                    <span class="user-avatar__thumb" style="--font-size: 3.2px; --border-scale: 1">
+                    <span
+                        style="--font-size: 3.2px; font-size: var(--font-size); --border-scale: 1"
+                        class="flex items-center justify-center p-[calc(0.5em*var(--border-scale,1))] rounded-full text-[var(--font-size)] bg-[var(--user-avatar-bg)] -rotate-45"
+                    >
                         <img
                             src="./assets/img/avatar-4.jpg"
                             alt="Nguyễn Minh Hiếu"
                             width="42"
                             height="42"
-                            class="user-avatar__img"
+                            class="block size-[9em] p-[calc(0.4em*var(--border-scale,1))] rounded-full object-cover rotate-45 bg-[var(--white-color)]"
                         />
                     </span>
                 </button>
@@ -296,38 +283,56 @@
             <nav class="sticky top-[8rem] left-0 mb-[1.6rem] z-3 rounded-[1rem] bg-[var(--navbar-bg)] d-md-none">
                 <ul class="flex flex-col items-center gap-y-[0.4rem] px-[0.8rem] w-[9.6rem]">
                     <li>
-                        <a href="#!" class="navbar__link navbar__link--active">
-                            <i class="fa-solid fa-house"></i>
+                        <a
+                            href="#!"
+                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)] navbar__link--active"
+                        >
+                            <i class="fa-solid fa-house text-[1.8rem]"></i>
                             <span class="mt-[0.8rem] text-[1.1rem] font-[600]">Trang chủ</span></a
                         >
                     </li>
                     <li>
-                        <a href="#!" class="navbar__link">
-                            <i class="fa-solid fa-road"></i>
+                        <a
+                            href="#!"
+                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)]"
+                        >
+                            <i class="fa-solid fa-road text-[1.8rem]"></i>
                             <span class="mt-[0.8rem] text-[1.1rem] font-[600]">Lộ trình</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#!" class="navbar__link">
-                            <i class="fa-solid fa-newspaper"></i>
+                        <a
+                            href="#!"
+                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)]"
+                        >
+                            <i class="fa-solid fa-newspaper text-[1.8rem]"></i>
                             <span class="mt-[0.8rem] text-[1.1rem] font-[600]">Bài viết</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#!" class="navbar__link">
-                            <i class="fa-solid fa-bullhorn"></i>
+                        <a
+                            href="#!"
+                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)]"
+                        >
+                            <i class="fa-solid fa-bullhorn text-[1.8rem]"></i>
                             <span class="mt-[0.8rem] text-[1.1rem] font-[600]">Bản tin</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#!" class="navbar__link">
-                            <i class="fa-solid fa-comments"></i>
+                        <a
+                            href="#!"
+                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)]"
+                        >
+                            <i class="fa-solid fa-comments text-[1.8rem]"></i>
                             <span class="mt-[0.8rem] text-[1.1rem] font-[600]">Hỏi đáp</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#!" class="navbar__link">
-                            <i class="fa-solid fa-clipboard-list"></i>
+                        <a
+                            href="#!"
+                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)]"
+                        >
+                            <i class="fa-solid fa-clipboard-list text-[1.8rem]"></i>
                             <span class="mt-[0.8rem] text-[1.1rem] font-[600]">Bài tập</span>
                         </a>
                     </li>
@@ -385,13 +390,16 @@
                             class="flex gap-[1.2rem] -mx-[0.2rem] p-[0.4rem_0.2rem_1.2rem] overflow-x-auto snap-x snap-mandatory"
                         >
                             <!-- Story card 01 -->
-                            <button type="button" class="story-card story-card--create">
+                            <button type="button" class="flex-none snap-start cursor-pointer">
                                 <span
-                                    class="story-card__content"
+                                    class="relative block w-[12rem] h-[21.33rem] rounded-[1.2rem] overflow-hidden bg-cover bg-[50%] after:content-[''] after:absolute after:inset-0 after:bg-[image:var(--story-card-content-overlay-bg)]"
                                     style="background-image: url(./assets/img/story-img-1.jpg)"
                                 >
-                                    <span class="story-card__create">
+                                    <span
+                                        class="absolute left-1/2 bottom-[3rem] z-1 flex items-center justify-center size-[3.2rem] rounded-full -translate-x-1/2 text-[var(--white-color)] bg-[var(--story-card-create-bg)] shadow-[0_0.2rem_0.8rem_var(--story-card-create-shadow)]"
+                                    >
                                         <svg
+                                            class="h-[1.4rem]"
                                             data-prefix="fas"
                                             data-icon="plus"
                                             class="svg-inline--fa fa-plus"
@@ -406,74 +414,91 @@
                                         </svg>
                                     </span>
                                 </span>
-                                <span class="story-card__bottom">
-                                    <span class="story-card__title line-clamp line-clamp-1">Tạo tin</span>
+                                <span class="flex items-center justify-center gap-[0.6rem] mt-[0.6rem] max-w-[12rem]">
+                                    <span
+                                        class="text-[1.3rem] font-[600] leading-[1.25] text-[var(--story-card-title-color)] line-clamp-1"
+                                        >Tạo tin</span
+                                    >
                                 </span>
                             </button>
 
                             <!-- Story card 02 -->
-                            <button type="button" class="story-card">
+                            <button type="button" class="flex-none snap-start cursor-pointer">
                                 <span
-                                    class="story-card__content"
+                                    class="relative block w-[12rem] h-[21.33rem] rounded-[1.2rem] overflow-hidden bg-cover bg-[50%] after:content-[''] after:absolute after:inset-0 after:bg-[image:var(--story-card-content-overlay-bg)]"
                                     style="background-image: url(./assets/img/story-img-2.jpg)"
                                 >
-                                    <span class="story-card__avatar">
+                                    <span
+                                        class="absolute top-[0.8rem] left-[0.8rem] flex items-center justify-center size-[3.9rem] p-[0.2rem] rounded-full bg-[image:var(--story-card-avatar-bg)] overflow-hidden"
+                                    >
                                         <img
                                             src="./assets/img/story-avatar-1.jpg"
                                             alt="Nga Trần Phương"
-                                            class="story-card__avatar-img"
+                                            class="block w-full h-full object-cover rounded-full"
                                         />
                                     </span>
                                 </span>
-                                <span class="story-card__bottom">
-                                    <span class="story-card__title line-clamp line-clamp-1" title="Nga Trần Phương"
+                                <span class="flex items-center justify-center gap-[0.6rem] mt-[0.6rem] max-w-[12rem]">
+                                    <span
+                                        class="text-[1.3rem] font-[600] leading-[1.25] text-[var(--story-card-title-color)] line-clamp-1"
+                                        title="Nga Trần Phương"
                                         >Nga Trần Phương</span
                                     >
-                                    <span class="story-card__verified-icon"
+                                    <span class="text-[var(--story-card-card-verified-color)] text-[1.1rem]"
                                         ><i class="fa-solid fa-circle-check"></i
                                     ></span>
                                 </span>
                             </button>
 
                             <!-- Story card 03 -->
-                            <button type="button" class="story-card">
+                            <button type="button" class="flex-none snap-start cursor-pointer">
                                 <span
-                                    class="story-card__content"
+                                    class="relative block w-[12rem] h-[21.33rem] rounded-[1.2rem] overflow-hidden bg-cover bg-[50%] after:content-[''] after:absolute after:inset-0 after:bg-[image:var(--story-card-content-overlay-bg)]"
                                     style="background-image: url(./assets/img/story-img-3.jpg)"
                                 >
-                                    <span class="story-card__avatar">
+                                    <span
+                                        class="absolute top-[0.8rem] left-[0.8rem] flex items-center justify-center size-[3.9rem] p-[0.2rem] rounded-full bg-[image:var(--story-card-avatar-bg)] overflow-hidden"
+                                    >
                                         <img
                                             src="./assets/img/story-avatar-2.jpg"
                                             alt="Mỹ Anh Đỗ"
-                                            class="story-card__avatar-img"
+                                            class="block w-full h-full object-cover rounded-full"
                                         />
                                     </span>
                                 </span>
-                                <span class="story-card__bottom">
-                                    <span class="story-card__title line-clamp line-clamp-1">Mỹ Anh Đỗ</span>
-                                    <span class="story-card__verified-icon"
+                                <span class="flex items-center justify-center gap-[0.6rem] mt-[0.6rem] max-w-[12rem]">
+                                    <span
+                                        class="text-[1.3rem] font-[600] leading-[1.25] text-[var(--story-card-title-color)] line-clamp-1"
+                                        >Mỹ Anh Đỗ</span
+                                    >
+                                    <span class="text-[var(--story-card-card-verified-color)] text-[1.1rem]"
                                         ><i class="fa-solid fa-circle-check"></i
                                     ></span>
                                 </span>
                             </button>
 
                             <!-- Story card 04 -->
-                            <button type="button" class="story-card">
+                            <button type="button" class="flex-none snap-start cursor-pointer">
                                 <span
-                                    class="story-card__content"
+                                    class="relative block w-[12rem] h-[21.33rem] rounded-[1.2rem] overflow-hidden bg-cover bg-[50%] after:content-[''] after:absolute after:inset-0 after:bg-[image:var(--story-card-content-overlay-bg)]"
                                     style="background-image: url(./assets/img/story-img-4.jpg)"
                                 >
-                                    <span class="story-card__avatar">
+                                    <span
+                                        class="absolute top-[0.8rem] left-[0.8rem] flex items-center justify-center size-[3.9rem] p-[0.2rem] rounded-full bg-[image:var(--story-card-avatar-bg)] overflow-hidden"
+                                    >
                                         <img
                                             src="./assets/img/story-avatar-3.jpg"
                                             alt="Tây Du Code"
-                                            class="story-card__avatar-img"
+                                            class="block w-full h-full object-cover rounded-full"
                                         />
                                     </span>
                                 </span>
-                                <span class="story-card__bottom">
-                                    <span class="story-card__title line-clamp line-clamp-1">Tây Du Code</span>
-                                    <span class="story-card__verified-icon"
+                                <span class="flex items-center justify-center gap-[0.6rem] mt-[0.6rem] max-w-[12rem]">
+                                    <span
+                                        class="text-[1.3rem] font-[600] leading-[1.25] text-[var(--story-card-title-color)] line-clamp-1"
+                                        >Tây Du Code</span
+                                    >
+                                    <span class="text-[var(--story-card-card-verified-color)] text-[1.1rem]"
                                         ><i class="fa-solid fa-circle-check"></i
                                     ></span>
                                 </span>
@@ -485,7 +510,7 @@
                     <!-- Begin Slideshow -->
                     <div class="mt-[1.8rem] pb-[1.2rem]">
                         <div class="flex overflow-hidden rounded-[1.6rem]">
-                            <div class="slideshow__item">
+                            <div class="flex-[0_0_100%]">
                                 <a href="#!">
                                     <picture>
                                         <source
@@ -500,10 +525,15 @@
                     </div>
                     <!-- End Slideshow -->
 
-                    <div class="home-content-wrapper">
+                    <div class="p-[0_4.4rem_7.4rem] lg:px-[0]">
                         <!-- Begin Recommend Courses -->
-                        <section class="home-section recommend-courses">
-                            <h2 class="section-heading"><span class="section-heading__text">Dành cho bạn</span></h2>
+                        <section class="mt-0 pt-[5rem] pb-[2.5rem]">
+                            <h2 class="flex items-center min-h-[4.6rem] m-[1.6rem_auto_2.8rem_0]">
+                                <span
+                                    class="flex items-center gap-[1rem] text-[2.4rem] font-[900] text-[var(--section-heading-text)]"
+                                    >Dành cho bạn</span
+                                >
+                            </h2>
                             <div class="recommend-courses__list">
                                 <div class="row row-cols-4 row-cols-lg-2 gx-2 gy-6 gx-md-4">
                                     <!-- Course item 1 -->
@@ -561,7 +591,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@sondangf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -620,7 +650,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@hoanganf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -676,7 +706,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@hoanganf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -732,7 +762,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@hoanganf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -772,7 +802,7 @@
                         <!-- End Recommend Courses -->
 
                         <!-- Begin Zoom Courses -->
-                        <section class="home-section">
+                        <section class="py-[2.5rem]">
                             <div>
                                 <div class="section-sub-heading">
                                     <div class="students-joined-avatar">
@@ -800,9 +830,15 @@
                                     </div>
                                     <span><strong>+470.46</strong> học viên đã tham gia</span>
                                 </div>
-                                <h2 class="section-heading">
-                                    <span class="section-heading__text">
-                                        Khóa học qua Zoom <span class="section-heading__badge">Mới</span>
+                                <h2 class="flex items-center min-h-[4.6rem] m-[1.6rem_auto_2.8rem_0]">
+                                    <span
+                                        class="flex items-center gap-[1rem] text-[2.4rem] font-[900] text-[var(--section-heading-text)]"
+                                    >
+                                        Khóa học qua Zoom
+                                        <span
+                                            class="p-[0.5rem_0.6rem_0.3rem] rounded-[0.4rem] text-[1.2rem] font-[500] uppercase text-[var(--white-color)] bg-[var(--section-heading-badge-bg)]"
+                                            >Mới</span
+                                        >
                                     </span>
                                 </h2>
                             </div>
@@ -832,7 +868,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@hoanganf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -921,7 +957,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@sondangf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -981,7 +1017,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@hoanganf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -1034,7 +1070,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@tranxuanbang"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -1090,7 +1126,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@tranxuanbang"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -1146,7 +1182,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@hoanganf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -1202,7 +1238,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@hoanganf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -1255,7 +1291,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@hoanganf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -1311,7 +1347,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@hoanganf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -1348,11 +1384,17 @@
                         <!-- End Zoom Courses -->
 
                         <!-- Begin Pro Courses -->
-                        <section class="home-section">
-                            <div class="home-section__head">
-                                <h2 class="section-heading">
-                                    <span class="section-heading__text">
-                                        Khóa học Pro <span class="section-heading__badge">Mới</span>
+                        <section class="py-[2.5rem]">
+                            <div class="py-[2.5rem]__head">
+                                <h2 class="flex items-center min-h-[4.6rem] m-[1.6rem_auto_2.8rem_0]">
+                                    <span
+                                        class="flex items-center gap-[1rem] text-[2.4rem] font-[900] text-[var(--section-heading-text)]"
+                                    >
+                                        Khóa học Pro
+                                        <span
+                                            class="p-[0.5rem_0.6rem_0.3rem] rounded-[0.4rem] text-[1.2rem] font-[500] uppercase text-[var(--white-color)] bg-[var(--section-heading-badge-bg)]"
+                                            >Mới</span
+                                        >
                                     </span>
                                 </h2>
                             </div>
@@ -1416,7 +1458,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@sondangf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -1510,7 +1552,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@sondangf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -1604,7 +1646,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@sondangf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -1697,7 +1739,7 @@
                                                 <div class="card__bottom">
                                                     <a
                                                         href="https://f8.edu.vn/@sondangf8"
-                                                        class="user-avatar"
+                                                        class="flex items-center"
                                                         target="_blank"
                                                         rel="noopener"
                                                     >
@@ -2009,11 +2051,17 @@
                         <!-- End Pro Courses -->
 
                         <!-- Begin Free Courses -->
-                        <section class="home-section">
-                            <div class="home-section__head">
-                                <h2 class="section-heading">
-                                    <span class="section-heading__text">
-                                        Khóa học Free <span class="section-heading__badge">HOT</span>
+                        <section class="py-[2.5rem]">
+                            <div class="py-[2.5rem]__head">
+                                <h2 class="flex items-center min-h-[4.6rem] m-[1.6rem_auto_2.8rem_0]">
+                                    <span
+                                        class="flex items-center gap-[1rem] text-[2.4rem] font-[900] text-[var(--section-heading-text)]"
+                                    >
+                                        Khóa học Free
+                                        <span
+                                            class="p-[0.5rem_0.6rem_0.3rem] rounded-[0.4rem] text-[1.2rem] font-[500] uppercase text-[var(--white-color)] bg-[var(--section-heading-badge-bg)]"
+                                            >HOT</span
+                                        >
                                     </span>
                                 </h2>
                             </div>
@@ -2525,10 +2573,13 @@
                         <!-- End Free Courses -->
 
                         <!-- Begin Other Courses -->
-                        <section class="home-section">
-                            <div class="home-section__head">
-                                <h2 class="section-heading">
-                                    <span class="section-heading__text">Khóa học khác</span>
+                        <section class="py-[2.5rem]">
+                            <div class="py-[2.5rem]__head">
+                                <h2 class="flex items-center min-h-[4.6rem] m-[1.6rem_auto_2.8rem_0]">
+                                    <span
+                                        class="flex items-center gap-[1rem] text-[2.4rem] font-[900] text-[var(--section-heading-text)]"
+                                        >Khóa học khác</span
+                                    >
                                 </h2>
                             </div>
                             <div class="other-courses__list">
@@ -2802,10 +2853,13 @@
                         <!-- End Other Courses -->
 
                         <!-- Begin Featured Articles -->
-                        <section class="home-section">
-                            <div class="home-section__head">
-                                <h2 class="section-heading">
-                                    <span class="section-heading__text">Bài viết nổi bật</span>
+                        <section class="py-[2.5rem]">
+                            <div class="flex items-center justify-between py-[2.5rem]__head">
+                                <h2 class="flex items-center min-h-[4.6rem] m-[1.6rem_auto_2.8rem_0]">
+                                    <span
+                                        class="flex items-center gap-[1rem] text-[2.4rem] font-[900] text-[var(--section-heading-text)]"
+                                        >Bài viết nổi bật</span
+                                    >
                                 </h2>
                                 <a href="#!" class="btn-view-all">
                                     <span>Xem tất cả</span>
@@ -2987,10 +3041,13 @@
                         <!-- End Featured Articles -->
 
                         <!-- Begin Featured Videos -->
-                        <section class="home-section">
-                            <div class="home-section__head">
-                                <h2 class="section-heading">
-                                    <span class="section-heading__text">Videos nổi bật</span>
+                        <section class="py-[2.5rem]">
+                            <div class="flex items-center justify-between py-[2.5rem]__head">
+                                <h2 class="flex items-center min-h-[4.6rem] m-[1.6rem_auto_2.8rem_0]">
+                                    <span
+                                        class="flex items-center gap-[1rem] text-[2.4rem] font-[900] text-[var(--section-heading-text)]"
+                                        >Videos nổi bật</span
+                                    >
                                 </h2>
                                 <a href="#!" class="btn-view-all">
                                     <span>Xem tất cả</span>

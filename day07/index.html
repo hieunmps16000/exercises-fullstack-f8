@@ -23,9 +23,6 @@
         <!-- Fontawesome -->
         <script src="https://kit.fontawesome.com/0c9b48e69b.js" crossorigin="anonymous"></script>
 
-        <!-- CSS -->
-        <!-- <link rel="stylesheet" href="../assets/css/reset.css" /> -->
-
         <!-- CSS Day05 -->
         <link rel="stylesheet" href="./assets/css/grid.css" />
         <link rel="stylesheet" href="./assets/css/base.css" />
@@ -37,6 +34,7 @@
 
         <style type="text/tailwindcss">
             @import "tailwindcss";
+            @custom-variant dark (&:where(.dark, .dark *));
 
             @theme {
                 --breakpoint-2xl: max-width 1535.98px;
@@ -46,99 +44,153 @@
                 --breakpoint-sm: max-width 639.98px;
             }
 
-            @layer components {
-                .user-avatar__thumb {
-                    @apply flex items-center justify-center p-[calc(0.5em*var(--border-scale,1))] rounded-full text-[var(--font-size)] bg-[var(--user-avatar-bg)] -rotate-45;
+            @utility navbar__link {
+                @apply hover:!text-[var(--navbar-link-hover-color)];
+            }
+
+            @utility navbar__link--active {
+                @apply !bg-[var(--navbar-link-active-bg)];
+            }
+
+            @utility navbar__link--active {
+                @apply !text-[var(--navbar-link-hover-color)];
+            }
+
+            @utility cate-menu__link {
+                @apply flex items-center justify-between px-[1.6rem] min-h-[4.6rem] rounded-[1.2rem] border border-transparent text-[1.5rem] font-[600] transition-[color,border-color,box-shadow] duration-200 hover:text-[var(--primary-color)] hover:border-[var(--cate-menu-link-border-hover-color)] hover:shadow-[inset_0_0_0_1px_rgba(240,81,35,0.16),0_8px_22px_#1f29370f];
+
+                .cate-menu__item--active & {
+                    @apply text-[var(--primary-color)] border-[var(--cate-menu-link-border-hover-color)] shadow-[inset_0_0_0_1px_rgba(240,81,35,0.16),0_8px_22px_#1f29370f];
                 }
+            }
 
-                .user-avatar__info {
-                    @apply ml-[1.6rem];
+            @utility cate-sub-menu__item {
+                @apply break-inside-avoid min-w-0 mb-[2.8rem];
+            }
+
+            @utility cate-sub-menu__link {
+                @apply inline-block mb-[1rem] text-[1.7rem] font-[700] leading-[1.35] text-[var(--cate-sub-menu-link-color)] transition-colors duration-200 hover:text-[var(--primary-color)];
+            }
+
+            @utility card {
+                @apply relative flex flex-col h-full rounded-[1.6rem] bg-[var(--card-bg)] bg-[image:var(--card-bg)] transition-[transform_box-shadow] duration-[0.2s];
+                @apply hover:-translate-y-1 hover:shadow-[0_4px_8px_var(--card-shadow)];
+            }
+
+            @utility card__thumb {
+                @apply relative block pt-[56.25%] overflow-hidden;
+            }
+
+            @utility card__img {
+                @apply absolute top-0 left-0 w-full h-full object-cover rounded-[1.6rem_1.6rem_0_0];
+            }
+
+            @utility card__content {
+                @apply flex flex-col gap-[1.2rem] flex-1 px-[2rem] py-[1.6rem];
+            }
+
+            @utility card__title {
+                @apply line-clamp-2 text-[1.6rem] leading-[1.4] font-[600] text-[var(--card-title)];
+            }
+
+            @utility card__price-wrapper {
+                @apply flex items-center flex-wrap gap-[0.8rem] mb-[0.8rem];
+            }
+
+            @utility card__price {
+                @apply leading-[1.35];
+            }
+
+            @utility card__price--old {
+                @apply text-[1.4rem] line-through text-[var(--card-price-old-color)];
+            }
+
+            @utility card__price--new {
+                @apply font-[600] text-[var(--primary-color)];
+            }
+
+            @utility card__rating {
+                @apply mb-[1.2rem];
+            }
+
+            @utility card__fresh-badge {
+                @apply min-h-[2.2rem] px-[0.9rem] py-[0.2rem] leading-[1.2] text-[1.2rem] font-[600] rounded-full text-[var(--primary-color)] bg-[var(--card-fresh-badge-bg)];
+            }
+
+            @utility card__bottom {
+                @apply flex items-center justify-between flex-wrap gap-[0.4rem_1.2rem] mt-auto;
+            }
+
+            @utility card__info-item {
+                @apply flex items-center gap-[0.8rem] text-[1.4rem] text-[var(--card-info-color)] font-[400];
+            }
+
+            @utility card__badge {
+                @apply absolute top-[1.2rem] left-[1.2rem] z-1 flex items-center justify-center size-[2.6rem] rounded-[0.8rem] bg-[var(--card-badge-bg)];
+            }
+
+            @utility card__badge-img {
+                @apply size-[1.6rem];
+            }
+
+            @utility card__meta {
+                @apply flex items-center min-h-[3.4rem];
+            }
+
+            @utility video-tool {
+                @apply absolute bottom-0 left-0 flex items-center justify-between w-full p-[1.6rem] z-2 bg-[var(--video-tool-bg)];
+            }
+
+            @utility video-tool__play {
+                @apply flex items-center justify-center size-[3.6rem] rounded-[1rem] text-[1.3rem] text-[var(--video-tool-play-color)] bg-[var(--white-color)];
+            }
+
+            @utility video-tool__duration {
+                @apply p-[0.7rem_1.2rem] rounded-full text-[1.3rem] font-[600] border-2 border-solid border-[var(--white-color)] text-[var(--white-color)];
+            }
+
+            @utility user-avatar__info {
+                @apply ml-[0.5rem];
+            }
+
+            @utility user-avatar__name {
+                @apply text-[1.4rem] text-[var(--card-info-color)] font-[400];
+
+                & + i {
+                    @apply ml-[0.6rem] text-[1.2rem] text-[var(--user-avatar-name-icon-color)];
                 }
+            }
 
-                .user-avatar__name {
-                    @apply font-semibold text-[var(--user-avatar-name-color)];
+            @utility user-avatar__date {
+                @apply flex items-center mt-[0.8rem] text-[1.4rem] text-[var(--user-avatar-date-color)];
+            }
 
-                    & + i {
-                        @apply ml-[0.6rem] text-[1.2rem] text-[var(--user-avatar-name-icon-color)];
-                    }
-                }
+            @utility user-avatar__separate {
+                @apply inline-block size-[0.3rem] mx-[0.6rem] rounded-full bg-[var(--user-avatar-separate-bg)];
+            }
 
-                .user-avatar__date {
-                    @apply flex items-center mt-[0.8rem] text-[1.4rem] text-[var(--user-avatar-date-color)];
-                }
+            @utility rating {
+                @apply flex items-center flex-wrap gap-[0.6rem] leading-none text-[1.3rem];
+            }
 
-                .user-avatar__separate {
-                    @apply inline-block size-[0.3rem] mx-[0.6rem] rounded-full bg-[var(--user-avatar-separate-bg)];
-                }
+            @utility rating__stars {
+                @apply flex items-center gap-[0.2rem];
+            }
 
-                .card {
-                    @apply relative flex flex-col h-full rounded-[1.6rem] bg-[var(--card-bg)] bg-[image:var(--card-bg)] transition-[transform_box-shadow] duration-[0.2s];
+            @utility rating__star {
+                @apply relative block text-[var(--rating-star-color)];
+            }
 
-                    &:hover {
-                        @apply -translate-y-1 shadow-[0_4px_8px_var(--card-shadow)];
-                    }
-                }
+            @utility rating__star-fill {
+                @apply absolute inset-0 text-[var(--rating-star-fill-color)] overflow-hidden;
+            }
 
-                .card__thumb {
-                    @apply relative block pt-[56.25%] overflow-hidden;
-                }
+            @utility rating__label {
+                @apply text-[var(--rating-label-color)] font-[600];
+            }
 
-                .card__img {
-                    @apply absolute top-0 left-0 w-full h-full object-cover rounded-[1.6rem_1.6rem_0_0];
-                }
-
-                .card__content {
-                    @apply flex flex-col gap-[1.2rem] flex-1 px-[2rem] py-[1.6rem];
-                }
-
-                .card__title {
-                    @apply line-clamp-2 text-[1.6rem] leading-[1.4] font-[600] text-[var(--card-title)];
-                }
-
-                .card__price-wrapper {
-                    @apply flex items-center flex-wrap gap-[0.8rem] mb-[0.8rem];
-                }
-
-                .card__price {
-                    @apply leading-[1.35];
-                }
-
-                .card__price--old {
-                    @apply text-[1.4rem] line-through text-[var(--card-price-old-color)];
-                }
-
-                .card__price--new {
-                    @apply font-[600] text-[var(--primary-color)];
-                }
-
-                .card__rating {
-                    @apply mb-[1.2rem];
-                }
-
-                .card__fresh-badge {
-                    @apply min-h-[2.2rem] px-[0.9rem] py-[0.2rem] leading-[1.2] text-[1.2rem] font-[600] rounded-full text-[var(--primary-color)] bg-[var(--card-fresh-badge-bg)];
-                }
-
-                .card__bottom {
-                    @apply flex items-center flex-wrap gap-[0.4rem_1.2rem] mt-auto;
-                }
-
-                .card .user-avatar__info {
-                    @apply ml-[0.5rem];
-                }
-
-                .card .user-avatar__name,
-                .card__info-item {
-                    @apply text-[1.4rem] text-[var(--card-info-color)] font-[400];
-                }
-
-                .rating {
-                    @apply flex items-center flex-wrap gap-[0.6rem] leading-none text-[1.3rem];
-                }
-
-                .navbar__link--active {
-                    @apply bg-[var(--navbar-link-active-bg)] text-[var(--navbar-link-hover-color)];
-                }
+            @utility rating__text {
+                @apply text-[var(--rating-text-color)];
             }
         </style>
     </head>
@@ -182,19 +234,27 @@
                             <ul
                                 class="bg-[var(--cate-menu-list-bg)] border-r-[var(--cate-menu-list-border-color)] p-[1.2rem] w-[34.4rem] min-h-[44rem]"
                             >
-                                <li class="cate-menu__item cate-menu__item--active">
+                                <li class="cate-menu__item cate-menu__item--active group">
                                     <a href="!" class="cate-menu__link">
                                         Khóa học quay sẵn
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
-                                    <div class="cate-sub-menu">
-                                        <div class="cate-sub-menu__head">
-                                            <h3 class="cate-sub-menu__heading">Khóa học quay sẵn</h3>
-                                            <a href="#!" class="cate-sub-menu__view-all"
+                                    <div class="absolute inset-[0_0_0_34.4rem] p-[3.8rem_2.8rem_3.8rem_3.4rem]">
+                                        <div
+                                            class="flex items-center justify-between gap-[2rem] mb-[2.4rem] pb-[1.4rem] border-b border-solid border-[var(--cate-sub-menu-head-border-color)]"
+                                        >
+                                            <h3
+                                                class="text-[1.6rem] font-[700] leadng-[1.5] tracking-[0.14rem] uppercase text-[var(--primary-color)]"
+                                            >
+                                                Khóa học quay sẵn
+                                            </h3>
+                                            <a
+                                                href="#!"
+                                                class="inline-flex items-center gap-[0.6rem] min-h-[3.4rem] px-[1.2rem] rounded-full text-[1.35rem] font-[700] text-[var(--cate-sub-menu-view-all-color)] bg-[var(--cate-sub-menu-view-all-bg)] transiton-transform transition-background-color duration-200 hover:translate-x-[0.1rem] hover:bg-[var(--cate-sub-menu-view-all-hover-bg)]"
                                                 >Xem tất cả <i class="fa-solid fa-chevron-right"></i
                                             ></a>
                                         </div>
-                                        <ul class="cate-sub-menu__list">
+                                        <ul class="columns-2 gap-[5rem]">
                                             <li class="cate-sub-menu__item">
                                                 <a href="#!" class="cate-sub-menu__link">Quay sẵn/video ngắn</a>
                                             </li>
@@ -261,16 +321,13 @@
                     class="flex items-center justify-center size-[4.4rem] rounded-full text-[var(--header-act-color)] text-[1.8rem] transition-[color,background-color] duration-[0.25s] cursor-pointer hover:text-[var(--header-act-hover-color)] hover:bg-[var(--header-act-hover-bg)] user-avatar d-md-none"
                     aria-label="Mở menu tài khoản"
                 >
-                    <span
-                        style="--font-size: 3.2px; font-size: var(--font-size); --border-scale: 1"
-                        class="flex items-center justify-center p-[calc(0.5em*var(--border-scale,1))] rounded-full text-[var(--font-size)] bg-[var(--user-avatar-bg)] -rotate-45"
-                    >
+                    <span style="--font-size: 3.2px; --border-scale: 1" class="user-avatar__thumb">
                         <img
                             src="./assets/img/avatar-4.jpg"
                             alt="Nguyễn Minh Hiếu"
                             width="42"
                             height="42"
-                            class="block size-[9em] p-[calc(0.4em*var(--border-scale,1))] rounded-full object-cover rotate-45 bg-[var(--white-color)]"
+                            class="user-avatar__img"
                         />
                     </span>
                 </button>
@@ -534,268 +591,242 @@
                                     >Dành cho bạn</span
                                 >
                             </h2>
-                            <div class="recommend-courses__list">
-                                <div class="row row-cols-4 row-cols-lg-2 gx-2 gy-6 gx-md-4">
-                                    <!-- Course item 1 -->
-                                    <div class="col">
-                                        <article class="card">
-                                            <a href="#!" class="card__thumb">
-                                                <img
-                                                    src="./assets/img/sass.jpg"
-                                                    alt="Ngôn ngữ Sass"
-                                                    class="card__img"
-                                                />
-                                            </a>
-                                            <div class="card__content">
-                                                <h3 class="card__title"><a href="#!">Ngôn ngữ Sass</a></h3>
-                                                <div class="card__price-wrapper">
-                                                    <span class="card__price card__price--old">400.000đ</span>
-                                                    <span class="card__price card__price--new">299.000đ</span>
+                            <div class="row row-cols-4 row-cols-lg-2 gx-2 gy-6 gx-md-4">
+                                <!-- Course item 1 -->
+                                <div class="col">
+                                    <article class="card">
+                                        <a href="#!" class="card__thumb">
+                                            <img src="./assets/img/sass.jpg" alt="Ngôn ngữ Sass" class="card__img" />
+                                        </a>
+                                        <div class="card__content">
+                                            <h3 class="card__title"><a href="#!">Ngôn ngữ Sass</a></h3>
+                                            <div class="card__price-wrapper">
+                                                <span class="card__price card__price--old">400.000đ</span>
+                                                <span class="card__price card__price--new">299.000đ</span>
+                                            </div>
+                                            <div class="rating card__rating">
+                                                <div class="rating__stars">
+                                                    <span class="rating__star">
+                                                        <i class="fa-regular fa-star"></i>
+                                                        <span class="rating__star-fill">
+                                                            <i class="fa-solid fa-star"></i>
+                                                        </span>
+                                                    </span>
+                                                    <span class="rating__star">
+                                                        <i class="fa-regular fa-star"></i>
+                                                        <span class="rating__star-fill">
+                                                            <i class="fa-solid fa-star"></i>
+                                                        </span>
+                                                    </span>
+                                                    <span class="rating__star">
+                                                        <i class="fa-regular fa-star"></i>
+                                                        <span class="rating__star-fill">
+                                                            <i class="fa-solid fa-star"></i>
+                                                        </span>
+                                                    </span>
+                                                    <span class="rating__star">
+                                                        <i class="fa-regular fa-star"></i>
+                                                        <span class="rating__star-fill">
+                                                            <i class="fa-solid fa-star"></i>
+                                                        </span>
+                                                    </span>
+                                                    <span class="rating__star">
+                                                        <i class="fa-regular fa-star"></i>
+                                                        <span class="rating__star-fill" style="width: 50%">
+                                                            <i class="fa-solid fa-star"></i>
+                                                        </span>
+                                                    </span>
                                                 </div>
-                                                <div class="rating card__rating">
-                                                    <div class="rating__stars">
-                                                        <span class="rating__star">
-                                                            <i class="fa-regular fa-star"></i>
-                                                            <span class="rating__star-fill">
-                                                                <i class="fa-solid fa-star"></i>
-                                                            </span>
-                                                        </span>
-                                                        <span class="rating__star">
-                                                            <i class="fa-regular fa-star"></i>
-                                                            <span class="rating__star-fill">
-                                                                <i class="fa-solid fa-star"></i>
-                                                            </span>
-                                                        </span>
-                                                        <span class="rating__star">
-                                                            <i class="fa-regular fa-star"></i>
-                                                            <span class="rating__star-fill">
-                                                                <i class="fa-solid fa-star"></i>
-                                                            </span>
-                                                        </span>
-                                                        <span class="rating__star">
-                                                            <i class="fa-regular fa-star"></i>
-                                                            <span class="rating__star-fill">
-                                                                <i class="fa-solid fa-star"></i>
-                                                            </span>
-                                                        </span>
-                                                        <span class="rating__star">
-                                                            <i class="fa-regular fa-star"></i>
-                                                            <span class="rating__star-fill" style="width: 50%">
-                                                                <i class="fa-solid fa-star"></i>
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                    <span class="rating__label">4.5</span>
-                                                    <span class="rating__text">(102)</span>
-                                                </div>
-                                                <div class="card__bottom">
-                                                    <a
-                                                        href="https://f8.edu.vn/@sondangf8"
-                                                        class="flex items-center"
-                                                        target="_blank"
-                                                        rel="noopener"
+                                                <span class="rating__label">4.5</span>
+                                                <span class="rating__text">(102)</span>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <a
+                                                    href="https://f8.edu.vn/@sondangf8"
+                                                    class="flex items-center"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
                                                     >
-                                                        <span
-                                                            class="user-avatar__thumb"
-                                                            style="--font-size: 2px; --border-scale: 1"
-                                                        >
-                                                            <img
-                                                                src="./assets/img/son-dang-avatar.jpg"
-                                                                alt="Sơn Đặng"
-                                                                width="42"
-                                                                height="42"
-                                                                class="user-avatar__img"
-                                                            />
-                                                        </span>
-                                                        <div class="user-avatar__info">
-                                                            <span class="user-avatar__name">Sơn Đặng</span>
-                                                        </div>
-                                                    </a>
-                                                    <span class="card__info-item"
-                                                        ><i class="fa-solid fa-clock"></i>6 giờ 18 phút</span
-                                                    >
-                                                    <div class="card__badge">
                                                         <img
-                                                            src="./assets/img/crown.svg"
-                                                            alt=""
-                                                            class="card__badge-img"
+                                                            src="./assets/img/son-dang-avatar.jpg"
+                                                            alt="Sơn Đặng"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
                                                         />
+                                                    </span>
+                                                    <div class="user-avatar__info">
+                                                        <span class="user-avatar__name">Sơn Đặng</span>
                                                     </div>
+                                                </a>
+                                                <span class="card__info-item"
+                                                    ><i class="fa-solid fa-clock"></i>6 giờ 18 phút</span
+                                                >
+                                                <div class="card__badge">
+                                                    <img src="./assets/img/crown.svg" alt="" class="card__badge-img" />
                                                 </div>
                                             </div>
-                                        </article>
-                                    </div>
+                                        </div>
+                                    </article>
+                                </div>
 
-                                    <!-- Course item 2 -->
-                                    <div class="col">
-                                        <article class="card">
-                                            <a href="#!" class="card__thumb">
-                                                <img
-                                                    src="./assets/img/laravel.jpg"
-                                                    alt="Laravel framework"
-                                                    class="card__img"
-                                                />
-                                            </a>
-                                            <div class="card__content">
-                                                <h3 class="card__title">
-                                                    <a href="#!">Laravel framework</a>
-                                                </h3>
-                                                <div class="card__price-wrapper">
-                                                    <span class="card__price card__price--new">Liên hệ</span>
-                                                </div>
-                                                <div class="card__rating">
-                                                    <span class="card__fresh-badge">Mới ra mắt</span>
-                                                </div>
+                                <!-- Course item 2 -->
+                                <div class="col">
+                                    <article class="card">
+                                        <a href="#!" class="card__thumb">
+                                            <img
+                                                src="./assets/img/laravel.jpg"
+                                                alt="Laravel framework"
+                                                class="card__img"
+                                            />
+                                        </a>
+                                        <div class="card__content">
+                                            <h3 class="card__title">
+                                                <a href="#!">Laravel framework</a>
+                                            </h3>
+                                            <div class="card__price-wrapper">
+                                                <span class="card__price card__price--new">Liên hệ</span>
+                                            </div>
+                                            <div class="card__rating">
+                                                <span class="card__fresh-badge">Mới ra mắt</span>
+                                            </div>
 
-                                                <div class="card__bottom">
-                                                    <a
-                                                        href="https://f8.edu.vn/@hoanganf8"
-                                                        class="flex items-center"
-                                                        target="_blank"
-                                                        rel="noopener"
+                                            <div class="card__bottom">
+                                                <a
+                                                    href="https://f8.edu.vn/@hoanganf8"
+                                                    class="flex items-center"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
                                                     >
-                                                        <span
-                                                            class="user-avatar__thumb"
-                                                            style="--font-size: 2px; --border-scale: 1"
-                                                        >
-                                                            <img
-                                                                src="./assets/img/hoang-an-avatar.jpg"
-                                                                alt="Hoàng An"
-                                                                width="42"
-                                                                height="42"
-                                                                class="user-avatar__img"
-                                                            />
-                                                        </span>
-                                                        <div class="user-avatar__info">
-                                                            <span class="user-avatar__name">Hoàng An</span>
-                                                        </div>
-                                                    </a>
-                                                    <div class="card__badge">
                                                         <img
-                                                            src="./assets/img/crown.svg"
-                                                            alt=""
-                                                            class="card__badge-img"
+                                                            src="./assets/img/hoang-an-avatar.jpg"
+                                                            alt="Hoàng An"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
                                                         />
+                                                    </span>
+                                                    <div class="user-avatar__info">
+                                                        <span class="user-avatar__name">Hoàng An</span>
                                                     </div>
+                                                </a>
+                                                <div class="card__badge">
+                                                    <img src="./assets/img/crown.svg" alt="" class="card__badge-img" />
                                                 </div>
                                             </div>
-                                        </article>
-                                    </div>
+                                        </div>
+                                    </article>
+                                </div>
 
-                                    <!-- Course item 3 -->
-                                    <div class="col">
-                                        <article class="card">
-                                            <a href="#!" class="card__thumb">
-                                                <img
-                                                    src="./assets/img/nest-js.jpg"
-                                                    alt="NestJS framework"
-                                                    class="card__img"
-                                                />
-                                            </a>
-                                            <div class="card__content">
-                                                <h3 class="card__title">
-                                                    <a href="#!">NestJS framework</a>
-                                                </h3>
-                                                <div class="card__price-wrapper">
-                                                    <span class="card__price card__price--new">Liên hệ</span>
-                                                </div>
-                                                <div class="card__rating">
-                                                    <span class="card__fresh-badge">Mới ra mắt</span>
-                                                </div>
+                                <!-- Course item 3 -->
+                                <div class="col">
+                                    <article class="card">
+                                        <a href="#!" class="card__thumb">
+                                            <img
+                                                src="./assets/img/nest-js.jpg"
+                                                alt="NestJS framework"
+                                                class="card__img"
+                                            />
+                                        </a>
+                                        <div class="card__content">
+                                            <h3 class="card__title">
+                                                <a href="#!">NestJS framework</a>
+                                            </h3>
+                                            <div class="card__price-wrapper">
+                                                <span class="card__price card__price--new">Liên hệ</span>
+                                            </div>
+                                            <div class="card__rating">
+                                                <span class="card__fresh-badge">Mới ra mắt</span>
+                                            </div>
 
-                                                <div class="card__bottom">
-                                                    <a
-                                                        href="https://f8.edu.vn/@hoanganf8"
-                                                        class="flex items-center"
-                                                        target="_blank"
-                                                        rel="noopener"
+                                            <div class="card__bottom">
+                                                <a
+                                                    href="https://f8.edu.vn/@hoanganf8"
+                                                    class="flex items-center"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
                                                     >
-                                                        <span
-                                                            class="user-avatar__thumb"
-                                                            style="--font-size: 2px; --border-scale: 1"
-                                                        >
-                                                            <img
-                                                                src="./assets/img/hoang-an-avatar.jpg"
-                                                                alt="Hoàng An"
-                                                                width="42"
-                                                                height="42"
-                                                                class="user-avatar__img"
-                                                            />
-                                                        </span>
-                                                        <div class="user-avatar__info">
-                                                            <span class="user-avatar__name">Hoàng An</span>
-                                                        </div>
-                                                    </a>
-                                                    <div class="card__badge">
                                                         <img
-                                                            src="./assets/img/crown.svg"
-                                                            alt=""
-                                                            class="card__badge-img"
+                                                            src="./assets/img/hoang-an-avatar.jpg"
+                                                            alt="Hoàng An"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
                                                         />
+                                                    </span>
+                                                    <div class="user-avatar__info">
+                                                        <span class="user-avatar__name">Hoàng An</span>
                                                     </div>
+                                                </a>
+                                                <div class="card__badge">
+                                                    <img src="./assets/img/crown.svg" alt="" class="card__badge-img" />
                                                 </div>
                                             </div>
-                                        </article>
-                                    </div>
+                                        </div>
+                                    </article>
+                                </div>
 
-                                    <!-- Course item 4 -->
-                                    <div class="col">
-                                        <article class="card">
-                                            <a href="#!" class="card__thumb">
-                                                <img
-                                                    src="./assets/img/vue-nuxt.jpg"
-                                                    alt="Vue & Nuxt"
-                                                    class="card__img"
-                                                />
-                                            </a>
-                                            <div class="card__content">
-                                                <h3 class="card__title">
-                                                    <a href="#!">Vue & Nuxt</a>
-                                                </h3>
-                                                <div class="card__price-wrapper">
-                                                    <span class="card__price card__price--new">Liên hệ</span>
-                                                </div>
-                                                <div class="card__rating">
-                                                    <span class="card__fresh-badge">Mới ra mắt</span>
-                                                </div>
+                                <!-- Course item 4 -->
+                                <div class="col">
+                                    <article class="card">
+                                        <a href="#!" class="card__thumb">
+                                            <img src="./assets/img/vue-nuxt.jpg" alt="Vue & Nuxt" class="card__img" />
+                                        </a>
+                                        <div class="card__content">
+                                            <h3 class="card__title">
+                                                <a href="#!">Vue & Nuxt</a>
+                                            </h3>
+                                            <div class="card__price-wrapper">
+                                                <span class="card__price card__price--new">Liên hệ</span>
+                                            </div>
+                                            <div class="card__rating">
+                                                <span class="card__fresh-badge">Mới ra mắt</span>
+                                            </div>
 
-                                                <div class="card__bottom">
-                                                    <a
-                                                        href="https://f8.edu.vn/@hoanganf8"
-                                                        class="flex items-center"
-                                                        target="_blank"
-                                                        rel="noopener"
+                                            <div class="card__bottom">
+                                                <a
+                                                    href="https://f8.edu.vn/@hoanganf8"
+                                                    class="flex items-center"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
                                                     >
-                                                        <span
-                                                            class="user-avatar__thumb"
-                                                            style="--font-size: 2px; --border-scale: 1"
-                                                        >
-                                                            <img
-                                                                src="./assets/img/hoang-an-avatar.jpg"
-                                                                alt="Hoàng An"
-                                                                width="42"
-                                                                height="42"
-                                                                class="user-avatar__img"
-                                                            />
-                                                        </span>
-                                                        <div class="user-avatar__info">
-                                                            <span class="user-avatar__name">Hoàng An</span>
-                                                        </div>
-                                                    </a>
-                                                    <div class="card__badge">
                                                         <img
-                                                            src="./assets/img/crown.svg"
-                                                            alt=""
-                                                            class="card__badge-img"
+                                                            src="./assets/img/hoang-an-avatar.jpg"
+                                                            alt="Hoàng An"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
                                                         />
+                                                    </span>
+                                                    <div class="user-avatar__info">
+                                                        <span class="user-avatar__name">Hoàng An</span>
                                                     </div>
+                                                </a>
+                                                <div class="card__badge">
+                                                    <img src="./assets/img/crown.svg" alt="" class="card__badge-img" />
                                                 </div>
                                             </div>
-                                        </article>
-                                    </div>
+                                        </div>
+                                    </article>
                                 </div>
                             </div>
-                            <div class="recommend-courses__bottom">
+                            <div class="flex items-center justify-center mt-[2.4rem]">
                                 <button class="btn btn--outline">Xem thêm 8 khóa học</button>
                             </div>
                         </section>
@@ -803,581 +834,536 @@
 
                         <!-- Begin Zoom Courses -->
                         <section class="py-[2.5rem]">
-                            <div>
-                                <div class="section-sub-heading">
-                                    <div class="students-joined-avatar">
-                                        <img
-                                            src="./assets/img/student-avatar-1.jpg"
-                                            alt=""
-                                            class="students-joined-avatar__img"
-                                            width="24"
-                                            height="24"
-                                        />
-                                        <img
-                                            src="./assets/img/student-avatar-2.jpg"
-                                            alt=""
-                                            class="students-joined-avatar__img"
-                                            width="24"
-                                            height="24"
-                                        />
-                                        <img
-                                            src="./assets/img/student-avatar-3.jpg"
-                                            alt=""
-                                            class="students-joined-avatar__img"
-                                            width="24"
-                                            height="24"
-                                        />
-                                    </div>
-                                    <span><strong>+470.46</strong> học viên đã tham gia</span>
+                            <div
+                                class="flex items-center gap-[1.2rem] text-[1.4rem] text-[var(--section-sub-heading-color)] leading-[1.5]"
+                            >
+                                <div class="flex items-center">
+                                    <img
+                                        src="./assets/img/student-avatar-1.jpg"
+                                        alt=""
+                                        class="block size-[2.4rem] rounded-full"
+                                        width="24"
+                                        height="24"
+                                    />
+                                    <img
+                                        src="./assets/img/student-avatar-2.jpg"
+                                        alt=""
+                                        class="block -ml-[0.8rem] size-[2.4rem] rounded-full"
+                                        width="24"
+                                        height="24"
+                                    />
+                                    <img
+                                        src="./assets/img/student-avatar-3.jpg"
+                                        alt=""
+                                        class="block -ml-[0.8rem] size-[2.4rem] rounded-full"
+                                        width="24"
+                                        height="24"
+                                    />
                                 </div>
-                                <h2 class="flex items-center min-h-[4.6rem] m-[1.6rem_auto_2.8rem_0]">
-                                    <span
-                                        class="flex items-center gap-[1rem] text-[2.4rem] font-[900] text-[var(--section-heading-text)]"
-                                    >
-                                        Khóa học qua Zoom
-                                        <span
-                                            class="p-[0.5rem_0.6rem_0.3rem] rounded-[0.4rem] text-[1.2rem] font-[500] uppercase text-[var(--white-color)] bg-[var(--section-heading-badge-bg)]"
-                                            >Mới</span
-                                        >
-                                    </span>
-                                </h2>
+                                <span><strong>+470.46</strong> học viên đã tham gia</span>
                             </div>
-                            <div class="zoom-courses__list">
-                                <div class="row row-cols-4 row-cols-lg-2 gx-2 gy-6">
-                                    <!-- Course item 1 -->
-                                    <div class="col">
-                                        <article class="card">
-                                            <a href="#!" class="card__thumb">
-                                                <img
-                                                    src="./assets/img/vue-nuxt.jpg"
-                                                    alt="Vue & Nuxt"
-                                                    class="card__img"
-                                                />
-                                            </a>
-                                            <div class="card__content">
-                                                <h3 class="card__title">
-                                                    <a href="#!">Vue & Nuxt</a>
-                                                </h3>
-                                                <div class="card__price-wrapper">
-                                                    <span class="card__price card__price--new">Liên hệ</span>
-                                                </div>
-                                                <div class="card__rating">
-                                                    <span class="card__fresh-badge">Mới ra mắt</span>
-                                                </div>
+                            <h2 class="flex items-center min-h-[4.6rem] m-[1.6rem_auto_2.8rem_0]">
+                                <span
+                                    class="flex items-center gap-[1rem] text-[2.4rem] font-[900] text-[var(--section-heading-text)]"
+                                >
+                                    Khóa học qua Zoom
+                                    <span
+                                        class="p-[0.5rem_0.6rem_0.3rem] rounded-[0.4rem] text-[1.2rem] font-[500] uppercase text-[var(--white-color)] bg-[var(--section-heading-badge-bg)]"
+                                        >Mới</span
+                                    >
+                                </span>
+                            </h2>
 
-                                                <div class="card__bottom">
-                                                    <a
-                                                        href="https://f8.edu.vn/@hoanganf8"
-                                                        class="flex items-center"
-                                                        target="_blank"
-                                                        rel="noopener"
+                            <div class="row row-cols-4 row-cols-lg-2 gx-2 gy-6">
+                                <!-- Course item 1 -->
+                                <div class="col">
+                                    <article class="card">
+                                        <a href="#!" class="card__thumb">
+                                            <img src="./assets/img/vue-nuxt.jpg" alt="Vue & Nuxt" class="card__img" />
+                                        </a>
+                                        <div class="card__content">
+                                            <h3 class="card__title">
+                                                <a href="#!">Vue & Nuxt</a>
+                                            </h3>
+                                            <div class="card__price-wrapper">
+                                                <span class="card__price card__price--new">Liên hệ</span>
+                                            </div>
+                                            <div class="card__rating">
+                                                <span class="card__fresh-badge">Mới ra mắt</span>
+                                            </div>
+
+                                            <div class="card__bottom">
+                                                <a
+                                                    href="https://f8.edu.vn/@hoanganf8"
+                                                    class="flex items-center"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
                                                     >
-                                                        <span
-                                                            class="user-avatar__thumb"
-                                                            style="--font-size: 2px; --border-scale: 1"
-                                                        >
-                                                            <img
-                                                                src="./assets/img/hoang-an-avatar.jpg"
-                                                                alt="Hoàng An"
-                                                                width="42"
-                                                                height="42"
-                                                                class="user-avatar__img"
-                                                            />
-                                                        </span>
-                                                        <div class="user-avatar__info">
-                                                            <span class="user-avatar__name">Hoàng An</span>
-                                                        </div>
-                                                    </a>
-                                                    <div class="card__badge">
                                                         <img
-                                                            src="./assets/img/crown.svg"
-                                                            alt=""
-                                                            class="card__badge-img"
+                                                            src="./assets/img/hoang-an-avatar.jpg"
+                                                            alt="Hoàng An"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
                                                         />
+                                                    </span>
+                                                    <div class="user-avatar__info">
+                                                        <span class="user-avatar__name">Hoàng An</span>
                                                     </div>
+                                                </a>
+                                                <div class="card__badge">
+                                                    <img src="./assets/img/crown.svg" alt="" class="card__badge-img" />
                                                 </div>
                                             </div>
-                                        </article>
-                                    </div>
+                                        </div>
+                                    </article>
+                                </div>
 
-                                    <!-- Course item 2 -->
-                                    <div class="col">
-                                        <article class="card">
-                                            <a href="#!" class="card__thumb">
-                                                <img
-                                                    src="./assets/img/fullstack-online.jpg"
-                                                    alt="Fullstack Web"
-                                                    class="card__img"
-                                                />
-                                            </a>
-                                            <div class="card__content">
-                                                <h3 class="card__title">
-                                                    <a href="#!">Fullstack Web</a>
-                                                </h3>
-                                                <div class="card__price-wrapper">
-                                                    <span class="card__price card__price--new">Liên hệ</span>
+                                <!-- Course item 2 -->
+                                <div class="col">
+                                    <article class="card">
+                                        <a href="#!" class="card__thumb">
+                                            <img
+                                                src="./assets/img/fullstack-online.jpg"
+                                                alt="Fullstack Web"
+                                                class="card__img"
+                                            />
+                                        </a>
+                                        <div class="card__content">
+                                            <h3 class="card__title">
+                                                <a href="#!">Fullstack Web</a>
+                                            </h3>
+                                            <div class="card__price-wrapper">
+                                                <span class="card__price card__price--new">Liên hệ</span>
+                                            </div>
+                                            <div class="rating card__rating">
+                                                <div class="rating__stars">
+                                                    <span class="rating__star">
+                                                        <i class="fa-regular fa-star"></i>
+                                                        <span class="rating__star-fill">
+                                                            <i class="fa-solid fa-star"></i>
+                                                        </span>
+                                                    </span>
+                                                    <span class="rating__star">
+                                                        <i class="fa-regular fa-star"></i>
+                                                        <span class="rating__star-fill">
+                                                            <i class="fa-solid fa-star"></i>
+                                                        </span>
+                                                    </span>
+                                                    <span class="rating__star">
+                                                        <i class="fa-regular fa-star"></i>
+                                                        <span class="rating__star-fill">
+                                                            <i class="fa-solid fa-star"></i>
+                                                        </span>
+                                                    </span>
+                                                    <span class="rating__star">
+                                                        <i class="fa-regular fa-star"></i>
+                                                        <span class="rating__star-fill">
+                                                            <i class="fa-solid fa-star"></i>
+                                                        </span>
+                                                    </span>
+                                                    <span class="rating__star">
+                                                        <i class="fa-regular fa-star"></i>
+                                                        <span class="rating__star-fill" style="width: 50%">
+                                                            <i class="fa-solid fa-star"></i>
+                                                        </span>
+                                                    </span>
                                                 </div>
-                                                <div class="rating card__rating">
-                                                    <div class="rating__stars">
-                                                        <span class="rating__star">
-                                                            <i class="fa-regular fa-star"></i>
-                                                            <span class="rating__star-fill">
-                                                                <i class="fa-solid fa-star"></i>
-                                                            </span>
-                                                        </span>
-                                                        <span class="rating__star">
-                                                            <i class="fa-regular fa-star"></i>
-                                                            <span class="rating__star-fill">
-                                                                <i class="fa-solid fa-star"></i>
-                                                            </span>
-                                                        </span>
-                                                        <span class="rating__star">
-                                                            <i class="fa-regular fa-star"></i>
-                                                            <span class="rating__star-fill">
-                                                                <i class="fa-solid fa-star"></i>
-                                                            </span>
-                                                        </span>
-                                                        <span class="rating__star">
-                                                            <i class="fa-regular fa-star"></i>
-                                                            <span class="rating__star-fill">
-                                                                <i class="fa-solid fa-star"></i>
-                                                            </span>
-                                                        </span>
-                                                        <span class="rating__star">
-                                                            <i class="fa-regular fa-star"></i>
-                                                            <span class="rating__star-fill" style="width: 50%">
-                                                                <i class="fa-solid fa-star"></i>
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                    <span class="rating__label">4.6</span>
-                                                    <span class="rating__text">(316)</span>
-                                                </div>
+                                                <span class="rating__label">4.6</span>
+                                                <span class="rating__text">(316)</span>
+                                            </div>
 
-                                                <div class="card__bottom">
-                                                    <a
-                                                        href="https://f8.edu.vn/@sondangf8"
-                                                        class="flex items-center"
-                                                        target="_blank"
-                                                        rel="noopener"
+                                            <div class="card__bottom">
+                                                <a
+                                                    href="https://f8.edu.vn/@sondangf8"
+                                                    class="flex items-center"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
                                                     >
-                                                        <span
-                                                            class="user-avatar__thumb"
-                                                            style="--font-size: 2px; --border-scale: 1"
-                                                        >
-                                                            <img
-                                                                src="./assets/img/son-dang-avatar.jpg"
-                                                                alt="Sơn Đặng"
-                                                                width="42"
-                                                                height="42"
-                                                                class="user-avatar__img"
-                                                            />
-                                                        </span>
-                                                        <div class="user-avatar__info">
-                                                            <span class="user-avatar__name">Sơn Đặng</span>
-                                                        </div>
-                                                    </a>
-
-                                                    <span class="card__info-item"
-                                                        ><i class="fa-solid fa-clock"></i>398 giờ 15 phút</span
-                                                    >
-                                                    <div class="card__badge">
                                                         <img
-                                                            src="./assets/img/crown.svg"
-                                                            alt=""
-                                                            class="card__badge-img"
+                                                            src="./assets/img/son-dang-avatar.jpg"
+                                                            alt="Sơn Đặng"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
                                                         />
+                                                    </span>
+                                                    <div class="user-avatar__info">
+                                                        <span class="user-avatar__name">Sơn Đặng</span>
                                                     </div>
+                                                </a>
+
+                                                <span class="card__info-item"
+                                                    ><i class="fa-solid fa-clock"></i>398 giờ 15 phút</span
+                                                >
+                                                <div class="card__badge">
+                                                    <img src="./assets/img/crown.svg" alt="" class="card__badge-img" />
                                                 </div>
                                             </div>
-                                        </article>
-                                    </div>
+                                        </div>
+                                    </article>
+                                </div>
 
-                                    <!-- Course item 3 -->
-                                    <div class="col">
-                                        <article class="card">
-                                            <a href="#!" class="card__thumb">
-                                                <img
-                                                    src="./assets/img/react-native.jpg"
-                                                    alt="React Native"
-                                                    class="card__img"
-                                                />
-                                            </a>
-                                            <div class="card__content">
-                                                <h3 class="card__title">
-                                                    <a href="#!">React Native</a>
-                                                </h3>
-                                                <div class="card__price-wrapper">
-                                                    <span class="card__price card__price--new">Liên hệ</span>
-                                                </div>
-                                                <div class="card__rating">
-                                                    <span class="card__fresh-badge">Mới ra mắt</span>
-                                                </div>
+                                <!-- Course item 3 -->
+                                <div class="col">
+                                    <article class="card">
+                                        <a href="#!" class="card__thumb">
+                                            <img
+                                                src="./assets/img/react-native.jpg"
+                                                alt="React Native"
+                                                class="card__img"
+                                            />
+                                        </a>
+                                        <div class="card__content">
+                                            <h3 class="card__title">
+                                                <a href="#!">React Native</a>
+                                            </h3>
+                                            <div class="card__price-wrapper">
+                                                <span class="card__price card__price--new">Liên hệ</span>
+                                            </div>
+                                            <div class="card__rating">
+                                                <span class="card__fresh-badge">Mới ra mắt</span>
+                                            </div>
 
-                                                <div class="card__bottom">
-                                                    <a
-                                                        href="https://f8.edu.vn/@hoanganf8"
-                                                        class="flex items-center"
-                                                        target="_blank"
-                                                        rel="noopener"
+                                            <div class="card__bottom">
+                                                <a
+                                                    href="https://f8.edu.vn/@hoanganf8"
+                                                    class="flex items-center"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
                                                     >
-                                                        <span
-                                                            class="user-avatar__thumb"
-                                                            style="--font-size: 2px; --border-scale: 1"
-                                                        >
-                                                            <img
-                                                                src="./assets/img/hoang-an-avatar.jpg"
-                                                                alt="Hoàng An"
-                                                                width="42"
-                                                                height="42"
-                                                                class="user-avatar__img"
-                                                            />
-                                                        </span>
-                                                        <div class="user-avatar__info">
-                                                            <span class="user-avatar__name">Hoàng An</span>
-                                                        </div>
-                                                    </a>
-                                                    <div class="card__badge">
                                                         <img
-                                                            src="./assets/img/crown.svg"
-                                                            alt=""
-                                                            class="card__badge-img"
+                                                            src="./assets/img/hoang-an-avatar.jpg"
+                                                            alt="Hoàng An"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
                                                         />
+                                                    </span>
+                                                    <div class="user-avatar__info">
+                                                        <span class="user-avatar__name">Hoàng An</span>
                                                     </div>
+                                                </a>
+                                                <div class="card__badge">
+                                                    <img src="./assets/img/crown.svg" alt="" class="card__badge-img" />
                                                 </div>
                                             </div>
-                                        </article>
-                                    </div>
+                                        </div>
+                                    </article>
+                                </div>
 
-                                    <!-- Course item 4 -->
-                                    <div class="col">
-                                        <article class="card">
-                                            <a href="#!" class="card__thumb">
-                                                <img
-                                                    src="./assets/img/dev-ops.jpg"
-                                                    alt="DevOps Cơ Bản"
-                                                    class="card__img"
-                                                />
-                                            </a>
-                                            <div class="card__content">
-                                                <h3 class="card__title"><a href="#!">DevOps Cơ Bản</a></h3>
-                                                <div class="card__price-wrapper">
-                                                    <span class="card__price card__price--new">Liên hệ</span>
-                                                </div>
-                                                <div class="card__rating">
-                                                    <span class="card__fresh-badge">Mới ra mắt</span>
-                                                </div>
-                                                <div class="card__bottom">
-                                                    <a
-                                                        href="https://f8.edu.vn/@tranxuanbang"
-                                                        class="flex items-center"
-                                                        target="_blank"
-                                                        rel="noopener"
+                                <!-- Course item 4 -->
+                                <div class="col">
+                                    <article class="card">
+                                        <a href="#!" class="card__thumb">
+                                            <img src="./assets/img/dev-ops.jpg" alt="DevOps Cơ Bản" class="card__img" />
+                                        </a>
+                                        <div class="card__content">
+                                            <h3 class="card__title"><a href="#!">DevOps Cơ Bản</a></h3>
+                                            <div class="card__price-wrapper">
+                                                <span class="card__price card__price--new">Liên hệ</span>
+                                            </div>
+                                            <div class="card__rating">
+                                                <span class="card__fresh-badge">Mới ra mắt</span>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <a
+                                                    href="https://f8.edu.vn/@tranxuanbang"
+                                                    class="flex items-center"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
                                                     >
-                                                        <span
-                                                            class="user-avatar__thumb"
-                                                            style="--font-size: 2px; --border-scale: 1"
-                                                        >
-                                                            <img
-                                                                src="./assets/img/tran-xuan-avatar.jpg"
-                                                                alt="Trần Xuân"
-                                                                width="42"
-                                                                height="42"
-                                                                class="user-avatar__img"
-                                                            />
-                                                        </span>
-                                                        <div class="user-avatar__info">
-                                                            <span class="user-avatar__name">Trần Xuân</span>
-                                                        </div>
-                                                    </a>
-                                                    <div class="card__badge">
                                                         <img
-                                                            src="./assets/img/crown.svg"
-                                                            alt=""
-                                                            class="card__badge-img"
+                                                            src="./assets/img/tran-xuan-avatar.jpg"
+                                                            alt="Trần Xuân"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
                                                         />
+                                                    </span>
+                                                    <div class="user-avatar__info">
+                                                        <span class="user-avatar__name">Trần Xuân</span>
                                                     </div>
+                                                </a>
+                                                <div class="card__badge">
+                                                    <img src="./assets/img/crown.svg" alt="" class="card__badge-img" />
                                                 </div>
                                             </div>
-                                        </article>
-                                    </div>
+                                        </div>
+                                    </article>
+                                </div>
 
-                                    <!-- Course item 5 -->
-                                    <div class="col">
-                                        <article class="card">
-                                            <a href="#!" class="card__thumb">
-                                                <img
-                                                    src="./assets/img/dev-ops-nang-cao.jpg"
-                                                    alt="DevOps Nâng Cao"
-                                                    class="card__img"
-                                                />
-                                            </a>
-                                            <div class="card__content">
-                                                <h3 class="card__title">
-                                                    <a href="#!">DevOps Nâng Cao</a>
-                                                </h3>
-                                                <div class="card__price-wrapper">
-                                                    <span class="card__price card__price--new">Liên hệ</span>
-                                                </div>
-                                                <div class="card__rating">
-                                                    <span class="card__fresh-badge">Mới ra mắt</span>
-                                                </div>
+                                <!-- Course item 5 -->
+                                <div class="col">
+                                    <article class="card">
+                                        <a href="#!" class="card__thumb">
+                                            <img
+                                                src="./assets/img/dev-ops-nang-cao.jpg"
+                                                alt="DevOps Nâng Cao"
+                                                class="card__img"
+                                            />
+                                        </a>
+                                        <div class="card__content">
+                                            <h3 class="card__title">
+                                                <a href="#!">DevOps Nâng Cao</a>
+                                            </h3>
+                                            <div class="card__price-wrapper">
+                                                <span class="card__price card__price--new">Liên hệ</span>
+                                            </div>
+                                            <div class="card__rating">
+                                                <span class="card__fresh-badge">Mới ra mắt</span>
+                                            </div>
 
-                                                <div class="card__bottom">
-                                                    <a
-                                                        href="https://f8.edu.vn/@tranxuanbang"
-                                                        class="flex items-center"
-                                                        target="_blank"
-                                                        rel="noopener"
+                                            <div class="card__bottom">
+                                                <a
+                                                    href="https://f8.edu.vn/@tranxuanbang"
+                                                    class="flex items-center"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
                                                     >
-                                                        <span
-                                                            class="user-avatar__thumb"
-                                                            style="--font-size: 2px; --border-scale: 1"
-                                                        >
-                                                            <img
-                                                                src="./assets/img/tran-xuan-avatar.jpg"
-                                                                alt="Trần Xuân"
-                                                                width="42"
-                                                                height="42"
-                                                                class="user-avatar__img"
-                                                            />
-                                                        </span>
-                                                        <div class="user-avatar__info">
-                                                            <span class="user-avatar__name">Trần Xuân</span>
-                                                        </div>
-                                                    </a>
-                                                    <div class="card__badge">
                                                         <img
-                                                            src="./assets/img/crown.svg"
-                                                            alt=""
-                                                            class="card__badge-img"
+                                                            src="./assets/img/tran-xuan-avatar.jpg"
+                                                            alt="Trần Xuân"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
                                                         />
+                                                    </span>
+                                                    <div class="user-avatar__info">
+                                                        <span class="user-avatar__name">Trần Xuân</span>
                                                     </div>
+                                                </a>
+                                                <div class="card__badge">
+                                                    <img src="./assets/img/crown.svg" alt="" class="card__badge-img" />
                                                 </div>
                                             </div>
-                                        </article>
-                                    </div>
+                                        </div>
+                                    </article>
+                                </div>
 
-                                    <!-- Course item 6 -->
-                                    <div class="col">
-                                        <article class="card">
-                                            <a href="#!" class="card__thumb">
-                                                <img
-                                                    src="./assets/img/nest-js.jpg"
-                                                    alt="NestJS framework"
-                                                    class="card__img"
-                                                />
-                                            </a>
-                                            <div class="card__content">
-                                                <h3 class="card__title">
-                                                    <a href="#!">NestJS framework</a>
-                                                </h3>
-                                                <div class="card__price-wrapper">
-                                                    <span class="card__price card__price--new">Liên hệ</span>
-                                                </div>
-                                                <div class="card__rating">
-                                                    <span class="card__fresh-badge">Mới ra mắt</span>
-                                                </div>
+                                <!-- Course item 6 -->
+                                <div class="col">
+                                    <article class="card">
+                                        <a href="#!" class="card__thumb">
+                                            <img
+                                                src="./assets/img/nest-js.jpg"
+                                                alt="NestJS framework"
+                                                class="card__img"
+                                            />
+                                        </a>
+                                        <div class="card__content">
+                                            <h3 class="card__title">
+                                                <a href="#!">NestJS framework</a>
+                                            </h3>
+                                            <div class="card__price-wrapper">
+                                                <span class="card__price card__price--new">Liên hệ</span>
+                                            </div>
+                                            <div class="card__rating">
+                                                <span class="card__fresh-badge">Mới ra mắt</span>
+                                            </div>
 
-                                                <div class="card__bottom">
-                                                    <a
-                                                        href="https://f8.edu.vn/@hoanganf8"
-                                                        class="flex items-center"
-                                                        target="_blank"
-                                                        rel="noopener"
+                                            <div class="card__bottom">
+                                                <a
+                                                    href="https://f8.edu.vn/@hoanganf8"
+                                                    class="flex items-center"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
                                                     >
-                                                        <span
-                                                            class="user-avatar__thumb"
-                                                            style="--font-size: 2px; --border-scale: 1"
-                                                        >
-                                                            <img
-                                                                src="./assets/img/hoang-an-avatar.jpg"
-                                                                alt="Hoàng An"
-                                                                width="42"
-                                                                height="42"
-                                                                class="user-avatar__img"
-                                                            />
-                                                        </span>
-                                                        <div class="user-avatar__info">
-                                                            <span class="user-avatar__name">Hoàng An</span>
-                                                        </div>
-                                                    </a>
-                                                    <div class="card__badge">
                                                         <img
-                                                            src="./assets/img/crown.svg"
-                                                            alt=""
-                                                            class="card__badge-img"
+                                                            src="./assets/img/hoang-an-avatar.jpg"
+                                                            alt="Hoàng An"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
                                                         />
+                                                    </span>
+                                                    <div class="user-avatar__info">
+                                                        <span class="user-avatar__name">Hoàng An</span>
                                                     </div>
+                                                </a>
+                                                <div class="card__badge">
+                                                    <img src="./assets/img/crown.svg" alt="" class="card__badge-img" />
                                                 </div>
                                             </div>
-                                        </article>
-                                    </div>
+                                        </div>
+                                    </article>
+                                </div>
 
-                                    <!-- Course item 7 -->
-                                    <div class="col">
-                                        <article class="card">
-                                            <a href="#!" class="card__thumb">
-                                                <img
-                                                    src="./assets/img/laravel.jpg"
-                                                    alt="Laravel framework"
-                                                    class="card__img"
-                                                />
-                                            </a>
-                                            <div class="card__content">
-                                                <h3 class="card__title">
-                                                    <a href="#!">Laravel framework</a>
-                                                </h3>
-                                                <div class="card__price-wrapper">
-                                                    <span class="card__price card__price--new">Liên hệ</span>
-                                                </div>
-                                                <div class="card__rating">
-                                                    <span class="card__fresh-badge">Mới ra mắt</span>
-                                                </div>
+                                <!-- Course item 7 -->
+                                <div class="col">
+                                    <article class="card">
+                                        <a href="#!" class="card__thumb">
+                                            <img
+                                                src="./assets/img/laravel.jpg"
+                                                alt="Laravel framework"
+                                                class="card__img"
+                                            />
+                                        </a>
+                                        <div class="card__content">
+                                            <h3 class="card__title">
+                                                <a href="#!">Laravel framework</a>
+                                            </h3>
+                                            <div class="card__price-wrapper">
+                                                <span class="card__price card__price--new">Liên hệ</span>
+                                            </div>
+                                            <div class="card__rating">
+                                                <span class="card__fresh-badge">Mới ra mắt</span>
+                                            </div>
 
-                                                <div class="card__bottom">
-                                                    <a
-                                                        href="https://f8.edu.vn/@hoanganf8"
-                                                        class="flex items-center"
-                                                        target="_blank"
-                                                        rel="noopener"
+                                            <div class="card__bottom">
+                                                <a
+                                                    href="https://f8.edu.vn/@hoanganf8"
+                                                    class="flex items-center"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
                                                     >
-                                                        <span
-                                                            class="user-avatar__thumb"
-                                                            style="--font-size: 2px; --border-scale: 1"
-                                                        >
-                                                            <img
-                                                                src="./assets/img/hoang-an-avatar.jpg"
-                                                                alt="Hoàng An"
-                                                                width="42"
-                                                                height="42"
-                                                                class="user-avatar__img"
-                                                            />
-                                                        </span>
-                                                        <div class="user-avatar__info">
-                                                            <span class="user-avatar__name">Hoàng An</span>
-                                                        </div>
-                                                    </a>
-                                                    <div class="card__badge">
                                                         <img
-                                                            src="./assets/img/crown.svg"
-                                                            alt=""
-                                                            class="card__badge-img"
+                                                            src="./assets/img/hoang-an-avatar.jpg"
+                                                            alt="Hoàng An"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
                                                         />
+                                                    </span>
+                                                    <div class="user-avatar__info">
+                                                        <span class="user-avatar__name">Hoàng An</span>
                                                     </div>
+                                                </a>
+                                                <div class="card__badge">
+                                                    <img src="./assets/img/crown.svg" alt="" class="card__badge-img" />
                                                 </div>
                                             </div>
-                                        </article>
-                                    </div>
+                                        </div>
+                                    </article>
+                                </div>
 
-                                    <!-- Course item 8 -->
-                                    <div class="col">
-                                        <article class="card">
-                                            <a href="#!" class="card__thumb">
-                                                <img
-                                                    src="./assets/img/mysql.jpg"
-                                                    alt="MySQL chuyên sâu"
-                                                    class="card__img"
-                                                />
-                                            </a>
-                                            <div class="card__content">
-                                                <h3 class="card__title"><a href="#!">MySQL chuyên sâu</a></h3>
-                                                <div class="card__price-wrapper">
-                                                    <span class="card__price card__price--new">Liên hệ</span>
-                                                </div>
-                                                <div class="card__rating">
-                                                    <span class="card__fresh-badge">Mới ra mắt</span>
-                                                </div>
-                                                <div class="card__bottom">
-                                                    <a
-                                                        href="https://f8.edu.vn/@hoanganf8"
-                                                        class="flex items-center"
-                                                        target="_blank"
-                                                        rel="noopener"
+                                <!-- Course item 8 -->
+                                <div class="col">
+                                    <article class="card">
+                                        <a href="#!" class="card__thumb">
+                                            <img
+                                                src="./assets/img/mysql.jpg"
+                                                alt="MySQL chuyên sâu"
+                                                class="card__img"
+                                            />
+                                        </a>
+                                        <div class="card__content">
+                                            <h3 class="card__title"><a href="#!">MySQL chuyên sâu</a></h3>
+                                            <div class="card__price-wrapper">
+                                                <span class="card__price card__price--new">Liên hệ</span>
+                                            </div>
+                                            <div class="card__rating">
+                                                <span class="card__fresh-badge">Mới ra mắt</span>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <a
+                                                    href="https://f8.edu.vn/@hoanganf8"
+                                                    class="flex items-center"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
                                                     >
-                                                        <span
-                                                            class="user-avatar__thumb"
-                                                            style="--font-size: 2px; --border-scale: 1"
-                                                        >
-                                                            <img
-                                                                src="./assets/img/hoang-an-avatar.jpg"
-                                                                alt="Hoàng An"
-                                                                width="42"
-                                                                height="42"
-                                                                class="user-avatar__img"
-                                                            />
-                                                        </span>
-                                                        <div class="user-avatar__info">
-                                                            <span class="user-avatar__name">Hoàng An</span>
-                                                        </div>
-                                                    </a>
-                                                    <div class="card__badge">
                                                         <img
-                                                            src="./assets/img/crown.svg"
-                                                            alt=""
-                                                            class="card__badge-img"
+                                                            src="./assets/img/hoang-an-avatar.jpg"
+                                                            alt="Hoàng An"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
                                                         />
+                                                    </span>
+                                                    <div class="user-avatar__info">
+                                                        <span class="user-avatar__name">Hoàng An</span>
                                                     </div>
+                                                </a>
+                                                <div class="card__badge">
+                                                    <img src="./assets/img/crown.svg" alt="" class="card__badge-img" />
                                                 </div>
                                             </div>
-                                        </article>
-                                    </div>
+                                        </div>
+                                    </article>
+                                </div>
 
-                                    <!-- Course item 9 -->
-                                    <div class="col">
-                                        <article class="card">
-                                            <a href="#!" class="card__thumb">
-                                                <img
-                                                    src="./assets/img/postgre-sql.jpg"
-                                                    alt="PostgreSQL chuyên sâu"
-                                                    class="card__img"
-                                                />
-                                            </a>
-                                            <div class="card__content">
-                                                <h3 class="card__title">
-                                                    <a href="#!">PostgreSQL chuyên sâu</a>
-                                                </h3>
-                                                <div class="card__price-wrapper">
-                                                    <span class="card__price card__price--new">Liên hệ</span>
-                                                </div>
-                                                <div class="card__rating">
-                                                    <span class="card__fresh-badge">Mới ra mắt</span>
-                                                </div>
+                                <!-- Course item 9 -->
+                                <div class="col">
+                                    <article class="card">
+                                        <a href="#!" class="card__thumb">
+                                            <img
+                                                src="./assets/img/postgre-sql.jpg"
+                                                alt="PostgreSQL chuyên sâu"
+                                                class="card__img"
+                                            />
+                                        </a>
+                                        <div class="card__content">
+                                            <h3 class="card__title">
+                                                <a href="#!">PostgreSQL chuyên sâu</a>
+                                            </h3>
+                                            <div class="card__price-wrapper">
+                                                <span class="card__price card__price--new">Liên hệ</span>
+                                            </div>
+                                            <div class="card__rating">
+                                                <span class="card__fresh-badge">Mới ra mắt</span>
+                                            </div>
 
-                                                <div class="card__bottom">
-                                                    <a
-                                                        href="https://f8.edu.vn/@hoanganf8"
-                                                        class="flex items-center"
-                                                        target="_blank"
-                                                        rel="noopener"
+                                            <div class="card__bottom">
+                                                <a
+                                                    href="https://f8.edu.vn/@hoanganf8"
+                                                    class="flex items-center"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                >
+                                                    <span
+                                                        class="user-avatar__thumb"
+                                                        style="--font-size: 2px; --border-scale: 1"
                                                     >
-                                                        <span
-                                                            class="user-avatar__thumb"
-                                                            style="--font-size: 2px; --border-scale: 1"
-                                                        >
-                                                            <img
-                                                                src="./assets/img/hoang-an-avatar.jpg"
-                                                                alt="Hoàng An"
-                                                                width="42"
-                                                                height="42"
-                                                                class="user-avatar__img"
-                                                            />
-                                                        </span>
-                                                        <div class="user-avatar__info">
-                                                            <span class="user-avatar__name">Hoàng An</span>
-                                                        </div>
-                                                    </a>
-                                                    <div class="card__badge">
                                                         <img
-                                                            src="./assets/img/crown.svg"
-                                                            alt=""
-                                                            class="card__badge-img"
+                                                            src="./assets/img/hoang-an-avatar.jpg"
+                                                            alt="Hoàng An"
+                                                            width="42"
+                                                            height="42"
+                                                            class="user-avatar__img"
                                                         />
+                                                    </span>
+                                                    <div class="user-avatar__info">
+                                                        <span class="user-avatar__name">Hoàng An</span>
                                                     </div>
+                                                </a>
+                                                <div class="card__badge">
+                                                    <img src="./assets/img/crown.svg" alt="" class="card__badge-img" />
                                                 </div>
                                             </div>
-                                        </article>
-                                    </div>
+                                        </div>
+                                    </article>
                                 </div>
                             </div>
                         </section>
@@ -3325,128 +3311,231 @@
 
         <!-- Begin Footer -->
         <footer
-            class="p-[6.8rem_10rem_4rem] text-[1.4rem] overflow-hidden text-[var(--footer-color)] bg-[var(--footer-bg)]"
+            class="p-[6.8rem_10rem_4rem] text-[1.4rem] overflow-hidden text-[var(--footer-color)] bg-[var(--footer-bg)] bg-[image:var(--footer-bg)]"
         >
-            <div class="footer__inner">
-                <div class="footer__top">
-                    <div class="container-fluid">
-                        <div class="row row-cols-lg-1 gy-lg-6">
-                            <div class="col col-3">
-                                <a href="./" class="flex items-center mb-[2rem]">
-                                    <div class="flex items-center justify-center shrink-none w-initial h-initial">
-                                        <img src="./assets/img/logo.jpg" alt="F8" class="logo__img footer-logo__img" />
-                                    </div>
-                                    <h2 class="logo__slogan footer-logo__slogan">Học lập trình để đi làm</h2>
-                                </a>
-                                <address class="footer__address footer__contact">
-                                    <ul class="footer__list">
-                                        <li><b>Điện thoại: </b><a href="tel:0819198989">08 1919 8989</a></li>
-                                        <li><b>Email: </b><a href="mailto:contact@f8.edu.vn">contact@f8.edu.vn</a></li>
-                                        <li><b>Địa chỉ liên hệ: </b>Số 1, ngõ 41, Trần Duy Hưng, Cầu Giấy, Hà Nội</li>
-                                    </ul>
-                                </address>
-                                <div class="footer__certification">
-                                    <a href="#!"><img src="./assets/img/dmca-protected.png" alt="" /></a>
-                                    <a href="#!"><img src="./assets/img/bo-cong-thuong.png" alt="" /></a>
-                                </div>
+            <div class="container-fluid">
+                <div class="row row-cols-lg-1 gy-lg-6">
+                    <div class="col col-3">
+                        <a href="./" class="flex items-center mb-[2rem]">
+                            <div class="flex items-center justify-center shrink-none w-initial h-initial">
+                                <img src="./assets/img/logo.jpg" alt="F8" class="size-[3.8rem] rounded-[0.8rem]" />
                             </div>
-                            <div class="col col-2">
-                                <h2 class="footer__heading">Về F8</h2>
-                                <ul class="footer__list">
-                                    <li>
-                                        <a href="#!" class="footer__link">Giới thiệu</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="footer__link">Liên hệ</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="footer__link">Điều khoản & Quy định</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="footer__link">Chính sách bảo mật</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col col-2">
-                                <h2 class="footer__heading">Hỗ trợ</h2>
-                                <ul class="footer__list">
-                                    <li>
-                                        <a href="#!" class="footer__link">Chính sách thanh toán</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="footer__link">Chính sách vận chuyển</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="footer__link">Chính sách kiểm hàng</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="footer__link">Quy định về giá</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col col-2">
-                                <h2 class="footer__heading">Công cụ</h2>
-                                <ul class="footer__list">
-                                    <li>
-                                        <a href="#!" class="footer__link">Tạo CV xin việc</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="footer__link">Rút gọn liên kết</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="footer__link">Clip-path maker</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="footer__link">Snippet generator</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="footer__link">CSS Grid generator</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="footer__link">Cảnh báo sờ tay lên mặt</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col col-3">
-                                <h2 class="footer__heading">CÔNG TY CỔ PHẦN CÔNG NGHỆ GIÁO DỤC F8</h2>
-                                <address class="footer__address">
-                                    <ul class="footer__list">
-                                        <li>
-                                            <b>Địa chỉ:</b> Tầng 4, Tòa nhà Anh Minh, số 36 Hoàng Cầu, Thành phố Hà Nội
-                                        </li>
-                                        <li>
-                                            <b>Mã số doanh nghiệp:</b> 0109922901 do Chi cục Thuế Quận Đống Đa, Cục Thuế
-                                            TP. Hà Nội cấp ngày 04/03/2022
-                                        </li>
-                                    </ul>
-                                </address>
-                            </div>
+                            <h2
+                                class="ml-[1rem] text-[1.6rem] font-[700] uppercase leading-[1.35] text-[var(--white-color)]"
+                            >
+                                Học lập trình để đi làm
+                            </h2>
+                        </a>
+                        <address class="pr-[2rem]">
+                            <ul class="leading-[1.8] text-[1.4rem] text-[var(--footer-list-color)]">
+                                <li class="py-[0.4rem] mb-0">
+                                    <b>Điện thoại: </b
+                                    ><a
+                                        class="transition-[color] duration-[0.2s] hover:text-[var(--white-color)]"
+                                        href="tel:0819198989"
+                                        >08 1919 8989</a
+                                    >
+                                </li>
+                                <li class="py-[0.4rem] mb-0">
+                                    <b>Email: </b
+                                    ><a
+                                        class="transition-[color] duration-[0.2s] hover:text-[var(--white-color)]"
+                                        href="mailto:contact@f8.edu.vn"
+                                        >contact@f8.edu.vn</a
+                                    >
+                                </li>
+                                <li class="py-[0.4rem] mb-0">
+                                    <b>Địa chỉ liên hệ: </b>Số 1, ngõ 41, Trần Duy Hưng, Cầu Giấy, Hà Nội
+                                </li>
+                            </ul>
+                        </address>
+                        <div class="flex flex-col gap-[1.2rem] mt-[2rem]">
+                            <a class="inline-flex items-center h-[4.6rem]" href="#!"
+                                ><img class="w-[12rem]" src="./assets/img/dmca-protected.png" alt=""
+                            /></a>
+                            <a class="inline-flex items-center h-[4.6rem]" href="#!"
+                                ><img class="w-[12rem]" src="./assets/img/bo-cong-thuong.png" alt=""
+                            /></a>
                         </div>
-                        <div class="row">
-                            <div class="col col-12">
-                                <div class="footer__bottom">
-                                    <p class="footer__copyright">
-                                        © 2018 - 2026 F8. Nền tảng học lập trình hàng đầu Việt Nam.
-                                    </p>
-                                    <ul class="socials">
-                                        <li>
-                                            <a href="#!" class="social__link social__link--youtube">
-                                                <i class="fa-brands fa-square-youtube"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#!" class="social__link social__link--facebook">
-                                                <i class="fa-brands fa-square-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#!" class="social__link social__link--tiktok">
-                                                <i class="fa-brands fa-tiktok"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="col col-2">
+                        <h2
+                            class="m-[1.2rem_0_1.6rem] text-[1.6rem] font-[700] leading-[1.6] uppercase text-[var(--white-color)]"
+                        >
+                            Về F8
+                        </h2>
+                        <ul class="leading-[1.8] text-[1.4rem] text-[var(--footer-list-color)]">
+                            <li class="py-[0.4rem] mb-[1rem]">
+                                <a
+                                    href="#!"
+                                    class="block transition-transform transiton-color duration-[0.2s] hover:text-[var(--white-color)] hover:translate-x-[0.4rem]"
+                                    >Giới thiệu</a
+                                >
+                            </li>
+                            <li class="py-[0.4rem] mb-[1rem]">
+                                <a
+                                    href="#!"
+                                    class="block transition-transform transiton-color duration-[0.2s] hover:text-[var(--white-color)] hover:translate-x-[0.4rem]"
+                                    >Liên hệ</a
+                                >
+                            </li>
+                            <li class="py-[0.4rem] mb-[1rem]">
+                                <a
+                                    href="#!"
+                                    class="block transition-transform transiton-color duration-[0.2s] hover:text-[var(--white-color)] hover:translate-x-[0.4rem]"
+                                    >Điều khoản & Quy định</a
+                                >
+                            </li>
+                            <li class="py-[0.4rem] mb-[1rem]">
+                                <a
+                                    href="#!"
+                                    class="block transition-transform transiton-color duration-[0.2s] hover:text-[var(--white-color)] hover:translate-x-[0.4rem]"
+                                    >Chính sách bảo mật</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col col-2">
+                        <h2
+                            class="m-[1.2rem_0_1.6rem] text-[1.6rem] font-[700] leading-[1.6] uppercase text-[var(--white-color)]"
+                        >
+                            Hỗ trợ
+                        </h2>
+                        <ul class="leading-[1.8] text-[1.4rem] text-[var(--footer-list-color)]">
+                            <li class="py-[0.4rem] mb-[1rem]">
+                                <a
+                                    href="#!"
+                                    class="block transition-transform transiton-color duration-[0.2s] hover:text-[var(--white-color)] hover:translate-x-[0.4rem]"
+                                    >Chính sách thanh toán</a
+                                >
+                            </li>
+                            <li class="py-[0.4rem] mb-[1rem]">
+                                <a
+                                    href="#!"
+                                    class="block transition-transform transiton-color duration-[0.2s] hover:text-[var(--white-color)] hover:translate-x-[0.4rem]"
+                                    >Chính sách vận chuyển</a
+                                >
+                            </li>
+                            <li class="py-[0.4rem] mb-[1rem]">
+                                <a
+                                    href="#!"
+                                    class="block transition-transform transiton-color duration-[0.2s] hover:text-[var(--white-color)] hover:translate-x-[0.4rem]"
+                                    >Chính sách kiểm hàng</a
+                                >
+                            </li>
+                            <li class="py-[0.4rem] mb-[1rem]">
+                                <a
+                                    href="#!"
+                                    class="block transition-transform transiton-color duration-[0.2s] hover:text-[var(--white-color)] hover:translate-x-[0.4rem]"
+                                    >Quy định về giá</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col col-2">
+                        <h2
+                            class="m-[1.2rem_0_1.6rem] text-[1.6rem] font-[700] leading-[1.6] uppercase text-[var(--white-color)]"
+                        >
+                            Công cụ
+                        </h2>
+                        <ul class="leading-[1.8] text-[1.4rem] text-[var(--footer-list-color)]">
+                            <li class="py-[0.4rem] mb-[1rem]">
+                                <a
+                                    href="#!"
+                                    class="block transition-transform transiton-color duration-[0.2s] hover:text-[var(--white-color)] hover:translate-x-[0.4rem]"
+                                    >Tạo CV xin việc</a
+                                >
+                            </li>
+                            <li class="py-[0.4rem] mb-[1rem]">
+                                <a
+                                    href="#!"
+                                    class="block transition-transform transiton-color duration-[0.2s] hover:text-[var(--white-color)] hover:translate-x-[0.4rem]"
+                                    >Rút gọn liên kết</a
+                                >
+                            </li>
+                            <li class="py-[0.4rem] mb-[1rem]">
+                                <a
+                                    href="#!"
+                                    class="block transition-transform transiton-color duration-[0.2s] hover:text-[var(--white-color)] hover:translate-x-[0.4rem]"
+                                    >Clip-path maker</a
+                                >
+                            </li>
+                            <li class="py-[0.4rem] mb-[1rem]">
+                                <a
+                                    href="#!"
+                                    class="block transition-transform transiton-color duration-[0.2s] hover:text-[var(--white-color)] hover:translate-x-[0.4rem]"
+                                    >Snippet generator</a
+                                >
+                            </li>
+                            <li class="py-[0.4rem] mb-[1rem]">
+                                <a
+                                    href="#!"
+                                    class="block transition-transform transiton-color duration-[0.2s] hover:text-[var(--white-color)] hover:translate-x-[0.4rem]"
+                                    >CSS Grid generator</a
+                                >
+                            </li>
+                            <li class="py-[0.4rem] mb-[1rem]">
+                                <a
+                                    href="#!"
+                                    class="block transition-transform transiton-color duration-[0.2s] hover:text-[var(--white-color)] hover:translate-x-[0.4rem]"
+                                    >Cảnh báo sờ tay lên mặt</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col col-3">
+                        <h2
+                            class="m-[1.2rem_0_1.6rem] text-[1.6rem] font-[700] leading-[1.6] uppercase text-[var(--white-color)]"
+                        >
+                            CÔNG TY CỔ PHẦN CÔNG NGHỆ GIÁO DỤC F8
+                        </h2>
+                        <address class="footer__address">
+                            <ul class="leading-[1.8] text-[1.4rem] text-[var(--footer-list-color)]">
+                                <li class="py-[0.4rem] mb-[1rem]">
+                                    <b>Địa chỉ:</b> Tầng 4, Tòa nhà Anh Minh, số 36 Hoàng Cầu, Thành phố Hà Nội
+                                </li>
+                                <li class="py-[0.4rem] mb-[1rem]">
+                                    <b>Mã số doanh nghiệp:</b> 0109922901 do Chi cục Thuế Quận Đống Đa, Cục Thuế TP. Hà
+                                    Nội cấp ngày 04/03/2022
+                                </li>
+                            </ul>
+                        </address>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-12">
+                        <div
+                            class="flex items-center justify-between flex-wrap mt-[4.8rem] pt-[2.4rem] border-t border-solid border-[var(--footer-bottom-border-color)]"
+                        >
+                            <p class="max-w-[80rem] opacity-[0.8] text-[1.3rem] leading-[1.6]">
+                                © 2018 - 2026 F8. Nền tảng học lập trình hàng đầu Việt Nam.
+                            </p>
+                            <ul class="flex items-center gap-[0.8rem]">
+                                <li>
+                                    <a
+                                        href="#!"
+                                        class="flex items-center justify-center size-[3.6rem] rounded-[0.6rem] text-[2rem] bg-[var(--social-link-bg)] transition-transform duration-[0.2s] hover:-translate-y-[0.2rem] text-[var(--youtube-color)]"
+                                    >
+                                        <i class="fa-brands fa-square-youtube"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#!"
+                                        class="flex items-center justify-center size-[3.6rem] rounded-[0.6rem] text-[2rem] bg-[var(--social-link-bg)] transition-transform duration-[0.2s] hover:-translate-y-[0.2rem] text-[var(--facebook-color)]"
+                                    >
+                                        <i class="fa-brands fa-square-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#!"
+                                        class="flex items-center justify-center size-[3.6rem] rounded-[0.6rem] text-[2rem] bg-[var(--social-link-bg)] transition-transform duration-[0.2s] hover:-translate-y-[0.2rem] text-[var(--tiktok-color)]"
+                                    >
+                                        <i class="fa-brands fa-tiktok"></i>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -3455,7 +3544,11 @@
         <!-- End Footer -->
 
         <!-- Begin Toggle Theme -->
-        <button id="switch-theme-btn" class="toggle-theme-btn" aria-label="Chuyển đổi giao diện sáng tối"></button>
+        <button
+            id="switch-theme-btn"
+            class="fixed bottom-[4rem] right-[1rem] z-2 flex items-center justify-center size-[4.6rem] text-[var(--primary-color)] bg-[var(--white-color)] shadow-[0_0_1.4rem_rgba(0,_0,_0,_0.3)] rounded-full select-none cursor-pointer dark:bg-[#ffffff1f] dark:border-2 dark:border-solid dark:border-[#ffffff30]"
+            aria-label="Chuyển đổi giao diện sáng tối"
+        ></button>
         <!-- End Toggle Theme -->
 
         <script>

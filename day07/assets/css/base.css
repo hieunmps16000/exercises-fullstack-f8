@@ -270,33 +270,6 @@ body {
     background: var(--separate-line);
 }
 
-.line-clamp {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.line-clamp-1 {
-    -webkit-line-clamp: 1;
-}
-
-.line-clamp-2 {
-    -webkit-line-clamp: 2;
-}
-
-.line-clamp-3 {
-    -webkit-line-clamp: 3;
-}
-
-.section-sub-heading {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    font-size: 1.4rem;
-    color: var(--section-sub-heading-color);
-    line-height: 1.5;
-}
-
 .btn {
     display: inline-flex;
     align-items: center;

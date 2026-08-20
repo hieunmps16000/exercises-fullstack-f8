@@ -27,7 +27,6 @@
         <link rel="stylesheet" href="./assets/css/grid.css" />
         <link rel="stylesheet" href="./assets/css/base.css" />
         <link rel="stylesheet" href="./assets/css/styles.css" />
-        <link rel="stylesheet" href="./assets/css/responsive.css" />
 
         <!-- Tailwind -->
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -35,21 +34,14 @@
         <style type="text/tailwindcss">
             @import "tailwindcss";
             @custom-variant dark (&:where(.dark, .dark *));
-
-            @theme {
-                --breakpoint-2xl: max-width 1535.98px;
-                --breakpoint-xl: max-width 1279.98px;
-                --breakpoint-lg: max-width 1023.93px;
-                --breakpoint-md: max-width 767.98px;
-                --breakpoint-sm: max-width 639.98px;
-            }
-
-            @utility navbar__link {
-                @apply hover:!text-[var(--navbar-link-hover-color)];
-            }
+            @custom-variant 2xl (@media (max-width: 1399.98px));
+            @custom-variant xl (@media (max-width: 1199.98px));
+            @custom-variant lg (@media (max-width: 991.98px));
+            @custom-variant md (@media (max-width: 767.98px));
+            @custom-variant sm (@media (max-width: 575.98px));
 
             @utility navbar__link--active {
-                @apply !bg-[var(--navbar-link-active-bg)];
+                @apply !bg-[var(--navbar-link-active-bg)] md:!bg-none;
             }
 
             @utility navbar__link--active {
@@ -86,7 +78,7 @@
             }
 
             @utility card__content {
-                @apply flex flex-col gap-[1.2rem] flex-1 px-[2rem] py-[1.6rem];
+                @apply flex flex-col gap-[1.2rem] flex-1 px-[2rem] py-[1.6rem] md:p-[1rem];
             }
 
             @utility card__title {
@@ -197,7 +189,7 @@
     <body>
         <!-- Begin Header -->
         <header
-            class="sticky top-0 left-0 z-[4] grid grid-cols-[minmax(16rem,1fr)_minmax(28rem,58rem)_minmax(16rem,1fr)] items-center gap-[1.8rem] w-full h-[6.6rem] px-[2.8rem] border-b border-[var(--header-border-color)] bg-[var(--header-bg-color)] backdrop-blur-[14px] backdrop-saturate-150"
+            class="sticky top-0 left-0 z-[4] grid grid-cols-[minmax(16rem,1fr)_minmax(28rem,58rem)_minmax(16rem,1fr)] items-center gap-[1.8rem] w-full h-[6.6rem] px-[2.8rem] border-b border-[var(--header-border-color)] bg-[var(--header-bg-color)] backdrop-blur-[14px] backdrop-saturate-150 md:flex md:gap-[0.6rem] md:px-[1rem]"
         >
             <!-- Logo -->
             <a href="./" class="flex items-center">
@@ -209,7 +201,7 @@
                     />
                 </div>
                 <h1
-                    class="ml-[1.2rem] px-[0.2rem] text-[1.4rem] font-[700] uppercase leading-[1.35] text-[var(--slogan-color)] d-lg-none"
+                    class="ml-[1.2rem] px-[0.2rem] text-[1.4rem] font-[700] uppercase leading-[1.35] text-[var(--slogan-color)] md:hidden"
                 >
                     Học lập trình để đi làm
                 </h1>
@@ -217,16 +209,16 @@
 
             <!-- Search -->
             <div
-                class="flex items-center gap-[0.4rem] w-[min(58rem,100%)] h-[5.2rem] p-[0.3rem] rounded-full border border-[var(--search-border-color)] bg-[image:var(--search-bg)]"
+                class="flex items-center gap-[0.4rem] w-[min(58rem,100%)] h-[5.2rem] p-[0.3rem] rounded-full border border-[var(--search-border-color)] bg-[image:var(--search-bg)] md:w-auto md:h-auto md:p-0 md:bg-none"
             >
                 <div class="group">
                     <button
-                        class="flex items-center gap-[0.8rem] min-w-[4.6rem] h-[4.6rem] px-[1.5rem] rounded-full text-[1.4rem] font-[700] text-[var(--search-category-color)] bg-[image:var(--search-category-bg)] cursor-pointer"
+                        class="flex items-center gap-[0.8rem] min-w-[4.6rem] h-[4.6rem] px-[1.5rem] rounded-full text-[1.4rem] font-[700] text-[var(--search-category-color)] bg-[image:var(--search-category-bg)] cursor-pointer whitespace-nowrap"
                     >
                         <i class="fa-solid fa-table-cells-large"></i> Danh mục
                     </button>
                     <div
-                        class="fixed top-[100%] left-[50%] pt-[0.2rem] w-[min(1040px,100vw-32px)] -translate-x-1/2 opacity-0 invisible transition-[opacity,visibility] duration-200 group-hover:opacity-100 group-hover:visible d-md-none"
+                        class="fixed top-[100%] left-[50%] pt-[0.2rem] w-[min(1040px,100vw-32px)] -translate-x-1/2 opacity-0 invisible transition-[opacity,visibility] duration-200 group-hover:opacity-100 group-hover:visible md:hidden"
                     >
                         <div
                             class="relative border border-[var(--cate-menu-border-color)] rounded-[1.8rem] bg-[var(--cate-menu-bg)] shadow-[0_2.4rem_6rem_var(--cate-menu-shadow-color)] overflow-hidden"
@@ -281,7 +273,7 @@
                     </div>
                 </div>
                 <div
-                    class="flex flex-1 items-center h-full p-[0_0.8rem_0_1rem] rounded-full focus-within:bg-[var(--search-input-focus-bg)] d-md-none"
+                    class="flex flex-1 items-center h-full p-[0_0.8rem_0_1rem] rounded-full focus-within:bg-[var(--search-input-focus-bg)] md:hidden"
                 >
                     <div
                         class="flex items-center justify-center shrink-none size-[3.2rem] text-[1.8rem] text-[var(--search-icon-color)] opacity-[0.72] transition-[opacity] duration-[0.2s]"
@@ -297,7 +289,7 @@
             </div>
 
             <!-- Header actions -->
-            <div class="flex items-center gap-[1rem] ml-auto">
+            <div class="flex items-center gap-[1rem] ml-auto md:gap-0">
                 <button
                     class="flex items-center justify-center size-[4.4rem] rounded-full text-[var(--header-act-color)] font-[1.8rem] transtion-[color_background-color] duration-[0.25s] d-none d-md-flex"
                     title="Tìm kiếm"
@@ -318,7 +310,7 @@
                     <i class="fa-classic fa-solid fa-bell"></i>
                 </button>
                 <button
-                    class="flex items-center justify-center size-[4.4rem] rounded-full text-[var(--header-act-color)] text-[1.8rem] transition-[color,background-color] duration-[0.25s] cursor-pointer hover:text-[var(--header-act-hover-color)] hover:bg-[var(--header-act-hover-bg)] user-avatar d-md-none"
+                    class="flex items-center justify-center size-[4.4rem] rounded-full text-[var(--header-act-color)] text-[1.8rem] transition-[color,background-color] duration-[0.25s] cursor-pointer hover:text-[var(--header-act-hover-color)] hover:bg-[var(--header-act-hover-bg)] user-avatar d-md-none md:hidden"
                     aria-label="Mở menu tài khoản"
                 >
                     <span style="--font-size: 3.2px; --border-scale: 1" class="user-avatar__thumb">
@@ -337,21 +329,24 @@
 
         <div class="flex items-start">
             <!-- Begin Navbar -->
-            <nav class="sticky top-[8rem] left-0 mb-[1.6rem] z-3 rounded-[1rem] bg-[var(--navbar-bg)] d-md-none">
-                <ul class="flex flex-col items-center gap-y-[0.4rem] px-[0.8rem] w-[9.6rem]">
+            <nav class="sticky top-[8rem] left-0 mb-[1.6rem] z-3 rounded-[1rem] bg-[var(--navbar-bg)] md:fixed md:top-auto md:bottom-0 md:right-0 md:mb-0 md:rounded-none">
+                <ul class="flex flex-col items-center gap-y-[0.4rem] px-[0.8rem] w-[9.6rem] md:flex-row justify-evenly w-full md:p-[0.5rem]">
                     <li>
                         <a
                             href="#!"
-                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)] navbar__link--active"
+                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)] 
+                            md:w-auto md:min-w-[4.6rem] md:h-[6rem] md:p-[0.5rem] md:rounded-[1rem]
+                            md:text-[var(--primary-color)]
+                            navbar__link--active"
                         >
-                            <i class="fa-solid fa-house text-[1.8rem]"></i>
+                            <i class="fa-solid fa-house text-[1.8rem] md:text-[var(--primary-color)]"></i>
                             <span class="mt-[0.8rem] text-[1.1rem] font-[600]">Trang chủ</span></a
                         >
                     </li>
                     <li>
                         <a
                             href="#!"
-                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)]"
+                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)] md:w-auto md:min-w-[4.6rem] md:h-[6rem]"
                         >
                             <i class="fa-solid fa-road text-[1.8rem]"></i>
                             <span class="mt-[0.8rem] text-[1.1rem] font-[600]">Lộ trình</span>
@@ -360,7 +355,7 @@
                     <li>
                         <a
                             href="#!"
-                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)]"
+                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)] md:w-auto md:min-w-[4.6rem] md:h-[6rem]"
                         >
                             <i class="fa-solid fa-newspaper text-[1.8rem]"></i>
                             <span class="mt-[0.8rem] text-[1.1rem] font-[600]">Bài viết</span>
@@ -369,7 +364,7 @@
                     <li>
                         <a
                             href="#!"
-                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)]"
+                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)] md:w-auto md:min-w-[4.6rem] md:h-[6rem]"
                         >
                             <i class="fa-solid fa-bullhorn text-[1.8rem]"></i>
                             <span class="mt-[0.8rem] text-[1.1rem] font-[600]">Bản tin</span>
@@ -378,7 +373,7 @@
                     <li>
                         <a
                             href="#!"
-                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)]"
+                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)] md:w-auto md:min-w-[4.6rem] md:h-[6rem]"
                         >
                             <i class="fa-solid fa-comments text-[1.8rem]"></i>
                             <span class="mt-[0.8rem] text-[1.1rem] font-[600]">Hỏi đáp</span>
@@ -387,7 +382,7 @@
                     <li>
                         <a
                             href="#!"
-                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)]"
+                            class="flex flex-col items-center justify-center size-[7.2rem] text-center text-[var(--navbar-link-color)] bg-[var(--navbar-link-bg)] rounded-[1.6rem] select-none transition-[color,background-color] duration-[0.25s] hover:text-[var(--navbar-link-hover-color)] hover:bg-[var(--navbar-link-hover-bg)] md:w-auto md:min-w-[4.6rem] md:h-[6rem]"
                         >
                             <i class="fa-solid fa-clipboard-list text-[1.8rem]"></i>
                             <span class="mt-[0.8rem] text-[1.1rem] font-[600]">Bài tập</span>
@@ -398,58 +393,52 @@
             <!-- End Navbar -->
 
             <!-- Begin Main -->
-            <main class="flex-1 pl-[1rem] pr-[3.2rem]">
+            <main class="flex-1 pl-[1rem] pr-[3.2rem] md:px-[0.6rem] w-full">
                 <div class="container-fluid">
                     <!-- Begin Continue Learning -->
                     <div
-                        class="flex items-center justify-center flex-wrap gap-y-[1.2rem] my-[1.8rem] px-[1.6rem] py-[1.2rem] rounded-[1.6rem] border border-[var(--progress-box-border-color)] bg-[var(--progress-box-bg)] transition-[box-shadow] duration-[0.25s] hover:shadow-[0_4px_16px_var(--progress-box-hover)]"
+                        class="flex items-center flex-wrap gap-[1.2rem_1.6rem] my-[1.8rem] px-[1.6rem] py-[1.2rem] rounded-[1.6rem] border border-[var(--progress-box-border-color)] bg-[var(--progress-box-bg)] transition-[box-shadow] duration-[0.25s] hover:shadow-[0_4px_16px_var(--progress-box-hover)]"
                     >
-                        <div class="flex-1 flex items-center">
-                            <span class="text-[1.5rem] font-[700] text-[var(--progress-box-color)] leading-[1.2]"
-                                >17%</span
+                        <span class="shrink-0 pr-[1.6rem] border-r border-solid border-[var(--border-color)] text-[1.5rem] font-[700] text-[var(--progress-box-color)] leading-[1.2]">17%</span>
+                        <div class="mr-auto">
+                            <span class="text-[var(--progress-box-title-color)] text-[1.5rem] font-[700] leading-[1.4]"
+                                >Fullstack Web</span
                             >
-                            <span class="separate-line"></span>
-                            <div class="flex-1">
-                                <span
-                                    class="text-[var(--progress-box-title-color)] text-[1.5rem] font-[700] leading-[1.4]"
-                                    >Fullstack Web</span
+                            <div class="flex items-center flex-wrap gap-[0.8rem] mt-[0.4rem]">
+                                <span class="text-[1.3rem] text-[var(--progress-box-text-color)] leading-[1.4]"
+                                    >Bài tiếp: Bài học tiếp theo</span
                                 >
-                                <div class="flex items-center flex-wrap gap-[0.8rem] mt-[0.4rem]">
-                                    <span class="text-[1.3rem] text-[var(--progress-box-text-color)] leading-[1.4]"
-                                        >Bài tiếp: Bài học tiếp theo</span
-                                    >
-                                    <span class="separate-dot"></span>
-                                    <a href="#!" class="text-[1.2rem] font-[500] text-[var(--progress-box-color)]"
-                                        >1/5 khóa học</a
-                                    >
-                                    <span class="separate-dot"></span>
-                                    <span
-                                        class="px-[0.8rem] py-[0.2rem] text-[1.1rem] font-[600] rounded-full text-[#047857] bg-[#d1fae5]"
-                                        >Chuỗi 1 ngày</span
-                                    >
-                                </div>
+                                <span class="separate-dot"></span>
+                                <a href="#!" class="text-[1.2rem] font-[500] text-[var(--progress-box-color)]"
+                                    >1/5 khóa học</a
+                                >
+                                <span class="separate-dot"></span>
+                                <span
+                                    class="px-[0.8rem] py-[0.2rem] text-[1.1rem] font-[600] rounded-full text-[#047857] bg-[#d1fae5]"
+                                    >Chuỗi 1 ngày</span
+                                >
                             </div>
                         </div>
-                        <a href="#!" class="btn btn--primary !h-[3.4rem] rounded-[2.4rem] bg-[var(--primary-color)]"
+                        <a href="#!" class="btn btn--primary !h-[3.4rem] rounded-[2.4rem] bg-[var(--primary-color)] md:flex-1 md:!rounded-[1rem] md:!h-[3.6rem]"
                             >Tiếp tục học</a
                         >
                     </div>
                     <!-- End Continue Learning -->
 
                     <!-- Begin Story -->
-                    <section class="my-[0.8rem] px-[4.4rem]">
+                    <section class="my-[0.8rem] px-[4.4rem] md:px-0">
                         <h2
                             class="mb-[0.75rem] px-[0.2rem] text-[1.7rem] font-[700] text-[var(--story-section-heading-color)]"
                         >
                             Tin
                         </h2>
                         <div
-                            class="flex gap-[1.2rem] -mx-[0.2rem] p-[0.4rem_0.2rem_1.2rem] overflow-x-auto snap-x snap-mandatory"
+                            class="flex gap-[1.2rem] -mx-[0.2rem] p-[0.4rem_0.2rem_1.2rem] overflow-x-auto snap-x snap-mandatory md:w-full"
                         >
                             <!-- Story card 01 -->
                             <button type="button" class="flex-none snap-start cursor-pointer">
                                 <span
-                                    class="relative block w-[12rem] h-[21.33rem] rounded-[1.2rem] overflow-hidden bg-cover bg-[50%] after:content-[''] after:absolute after:inset-0 after:bg-[image:var(--story-card-content-overlay-bg)]"
+                                    class="relative block w-[12rem] h-[21.33rem] rounded-[1.2rem] overflow-hidden bg-cover bg-[50%] after:content-[''] after:absolute after:inset-0 after:bg-[image:var(--story-card-content-overlay-bg)] md:w-[9rem] md:h-[16rem]"
                                     style="background-image: url(./assets/img/story-img-1.jpg)"
                                 >
                                     <span
@@ -471,7 +460,9 @@
                                         </svg>
                                     </span>
                                 </span>
-                                <span class="flex items-center justify-center gap-[0.6rem] mt-[0.6rem] max-w-[12rem]">
+                                <span
+                                    class="flex items-center justify-center gap-[0.6rem] mt-[0.6rem] max-w-[12rem] md:w-[9rem]"
+                                >
                                     <span
                                         class="text-[1.3rem] font-[600] leading-[1.25] text-[var(--story-card-title-color)] line-clamp-1"
                                         >Tạo tin</span
@@ -482,7 +473,7 @@
                             <!-- Story card 02 -->
                             <button type="button" class="flex-none snap-start cursor-pointer">
                                 <span
-                                    class="relative block w-[12rem] h-[21.33rem] rounded-[1.2rem] overflow-hidden bg-cover bg-[50%] after:content-[''] after:absolute after:inset-0 after:bg-[image:var(--story-card-content-overlay-bg)]"
+                                    class="relative block w-[12rem] h-[21.33rem] rounded-[1.2rem] overflow-hidden bg-cover bg-[50%] after:content-[''] after:absolute after:inset-0 after:bg-[image:var(--story-card-content-overlay-bg)] md:w-[9rem] md:h-[16rem]"
                                     style="background-image: url(./assets/img/story-img-2.jpg)"
                                 >
                                     <span
@@ -495,7 +486,9 @@
                                         />
                                     </span>
                                 </span>
-                                <span class="flex items-center justify-center gap-[0.6rem] mt-[0.6rem] max-w-[12rem]">
+                                <span
+                                    class="flex items-center justify-center gap-[0.6rem] mt-[0.6rem] max-w-[12rem] md:w-[9rem]"
+                                >
                                     <span
                                         class="text-[1.3rem] font-[600] leading-[1.25] text-[var(--story-card-title-color)] line-clamp-1"
                                         title="Nga Trần Phương"
@@ -510,7 +503,7 @@
                             <!-- Story card 03 -->
                             <button type="button" class="flex-none snap-start cursor-pointer">
                                 <span
-                                    class="relative block w-[12rem] h-[21.33rem] rounded-[1.2rem] overflow-hidden bg-cover bg-[50%] after:content-[''] after:absolute after:inset-0 after:bg-[image:var(--story-card-content-overlay-bg)]"
+                                    class="relative block w-[12rem] h-[21.33rem] rounded-[1.2rem] overflow-hidden bg-cover bg-[50%] after:content-[''] after:absolute after:inset-0 after:bg-[image:var(--story-card-content-overlay-bg)] md:w-[9rem] md:h-[16rem]"
                                     style="background-image: url(./assets/img/story-img-3.jpg)"
                                 >
                                     <span
@@ -523,7 +516,9 @@
                                         />
                                     </span>
                                 </span>
-                                <span class="flex items-center justify-center gap-[0.6rem] mt-[0.6rem] max-w-[12rem]">
+                                <span
+                                    class="flex items-center justify-center gap-[0.6rem] mt-[0.6rem] max-w-[12rem] md:w-[9rem]"
+                                >
                                     <span
                                         class="text-[1.3rem] font-[600] leading-[1.25] text-[var(--story-card-title-color)] line-clamp-1"
                                         >Mỹ Anh Đỗ</span
@@ -537,7 +532,7 @@
                             <!-- Story card 04 -->
                             <button type="button" class="flex-none snap-start cursor-pointer">
                                 <span
-                                    class="relative block w-[12rem] h-[21.33rem] rounded-[1.2rem] overflow-hidden bg-cover bg-[50%] after:content-[''] after:absolute after:inset-0 after:bg-[image:var(--story-card-content-overlay-bg)]"
+                                    class="relative block w-[12rem] h-[21.33rem] rounded-[1.2rem] overflow-hidden bg-cover bg-[50%] after:content-[''] after:absolute after:inset-0 after:bg-[image:var(--story-card-content-overlay-bg)] md:w-[9rem] md:h-[16rem]"
                                     style="background-image: url(./assets/img/story-img-4.jpg)"
                                 >
                                     <span
@@ -550,7 +545,9 @@
                                         />
                                     </span>
                                 </span>
-                                <span class="flex items-center justify-center gap-[0.6rem] mt-[0.6rem] max-w-[12rem]">
+                                <span
+                                    class="flex items-center justify-center gap-[0.6rem] mt-[0.6rem] max-w-[12rem] md:w-[9rem]"
+                                >
                                     <span
                                         class="text-[1.3rem] font-[600] leading-[1.25] text-[var(--story-card-title-color)] line-clamp-1"
                                         >Tây Du Code</span
@@ -860,7 +857,7 @@
                                         height="24"
                                     />
                                 </div>
-                                <span><strong>+470.46</strong> học viên đã tham gia</span>
+                                <span class="mt-[0.3rem]"><strong>+470.46</strong> học viên đã tham gia</span>
                             </div>
                             <h2 class="flex items-center min-h-[4.6rem] m-[1.6rem_auto_2.8rem_0]">
                                 <span
@@ -3311,12 +3308,12 @@
 
         <!-- Begin Footer -->
         <footer
-            class="p-[6.8rem_10rem_4rem] text-[1.4rem] overflow-hidden text-[var(--footer-color)] bg-[var(--footer-bg)] bg-[image:var(--footer-bg)]"
+            class="p-[6.8rem_10rem_4rem] text-[1.4rem] overflow-hidden text-[var(--footer-color)] bg-[var(--footer-bg)] bg-[image:var(--footer-bg)] md:p-[3rem_1.6rem_12rem] md:text-center"
         >
             <div class="container-fluid">
                 <div class="row row-cols-lg-1 gy-lg-6">
                     <div class="col col-3">
-                        <a href="./" class="flex items-center mb-[2rem]">
+                        <a href="./" class="flex items-center justify-center mb-[2rem]">
                             <div class="flex items-center justify-center shrink-none w-initial h-initial">
                                 <img src="./assets/img/logo.jpg" alt="F8" class="size-[3.8rem] rounded-[0.8rem]" />
                             </div>
@@ -3350,10 +3347,10 @@
                             </ul>
                         </address>
                         <div class="flex flex-col gap-[1.2rem] mt-[2rem]">
-                            <a class="inline-flex items-center h-[4.6rem]" href="#!"
+                            <a class="flex items-center h-[4.6rem] md:justify-center" href="#!"
                                 ><img class="w-[12rem]" src="./assets/img/dmca-protected.png" alt=""
                             /></a>
-                            <a class="inline-flex items-center h-[4.6rem]" href="#!"
+                            <a class="flex items-center h-[4.6rem] md:justify-center" href="#!"
                                 ><img class="w-[12rem]" src="./assets/img/bo-cong-thuong.png" alt=""
                             /></a>
                         </div>
@@ -3505,7 +3502,7 @@
                 <div class="row">
                     <div class="col col-12">
                         <div
-                            class="flex items-center justify-between flex-wrap mt-[4.8rem] pt-[2.4rem] border-t border-solid border-[var(--footer-bottom-border-color)]"
+                            class="flex items-center justify-between gap-[1.6rem] mt-[4.8rem] pt-[2.4rem] border-t border-solid border-[var(--footer-bottom-border-color)] md:flex-col-reverse md:justify-center "
                         >
                             <p class="max-w-[80rem] opacity-[0.8] text-[1.3rem] leading-[1.6]">
                                 © 2018 - 2026 F8. Nền tảng học lập trình hàng đầu Việt Nam.
@@ -3514,7 +3511,7 @@
                                 <li>
                                     <a
                                         href="#!"
-                                        class="flex items-center justify-center size-[3.6rem] rounded-[0.6rem] text-[2rem] bg-[var(--social-link-bg)] transition-transform duration-[0.2s] hover:-translate-y-[0.2rem] text-[var(--youtube-color)]"
+                                        class="flex items-center justify-center size-[3.6rem] rounded-[0.6rem] text-[2rem] bg-[var(--social-link-bg)] transition-transform duration-[0.2s] hover:-translate-y-[0.2rem] text-[var(--youtube-color)] md:size-[4.6rem]"
                                     >
                                         <i class="fa-brands fa-square-youtube"></i>
                                     </a>
@@ -3522,7 +3519,7 @@
                                 <li>
                                     <a
                                         href="#!"
-                                        class="flex items-center justify-center size-[3.6rem] rounded-[0.6rem] text-[2rem] bg-[var(--social-link-bg)] transition-transform duration-[0.2s] hover:-translate-y-[0.2rem] text-[var(--facebook-color)]"
+                                        class="flex items-center justify-center size-[3.6rem] rounded-[0.6rem] text-[2rem] bg-[var(--social-link-bg)] transition-transform duration-[0.2s] hover:-translate-y-[0.2rem] text-[var(--facebook-color)] md:size-[4.6rem]"
                                     >
                                         <i class="fa-brands fa-square-facebook"></i>
                                     </a>
@@ -3530,7 +3527,7 @@
                                 <li>
                                     <a
                                         href="#!"
-                                        class="flex items-center justify-center size-[3.6rem] rounded-[0.6rem] text-[2rem] bg-[var(--social-link-bg)] transition-transform duration-[0.2s] hover:-translate-y-[0.2rem] text-[var(--tiktok-color)]"
+                                        class="flex items-center justify-center size-[3.6rem] rounded-[0.6rem] text-[2rem] bg-[var(--social-link-bg)] transition-transform duration-[0.2s] hover:-translate-y-[0.2rem] text-[var(--tiktok-color)] md:size-[4.6rem]"
                                     >
                                         <i class="fa-brands fa-tiktok"></i>
                                     </a>
@@ -3546,7 +3543,7 @@
         <!-- Begin Toggle Theme -->
         <button
             id="switch-theme-btn"
-            class="fixed bottom-[4rem] right-[1rem] z-2 flex items-center justify-center size-[4.6rem] text-[var(--primary-color)] bg-[var(--white-color)] shadow-[0_0_1.4rem_rgba(0,_0,_0,_0.3)] rounded-full select-none cursor-pointer dark:bg-[#ffffff1f] dark:border-2 dark:border-solid dark:border-[#ffffff30]"
+            class="fixed bottom-[4rem] right-[1rem] z-2 flex items-center justify-center size-[4.6rem] text-[var(--primary-color)] bg-[var(--white-color)] shadow-[0_0_1.4rem_rgba(0,_0,_0,_0.3)] rounded-full select-none cursor-pointer dark:bg-[#ffffff1f] dark:border-2 dark:border-solid dark:border-[#ffffff30] md:bottom-[10rem]"
             aria-label="Chuyển đổi giao diện sáng tối"
         ></button>
         <!-- End Toggle Theme -->

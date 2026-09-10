@@ -1,0 +1,252 @@
+.section-heading {
+    margin-bottom: 30px;
+    font-size: 2.4rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.wrapper {
+    padding-left: 30px;
+}
+
+.tab-wrapper {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+}
+
+.tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: calc(100vh - 60px);
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tabs a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    font-weight: 500;
+    padding: 10px;
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.tabs a i {
+    font-size: 2.2rem;
+}
+
+.tabs a,
+.panels {
+    border-radius: 10px;
+}
+
+.tabzy--active a {
+    color: #df0ced;
+    background: rgba(140, 4, 149, 0.4);
+}
+
+.form__grading-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.box {
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    border: 1px solid #df0ced;
+}
+
+.form__group ~ .form__group {
+    margin-top: 20px;
+}
+
+.form__group.form__group--last {
+    margin-top: 30px;
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 10px;
+    user-select: none;
+}
+
+.form__input {
+    display: block;
+    width: 100%;
+    height: 46px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.form__input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form__input:focus {
+    border: 1px solid #df0ced;
+}
+
+.form__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 46px;
+    padding: 0 30px;
+    border-radius: 8px;
+    color: #fff;
+    background: #df0ced;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.form__submit:hover {
+    opacity: 0.9;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.breadcrumb {
+    margin-bottom: 20px;
+    padding: 0 30px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.breadcrumb ul,
+.breadcrumb li {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb li {
+    opacity: 0.5;
+}
+
+.breadcrumb li.active {
+    opacity: 1;
+}
+
+.breadcrumb__separeate {
+    display: block;
+    width: 1px;
+    height: 12px;
+    background: #fff;
+    opacity: 0.5;
+    margin: 0 10px;
+}
+
+.box__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.result-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.result-card--row {
+    flex-direction: row;
+    text-align: left;
+}
+
+.result-card__label {
+    font-size: 1.8rem;
+}
+
+.result-card__value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 108px;
+    margin: 10px 0;
+    line-height: 1.3;
+    font-size: 5.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: transparent;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(180deg, #e0f2fe 0%, #df0ced 50%, #38bafd 100%);
+    filter: drop-shadow(0px 0px 14px rgba(56, 189, 248, 0.5));
+}
+
+.result-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 12px;
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.result-card__badge {
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.result-card__desc {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.taxi-fare__desc {
+    line-height: 2.2;
+}
+
+.highlight {
+    padding: 2px 4px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 991.98px) {
+    .tab-wrapper,
+    .form__grading-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .tabs {
+        flex-direction: row;
+        min-height: initial;
+    }
+
+    .wrapper {
+        padding-left: 0;
+    }
+}

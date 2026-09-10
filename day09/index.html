@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Day 09 - Nguyễn Minh Hiếu - Bài tập khóa học Fullstack online F8</title>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="../assets/img/favicon-default.jpg" type="image/x-icon" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../assets/css/reset.css" />
+        <link rel="stylesheet" href="../assets/css/styles.css" />
+        <link rel="stylesheet" href="./assets/css/styles.css" />
+
+        <!-- Fontawesome -->
+        <script src="https://kit.fontawesome.com/0c9b48e69b.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- Begin Main -->
+        <main class="main">
+            <div class="container">
+                <div class="tab-wrapper">
+                    <ul id="tabs" class="tabs">
+                        <li>
+                            <a href="#tab1"><i class="fa-solid fa-ranking-star"></i>Bài 1</a>
+                        </li>
+                        <li>
+                            <a href="#tab2"><i class="fa-solid fa-calendar"></i>Bài 2</a>
+                        </li>
+                        <li>
+                            <a href="#tab3"><i class="fa-solid fa-taxi"></i>Bài 3</a>
+                        </li>
+                    </ul>
+                    <div class="panels">
+                        <div id="tab1">
+                            <nav class="breadcrumb">
+                                <ul>
+                                    <li>Buổi 09</li>
+                                    <li class="active">
+                                        <span class="breadcrumb__separeate"></span>
+                                        Bài 1: Hệ thống tính điểm và xếp loại học sinh
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="wrapper">
+                                <div class="form__grading-wrapper">
+                                    <form id="form-score" class="form box">
+                                        <h2 class="section-heading">Nhập điểm học sinh</h2>
+                                        <div class="form__group">
+                                            <label for="math" class="form__label">Điểm môn toán</label>
+                                            <input
+                                                id="math"
+                                                class="form__input"
+                                                type="text"
+                                                inputmode="decimal"
+                                                placeholder="Nhập điểm môn Toán"
+                                            />
+                                        </div>
+                                        <div class="form__group">
+                                            <label for="literature" class="form__label">Điểm môn văn </label>
+                                            <input
+                                                id="literature"
+                                                class="form__input"
+                                                type="text"
+                                                placeholder="Nhập điểm môn Văn"
+                                            />
+                                        </div>
+                                        <div class="form__group">
+                                            <label for="english" class="form__label">Điểm môn Anh </label>
+                                            <input
+                                                id="english"
+                                                class="form__input"
+                                                type="text"
+                                                placeholder="Nhập điểm môn Anh"
+                                            />
+                                        </div>
+                                        <div class="form__group form__group--last">
+                                            <button id="js-submit-btn" class="form__submit">Tính điểm</button>
+                                        </div>
+                                    </form>
+                                    <div class="box">
+                                        <h2 class="section-heading">Kết quả đánh giá</h2>
+                                        <div class="box__row">
+                                            <article class="result-card">
+                                                <h3 class="result-card__label">Điểm trung bình (GPA)</h3>
+                                                <span id="avg-score" class="result-card__value">0</span>
+                                                <p class="result-card__badge">Toán, Văn, Anh</p>
+                                            </article>
+                                            <article class="result-card">
+                                                <h3 class="result-card__label">Học lực</h3>
+                                                <div id="rank" class="result-card__value">?</div>
+                                                <p class="result-card__rank">Đánh giá theo GPA</p>
+                                            </article>
+                                            <article class="result-card result-card--row">
+                                                <div class="result-card__icon"><i class="fa-solid fa-book"></i></div>
+                                                <div>
+                                                    <h3 class="result-card__badge">Số môn học</h3>
+                                                    <p class="result-card__desc">3 Môn</p>
+                                                </div>
+                                            </article>
+                                            <article class="result-card result-card--row">
+                                                <div class="result-card__icon">
+                                                    <i class="fa-solid fa-bullseye"></i>
+                                                </div>
+                                                <div>
+                                                    <h3 class="result-card__badge">Thang điểm</h3>
+                                                    <p class="result-card__desc">10</p>
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab2">
+                            <nav class="breadcrumb">
+                                <ul>
+                                    <li>Buổi 09</li>
+                                    <li class="active">
+                                        <span class="breadcrumb__separeate"></span>
+                                        Bài 2: Chuyển đổi số sang ngày trong tuần
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="wrapper">
+                                <div class="form__grading-wrapper">
+                                    <form id="form-covert" class="form box">
+                                        <h2 class="section-heading">Nhập số</h2>
+                                        <div class="form__group">
+                                            <label for="input-day" class="form__label">Nhập số từ 1 đến 7</label>
+                                            <input
+                                                id="input-day"
+                                                class="form__input"
+                                                type="text"
+                                                placeholder="Ví dụ: 5"
+                                            />
+                                        </div>
+                                        <div class="form__group form__group--last">
+                                            <button id="js-submit-btn" class="form__submit">Chuyển đổi</button>
+                                        </div>
+                                    </form>
+                                    <div class="box">
+                                        <h2 class="section-heading">Kết quả chuyển đổi</h2>
+                                        <div class="box__row" style="grid-template-columns: 1fr">
+                                            <article class="result-card">
+                                                <h3 class="result-card__label">Ngày trong tuần</h3>
+                                                <span
+                                                    id="day-value"
+                                                    class="result-card__value"
+                                                    style="min-height: initial"
+                                                    >?</span
+                                                >
+                                            </article>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab3">
+                            <nav class="breadcrumb">
+                                <ul>
+                                    <li>Buổi 09</li>
+                                    <li class="active">
+                                        <span class="breadcrumb__separeate"></span>
+                                        <a href="">Bài 3: Tính tiền cước Taxi</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="wrapper">
+                                <div class="form__grading-wrapper">
+                                    <div class="box" style="grid-column: 1 / -1">
+                                        <div class="taxi-fare__desc">
+                                            <p>
+                                                Giá mở cửa, áp dụng cho <span class="highlight">1 km</span> đầu tiên:
+                                                <span class="highlight">15.000 VNĐ</span>.
+                                            </p>
+                                            <p>
+                                                Từ km thứ <span class="highlight">2</span> đến km thứ
+                                                <span class="highlight">5</span>:
+                                                <span class="highlight">13.500 VNĐ / km.</span>
+                                            </p>
+                                            <p>
+                                                Từ km thứ <span class="highlight">6</span> trở đi:
+                                                <span class="highlight">11.000 VNĐ / km</span>.
+                                            </p>
+                                            <p>
+                                                Nếu đi trên <span class="highlight">12 km</span>, tổng tiền cước được
+                                                giảm <span class="highlight">10%</span>.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <form id="form-taxi-fare" class="form box">
+                                        <h2 class="section-heading">Nhập số km đi được</h2>
+                                        <div class="form__group">
+                                            <label for="input-taxi-distance" class="form__label">Số km</label>
+                                            <input
+                                                id="input-taxi-distance"
+                                                class="form__input"
+                                                type="text"
+                                                placeholder="Ví dụ: 2.8"
+                                            />
+                                        </div>
+                                        <div class="form__group form__group--last">
+                                            <button id="js-submit-btn" class="form__submit">Tính tiền</button>
+                                        </div>
+                                    </form>
+                                    <div class="box">
+                                        <h2 class="section-heading">Thông tin chi phí</h2>
+                                        <div class="box__row" style="grid-template-columns: 1fr">
+                                            <article class="result-card">
+                                                <span
+                                                    id="taxi-fare-total"
+                                                    class="result-card__value"
+                                                    style="min-height: initial"
+                                                    >?</span
+                                                >
+                                            </article>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- End Main -->
+
+        <!-- Tabzy -->
+        <script src="./assets/vendor/tabzy.js"></script>
+        <script>
+            const myTab = new Tabzy("#tabs", {
+                remember: true,
+            });
+        </script>
+
+        <!-- Scripts -->
+        <script src="./assets/js/task1.js"></script>
+        <script src="./assets/js/task2.js"></script>
+        <script src="./assets/js/task3.js"></script>
+    </body>
+</html>

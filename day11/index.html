@@ -4,8 +4,31 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Buổi 11 - Nguyễn Minh Hiếu - Bài tập khóa học Fullstack online F8</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script src="https://kit.fontawesome.com/0c9b48e69b.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./assets/css/styles.css" />
     </head>
-    <body>
-        <script src="./scripts.js"></script>
+    <body class="min-h-[100vh] my-[30px] text-[#d1d5dc]">
+        <div class="w-[600px] mx-auto">
+            <h2 class="font-[800] text-[24px] text-white">Giỏ hàng</h2>
+            <table class="table mt-[30px]">
+                <thead>
+                    <tr class="text-white">
+                        <th>Tên</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                    </tr>
+                </thead>
+                <tbody class="js-cart-table"></tbody>
+            </table>
+            <h2 class="mt-[60px] font-[800] text-[24px] text-white">Hóa đơn</h2>
+            <table class="table mt-[30px]">
+                <tbody class="js-bill-table"></tbody>
+            </table>
+            <div class="js-total-bill mt-[30px] text-right"></div>
+        </div>
+        <script src="./assets/js/scripts.js"></script>
+        <script src="./assets/js/render.js"></script>
     </body>
 </html>

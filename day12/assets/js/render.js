@@ -103,7 +103,6 @@ function handleSort() {
             } else {
                 renderProducts(getSortedProducts(products, type));
             }
-            renderTotalPrice(products);
         });
     });
 }

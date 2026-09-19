@@ -11,20 +11,18 @@ const products = [
     { id: 5, name: "AirPods Pro", price: 6000000, category: "Phụ kiện" },
     { id: 6, name: "Apple Watch", price: 9000000, category: "Phụ kiện" },
 ];
-
 const categories = ["Tất cả", "Điện thoại", "Laptop", "Phụ kiện"];
-
 const sorts = [
     {
         name: "Mặc định",
         type: "default",
     },
     {
-        name: "Tăng dần",
+        name: "Giá tăng dần",
         type: "asc",
     },
     {
-        name: "Giảm dần",
+        name: "Giá giảm dần",
         type: "desc",
     },
 ];
@@ -34,10 +32,8 @@ function getFilteredProducts(productList, category) {
     return productList.filter((product) => product.category.toLowerCase() === category.toLowerCase());
 }
 
-// const filteredProducts = getFilteredProducts(products, "Điện thoại");
-// const filteredProducts = getFilteredProducts(products, "laptop");
 const filteredProducts = getFilteredProducts(products, "phụ kiện");
-// console.log(filteredProducts);
+console.log(filteredProducts);
 
 function getSortedProducts(productList, sortType) {
     let output = [];
@@ -54,15 +50,11 @@ function getSortedProducts(productList, sortType) {
     }
     return output;
 }
-console.log("================= getSortedProducts =================");
 console.log(getSortedProducts(products, "desc"));
 
 function calculateTotal(products) {
     return products.reduce((total, product) => (total += product.price), 0);
 }
-
-console.log("================= Total price =================");
-const cart = [{ price: 1 }, { price: 2 }, { price: 3 }]; // 6
 console.log(calculateTotal(products).toLocaleString("vi-VN"));
 
 function getProductDescriptions(products) {
@@ -70,6 +62,4 @@ function getProductDescriptions(products) {
         return `${product.name} - ${product.category} - ${product.price}`;
     });
 }
-
-console.log("================= Description =================");
 console.log(getProductDescriptions(products));

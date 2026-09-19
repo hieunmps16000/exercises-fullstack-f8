@@ -36,11 +36,11 @@
                     <div class="flex items-center gap-4">
                         <!-- Theo danh mục -->
                         <div class="relative">
-                            <div
+                            <button
                                 class="js-filter-btn flex items-center gap-2 px-4 py-2 bg-white/20 rounded-[8px] border-2 border-gray-600 font-[500] select-none cursor-pointer active:scale-[0.98]"
                             >
                                 <i class="fa-solid fa-filter-circle-dollar"></i>Lọc theo danh mục
-                            </div>
+                            </button>
                             <ul
                                 class="js-filter-category-list filter-list absolute top-[calc(100%+20px)] right-0 min-w-full p-4 rounded-[8px] bg-gray-700 opacity-0 invisible -translate-y-[4px] transition-opacity transition-transform duration-300 [.active]:opacity-100 [.active]:visible [.active]:translate-y-[0] before:absolute before:top-[-20px] before:right-[10px] before:border-[10px] before:border-transparent before:border-b-gray-700"
                             ></ul>
@@ -48,45 +48,14 @@
 
                         <!-- Theo giá -->
                         <div class="relative">
-                            <div
+                            <button
                                 class="js-filter-btn flex items-center gap-2 px-4 py-2 bg-white/20 rounded-[8px] border-2 border-gray-600 font-[500] select-none cursor-pointer active:scale-[0.98]"
                             >
                                 <i class="fa-solid fa-filter-circle-dollar"></i>Lọc theo giá
-                            </div>
+                            </button>
                             <ul
-                                class="filter-list absolute top-[calc(100%+20px)] right-0 min-w-full p-4 rounded-[8px] bg-gray-700 opacity-0 invisible -translate-y-[4px] transition-opacity transition-transform duration-300 [.active]:opacity-100 [.active]:visible [.active]:translate-y-[0] before:absolute before:top-[-20px] before:right-[10px] before:border-[10px] before:border-transparent before:border-b-gray-700"
-                            >
-                                <li
-                                    class="js-filter-price-item group active flex items-center gap-2 leading-[2.2] cursor-pointer select-none"
-                                    data-price="default"
-                                    onclick="renderProducts(getSortedProducts(products, 'default'))"
-                                >
-                                    <span
-                                        class="size-4 border-2 border-dark-900 rounded-full transition-colors duration-300 group-[.active]:bg-gray-300 group-hover:bg-gray-300"
-                                    ></span>
-                                    <span class="flex items-center gap-1">Mặc định </span>
-                                </li>
-                                <li
-                                    class="js-filter-price-item group flex items-center gap-2 leading-[2.2] cursor-pointer select-none"
-                                    data-price="asc"
-                                    onclick="renderProducts(getSortedProducts(products, 'asc'))"
-                                >
-                                    <span
-                                        class="size-4 border-2 border-dark-900 rounded-full transition-colors duration-300 group-[.active]:bg-gray-300 group-hover:bg-gray-300"
-                                    ></span>
-                                    <span class="flex items-center gap-1">Tăng dần</span>
-                                </li>
-                                <li
-                                    class="js-filter-price-item group flex items-center gap-2 leading-[2.2] cursor-pointer select-none"
-                                    data-price="desc"
-                                    onclick="renderProducts(getSortedProducts(products, 'desc'))"
-                                >
-                                    <span
-                                        class="size-4 border-2 border-dark-900 rounded-full transition-colors duration-300 group-[.active]:bg-gray-300 group-hover:bg-gray-300"
-                                    ></span>
-                                    <span class="flex items-center gap-1">Giảm dần</span>
-                                </li>
-                            </ul>
+                                class="js-filter-price-list filter-list absolute top-[calc(100%+20px)] right-0 min-w-full p-4 rounded-[8px] bg-gray-700 opacity-0 invisible -translate-y-[4px] transition-opacity transition-transform duration-300 [.active]:opacity-100 [.active]:visible [.active]:translate-y-[0] before:absolute before:top-[-20px] before:right-[10px] before:border-[10px] before:border-transparent before:border-b-gray-700"
+                            ></ul>
                         </div>
                     </div>
                 </div>

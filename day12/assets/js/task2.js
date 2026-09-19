@@ -14,6 +14,21 @@ const products = [
 
 const categories = ["Tất cả", "Điện thoại", "Laptop", "Phụ kiện"];
 
+const sorts = [
+    {
+        name: "Mặc định",
+        type: "default",
+    },
+    {
+        name: "Tăng dần",
+        type: "asc",
+    },
+    {
+        name: "Giảm dần",
+        type: "desc",
+    },
+];
+
 function getFilteredProducts(productList, category) {
     if (category.toLowerCase() === "tất cả") return productList;
     return productList.filter((product) => product.category.toLowerCase() === category.toLowerCase());
@@ -24,7 +39,7 @@ function getFilteredProducts(productList, category) {
 const filteredProducts = getFilteredProducts(products, "phụ kiện");
 // console.log(filteredProducts);
 
-function getSortedProducts(productList, sortType = "default") {
+function getSortedProducts(productList, sortType) {
     let output = [];
     switch (sortType) {
         case "default":

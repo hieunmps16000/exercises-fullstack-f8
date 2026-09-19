@@ -12,7 +12,10 @@ const products = [
     { id: 6, name: "Apple Watch", price: 9000000, category: "Phụ kiện" },
 ];
 
+const categories = ["Tất cả", "Điện thoại", "Laptop", "Phụ kiện"];
+
 function getFilteredProducts(productList, category) {
+    if (category.toLowerCase() === "tất cả") return productList;
     return productList.filter((product) => product.category.toLowerCase() === category.toLowerCase());
 }
 

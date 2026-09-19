@@ -30,16 +30,15 @@ function renderProducts(products) {
     tableBodyProductsList.innerHTML = htmls;
 }
 
-function renderCategories(products) {
-    const htmls = products
-        .filter((product, index, arr) => index === arr.findIndex((item) => item.category === product.category))
-        .map((product) => {
+function renderCategories(categories) {
+    const htmls = categories
+        .map((category) => {
             return `
-            <li class="js-filter-category-item group flex items-center gap-2 leading-[2.2] cursor-pointer select-none" data-category="${product.category}">
+            <li class="js-filter-category-item group flex items-center gap-2 leading-[2.2] cursor-pointer select-none" data-category="${category}">
                 <span
                     class="size-4 border-2 border-dark-900 rounded-full transition-colors duration-300 group-[.active]:bg-gray-300 group-hover:bg-gray-300"
                 ></span>
-                <span class="flex items-center gap-1">${product.category}</span>
+                <span class="flex items-center gap-1">${category}</span>
             </li>
         `;
         })
@@ -77,7 +76,7 @@ function toggleClassActive(arr) {
 
 function init(products) {
     renderProducts(products);
-    renderCategories(products);
+    renderCategories(categories);
     toggleClassActive(filterPriceItems);
     renderTotalPrice(products);
     renderOtpNumbers();
@@ -96,7 +95,12 @@ filterBtns.forEach((btn) => {
 
 filterPriceItems.forEach((item) => {
     item.addEventListener("click", () => {
+        const dataPrice = item.dataset.price;
+        if (!filters.includes(dataPrice)) {
+            filters.push(dataPrice);
+        }
         renderTotalPrice(products);
+        console.log({ filters });
     });
 });
 

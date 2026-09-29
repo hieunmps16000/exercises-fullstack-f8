@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Buổi 15: DOM trong JavaScript</title>
+        <link rel="stylesheet" href="./assets/css/styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <button class="toggle-theme-btn js-toggle-theme">Chế độ tối</button>
+            <!-- Bài 1 -->
+            <h1 class="heading">
+                Buổi 15: <br />
+                DOM trong JavaScript
+            </h1>
+            <hr class="separate" />
+            <div class="content">
+                <h2>Bài 1: Đổi theme Sáng/Tối</h2>
+                <p>Xây dựng giao diện chuyển đổi giữa chế độ sáng và chế độ tối.</p>
+                <p><b>Giao diện:</b></p>
+                <ul>
+                    <li>Có một nút chuyển đổi giao diện và một khối nội dung gồm tiêu đề, đoạn văn mẫu.</li>
+                    <li>Áp dụng theme cho toàn bộ trang thông qua thẻ <code>&lt;body&gt;</code>.</li>
+                    <li>Ban đầu trang ở chế độ sáng, nút có nhãn "Chế độ tối".</li>
+                    <li>
+                        Định nghĩa class dark-mode bằng CSS để thay đổi màu nền và màu chữ. Nội dung cần dễ đọc ở cả hai
+                        chế độ.
+                    </li>
+                </ul>
+                <p><b>Chức năng:</b></p>
+                <ul>
+                    <li>
+                        Khi người dùng bấm nút, dùng classList.toggle() để thêm/xóa class dark-mode trên thẻ
+                        <code>&lt;body&gt;</code>.
+                    </li>
+                    <li>
+                        Khi trang ở chế độ tối, nút hiển thị "Chế độ sáng"; khi trang ở chế độ sáng, nút hiển thị "Chế
+                        độ tối". Nhãn nút thể hiện chế độ sẽ chuyển sang khi bấm.
+                    </li>
+                    <li>Có thể bấm nhiều lần để chuyển đổi qua lại; màu sắc và nhãn nút phải luôn đồng bộ.</li>
+                </ul>
+            </div>
+            <hr class="separate" />
+
+            <!-- Bài 2 -->
+            <div class="content">
+                <h2>Bài 2: Ẩn/Hiện mật khẩu</h2>
+                <p>Xây dựng ô nhập mật khẩu có nút ẩn/hiện.</p>
+                <p><b>Giao diện:</b></p>
+                <ul>
+                    <li>Có một ô input với nhãn "Mật khẩu" và một nút bấm bên cạnh.</li>
+                    <li>Ban đầu input có <code>type="password"</code>, nút có nhãn "Hiện".</li>
+                    <li>
+                        Nếu đặt nút bên trong form, dùng <code>type="button"</code> để việc ẩn/hiện không làm submit
+                        form.
+                    </li>
+                </ul>
+                <p><b>Chức năng:</b></p>
+                <ul>
+                    <li>
+                        Khi bấm "Hiện", chuyển <code>type</code> của input từ <code>password</code> sang
+                        <code>text</code>, đồng thời đổi nhãn nút thành "Ẩn".
+                    </li>
+                    <li>
+                        Khi bấm "Ẩn", chuyển <code>type</code> về <code>password</code>, đồng thời đổi nhãn nút thành
+                        "Hiện".
+                    </li>
+                    <li>Giữ nguyên nội dung người dùng đã nhập khi chuyển đổi trạng thái.</li>
+                </ul>
+            </div>
+            <form class="form">
+                <div class="form__group">
+                    <label for="password" class="form__label">Mật khẩu</label>
+                    <div class="form__input-wrapper">
+                        <input type="password" id="password" class="form__input" placeholder="Nhập mật khẩu của bạn" />
+                        <button type="button" class="form__input-btn js-form-btn">Hiện</button>
+                    </div>
+                </div>
+            </form>
+            <hr class="separate" />
+
+            <!-- Bài 3 -->
+
+            <div class="content">
+                <h2>Bài 3: Thay đổi ảnh sản phẩm</h2>
+                <p>Xây dựng gallery sản phẩm.</p>
+                <p><b>Giao diện:</b></p>
+                <ul>
+                    <li>Có một ảnh lớn hiển thị sản phẩm chính và đúng 3 ảnh thumbnail nhỏ bên dưới.</li>
+                    <li>
+                        Sử dụng 3 ảnh khác nhau của một sản phẩm; có thể dùng ảnh local hoặc đường dẫn online truy cập
+                        được.
+                    </li>
+                    <li>Các ảnh có thuộc tính <code>alt</code> mô tả nội dung.</li>
+                    <li>
+                        Định nghĩa class <code>active</code> bằng CSS để tạo viền nổi bật cho thumbnail đang được chọn.
+                    </li>
+                    <li>
+                        Ban đầu ảnh lớn hiển thị ảnh của thumbnail đầu tiên và chỉ thumbnail đầu tiên có class
+                        <code>active</code>.
+                    </li>
+                </ul>
+                <p><b>Chức năng:</b></p>
+                <ul>
+                    <li>
+                        Khi click vào bất kỳ thumbnail nào, lấy đường dẫn <code>src</code> của thumbnail đó và gán cho
+                        ảnh lớn.
+                    </li>
+                    <li>Cập nhật <code>alt</code> của ảnh lớn phù hợp với ảnh đang hiển thị.</li>
+                    <li>
+                        Tại mọi thời điểm, chỉ có một thumbnail được đánh dấu <code>active</code>, tương ứng với ảnh lớn
+                        đang hiển thị.
+                    </li>
+                </ul>
+            </div>
+            <div class="preview__wrapper">
+                <div class="preview__main">
+                    <img
+                        src="./assets/img/iphone-18-pro-01.webp"
+                        alt="iPhone 18 Pro Max 256GB Đỏ Burgundy"
+                        class="preview__img js-preview-img"
+                    />
+                </div>
+                <div class="preview__thumbs">
+                    <img
+                        src="./assets/img/iphone-18-pro-01.webp"
+                        alt="iPhone 18 Pro Max 256GB Đỏ Burgundy"
+                        class="preview__thumb active"
+                    />
+                    <img
+                        src="./assets/img/iphone-18-pro-02.webp"
+                        alt="iPhone 18 Pro Max 256GB Băng Thanh"
+                        class="preview__thumb"
+                    />
+                    <img
+                        src="./assets/img/iphone-18-pro-03.webp"
+                        alt="iPhone 18 Pro Max 256GB Đen"
+                        class="preview__thumb"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p class="copyright">
+                    © Nguyễn Minh Hiếu - Bài tập buổi 15 - Khóa K22 Fullstack Pro tại
+                    <a href="https://f8.edu.vn/" target="_blank" rel="noopener">F8</a>
+                </p>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="./assets/js/main.js"></script>
+        <script src="./assets/js/task1.js"></script>
+        <script src="./assets/js/task2.js"></script>
+        <script src="./assets/js/task3.js"></script>
+    </body>
+</html>

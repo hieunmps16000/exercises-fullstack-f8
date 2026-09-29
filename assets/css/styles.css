@@ -76,6 +76,10 @@ body {
 }
 
 .card__heading {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
     color: #fff;
     margin-bottom: 24px;
     font-size: 3.8rem;

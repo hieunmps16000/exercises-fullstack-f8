@@ -68,7 +68,12 @@ function getOs() {
 
 function handleRoute() {
     const path = location.pathname;
-    if (path === "/" || path.endsWith("index.html") || path === "/day16/") {
+    if (
+        path === "/" ||
+        path.endsWith("index.html") ||
+        path === "/day16/" ||
+        path === "/exercises-fullstack-f8/day16/"
+    ) {
         hideFingerPrinting?.();
         renderHomePage();
         renderListLanguage();

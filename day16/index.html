@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="vi" class="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bài tập buổi 16 - K22 - Fullstack online F8</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            darkbg: "#0b0f19",
+                            card: "#121826",
+                            card2: "#1a2233",
+                            border: "#243047",
+                            accent: "#6366f1",
+                            accent2: "#8b5cf6",
+                            success: "#22c55e",
+                            danger: "#ef4444",
+                            muted: "#94a3b8",
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            body {
+                font-family: "Inter", system-ui, sans-serif;
+            }
+            .glass {
+                backdrop-filter: blur(12px);
+                background: rgba(18, 24, 38, 0.75);
+            }
+        </style>
+    </head>
+    <body class="bg-darkbg text-slate-100 min-h-screen">
+        <!-- TOP NAV -->
+        <header class="sticky top-0 z-50 glass border-b border-border">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+                <a href="./" class="flex items-center gap-3">
+                    <div
+                        class="w-9 h-9 rounded-xl bg-gradient-to-br from-accent to-accent2 flex items-center justify-center font-bold"
+                    >
+                        B
+                    </div>
+                    <span class="font-semibold tracking-wide">BOM VIEWER</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-2 text-sm">
+                    <a class="px-4 py-2 rounded-lg bg-accent/15 text-accent font-medium" href="./">Trang chủ</a>
+                    <a
+                        class="px-4 py-2 rounded-lg hover:bg-white/5 text-muted hover:text-white transition"
+                        href="./campaign.html"
+                        >Quảng cáo</a
+                    >
+                </nav>
+            </div>
+        </header>
+
+        <main class="max-w-6xl mx-auto px-6 py-10 space-y-16 js-main">
+            <!-- ================= TRANG CHỦ ================= -->
+            <div id="home-section"></div>
+
+            <!-- ================= TRANG FINGERPRINTING ================= -->
+            <section id="fingerprinting-section" hidden>
+                <div class="mb-6 flex items-center gap-3">
+                    <span class="text-xs px-3 py-1 rounded-full bg-accent/15 text-accent font-medium">Trang 3</span>
+                    <h1 class="text-2xl font-bold">Trang Fingerprinting</h1>
+                </div>
+
+                <div class="bg-card border border-border rounded-2xl p-6">
+                    <p class="text-sm text-muted mb-3">Chuỗi fingerprint duy nhất (hash)</p>
+                    <div
+                        class="bg-darkbg border border-border rounded-xl p-4 font-mono text-sm break-all text-accent js-fingerprinting-value"
+                    >
+                        a3f9c1e8b7d2456f0a1c9e8b7d2456f0a1c9e8b7d2456f0a1c9e8b7d2456f0
+                    </div>
+
+                    <div class="flex gap-3 mt-6">
+                        <button
+                            class="px-5 py-2.5 rounded-lg bg-accent hover:bg-accent2 transition font-medium text-sm js-back-to-home"
+                        >
+                            ← Quay về trang chủ
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="border-t border-border mt-16">
+            <p class="max-w-6xl mx-auto px-6 py-6 text-center text-xs text-muted">
+                © Nguyễn Minh Hiếu - Bài tập buổi 16 - Khóa K22 Fullstack Pro tại
+                <a href="https://f8.edu.vn/" target="_blank" rel="noopener">F8</a>
+            </p>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="./assets/js/main.js"></script>
+        <script src="./assets/js/fingerPrinting.js"></script>
+    </body>
+</html>
